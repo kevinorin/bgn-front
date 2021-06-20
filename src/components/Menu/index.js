@@ -122,7 +122,6 @@ const Menu = (props) => {
   const closeMenu = () => {
     setMobileNav(false);
   }
-  console.log('Arun Jha props navBar', props.navBar);
   const { links, logo } = props.navBar;
   return (
     <nav className={classes.mainWrapper}>

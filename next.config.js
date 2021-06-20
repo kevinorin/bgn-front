@@ -8,7 +8,7 @@ const withImages = require('next-images')
 module.exports = withCSS(withImages({
     inlineImageLimit: 16384,
     i18n: {
-        locales: ["en", "fr"],
+        locales: ["en"],
         defaultLocale: "en",
       },
       images: {

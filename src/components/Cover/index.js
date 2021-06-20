@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Cover = (props) => {
   const classes = useStyles();
-  console.log('Arun Jha props', props);
   const content = props.cover;
   const button = content?.buttons[0];
   return (

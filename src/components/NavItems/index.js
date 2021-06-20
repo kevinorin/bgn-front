@@ -127,7 +127,6 @@ const useStyles = makeStyles((theme) => ({
 
 const NavItems = (props) => {
   const classes = useStyles();
-  console.log('Arun Jha items', props);
   return (
       <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
         {props?.items.map((menu, index) => {

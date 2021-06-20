@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const News = (props) => {
-  console.log('ARUN JHA PROPS', props);
   const data = props?.newsSection
   const classes = useStyles();
   return (
