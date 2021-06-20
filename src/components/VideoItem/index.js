@@ -54,9 +54,10 @@ const VideoItem = (props) => {
   const [isOpen, setOpen] = useState(false)
   const classes = useStyles();
   const { url } = props.item;
+  const isBrowser = typeof window !== 'undefined';
   return (
     <>
-      <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} />
+      {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} /> }
       <Grid item md={3}>
         <div className={classes.paperWrapper}>
           <div className={classes.imgWrapper}>
