@@ -28,11 +28,20 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   listWrapper: {
-    margin: 0,
-    color: theme.palette.font,
-    marginTop: theme.marginSection,
+    '& ul': {
+      paddingLeft: '1.5em',
+      margin: 0,
+      color: theme.palette.font,
+      marginTop: theme.marginSection,
+      listStyle: 'none',
+    },
     '& li': {
-      padding: '0'
+      padding: '0',
+      position: 'relative',
+      '&::before': {
+        content: '✓',
+        position: 'absolute'
+      }
     }
   },
   checkIcon: {
@@ -60,7 +69,7 @@ const Cover = (props) => {
       <Grid container spacing={2}>
         <Grid item md={6}>
           <h1>{content.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
+          <div className={classes.listWrapper} dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
           <h3>{content?.description}</h3>
           <div className={classes.logoWrapper}>
             <CustomButton newTab={button?.newTab} type={button?.type} text={button?.text} />

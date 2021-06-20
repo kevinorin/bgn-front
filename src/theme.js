@@ -10,6 +10,9 @@ const theme = createMuiTheme({
     secondary: {
       main: '#19857b',
     },
+    btn: { 
+      main: '#422961'
+    },
     menu: {
       main: '#CF455C'
     },

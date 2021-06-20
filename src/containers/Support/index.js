@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import SupportItem from '../../components/SupportItem';
-import supportImg from '../../assets/images/support.png';
+import supportImg from '../../assets/images/Mage-Character-Color.png';
 
 const useStyles = makeStyles((theme) => ({
 	paperWrapper: {

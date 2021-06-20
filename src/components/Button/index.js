@@ -34,19 +34,27 @@ const useStyles = makeStyles((theme) => ({
       position: 'absolute',
       transition: 'all 0.3s'
     }
+  },
+  primaryBtn: {
+    background: theme.palette.primary.main
+  },
+  sendBtn: {
+    background: theme.palette.btn.main
   }
 }));
 
 const CustomBtn = (props) => {
   const classes = useStyles();
+  const { text, type, url } = props;
+  const mainClass = type === ('primary' || 'undefined') ? classes.primaryBtn : classes.sendBtn;
   return (
     <Button
       variant="contained"
       color="primary"
-      className={classes.mainBtn}
+      className={`${classes.mainBtn} ${mainClass}`}
       endIcon={<ArrowRightAltIcon />}
     >
-      {props.text}
+      {text}
     </Button>
   )
 }

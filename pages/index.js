@@ -6,7 +6,9 @@ import News from '../src/containers/News';
 import Video from '../src/containers/Video';
 import Support from '../src/containers/Support';
 import Footer from '../src/containers/Footer';
+import Patreon from '../src/containers/Patreon';
 import { useRouter } from "next/router"
+import Seo from '../src/components/Seo';
 
 
 export default function Index({ sections, metadata, preview, global, pageContext, newsSection, tournamentsData, videoData }) {
@@ -15,10 +17,12 @@ export default function Index({ sections, metadata, preview, global, pageContext
   const navBar = global?.navbar;
   return (
     <>
+      <Seo metadata={metadata} />
       <Header navBar={navBar} cover={cover} />
       <Tournaments tournamentsData={tournamentsData} />
       <News newsSection={newsSection} />
       <Video videoData={videoData} />
+      <Patreon />
       <Support />
       <Footer />
     </>
