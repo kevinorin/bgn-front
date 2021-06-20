@@ -1,0 +1,39 @@
+{
+  "name": "bgn-games",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@material-ui/core": "4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.4",
+    "@zeit/next-css": "^1.0.1",
+    "axios": "^0.21.1",
+    "clsx": "latest",
+    "dotenv": "^9.0.2",
+    "dotenv-webpack": "^7.0.2",
+    "file-loader": "^6.2.0",
+    "next": "latest",
+    "next-images": "^1.7.0",
+    "next-seo": "^4.26.0",
+    "nprogress": "^0.2.0",
+    "path": "^0.12.7",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-modal-video": "^1.2.6",
+    "react-open-weather": "^1.1.5",
+    "react-redux": "^7.2.4",
+    "react-slick": "^0.28.1",
+    "redux-logger": "^3.0.6",
+    "url-loader": "^4.1.1"
+  }
+}

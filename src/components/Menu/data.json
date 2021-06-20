@@ -1,0 +1,56 @@
+{
+    "menu": [   
+      {
+        "item": "Home",
+        "link": "/",
+        "icon": "none"
+      },
+      {
+        "item": "News",
+        "link": "/",
+        "icon": "none"
+      },
+      {
+        "item": "Reviews",
+        "link": "/",
+        "icon": "none"
+      },
+      {
+        "item": "Trailers",
+        "link": "/",
+        "icon": "none"
+      },
+      {
+        "item": "Tournaments",
+        "link": "/",
+        "icon": "none",
+        "submenu" :[
+          {
+          "item": "Sprinterlands",
+          "link": "/",
+          "icon": "none"
+          },
+          {
+            "item": "Town Star",
+            "link": "/",
+            "icon": "none"
+            }
+        ]
+      },
+      {
+        "item": "Dev Studio",
+        "link": "/",
+        "icon": "none"
+      },
+      {
+        "item": "Login",
+        "link": "/",
+        "icon": "person"
+      },
+      {
+        "item": "Subscribe",
+        "link": "/",
+        "icon": "none"
+      }
+    ]
+}

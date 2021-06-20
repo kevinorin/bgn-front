@@ -1,0 +1,46 @@
+{
+    "news": [   
+      {
+        "title": "Game Overview: Splinterlands",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../../assets/images/phrase.png"
+      },
+      {
+        "title": "Game Overview: Splinterlands",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../public/images/phrase.png"
+      },
+      {
+        "title": "Game Overview: Splinterlands",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../public/images/phrase.png"
+      },
+      {
+        "title": "Game Overview: Splinterlands",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../public/images/phrase.png"
+      },
+      {
+        "title": "Game Overview: Splinterlands",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../public/images/phrase.png"
+      },
+      {
+        "title": "Game Overview: Splinterlands",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../public/images/phrase.png"
+      }
+    ]
+}

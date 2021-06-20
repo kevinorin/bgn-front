@@ -1,0 +1,32 @@
+{
+    "news": [   
+      {
+        "title": "Game Overview: Somnium Space VR",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../../assets/images/phrase.png"
+      },
+      {
+        "title": "BGN attends GalaCon by Gala Games + an insidelook into...",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../public/images/phrase.png"
+      },
+      {
+        "title": "Overview of Splinterlands Blockchain Trading Card Game",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../public/images/phrase.png"
+      },
+      {
+        "title": "Game Reviews, Game Trailers and Blockchain News",
+        "description": "It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside.",
+        "category1": "#ADVENTURE",
+        "category2": "#CRIME",
+        "image": "../public/images/phrase.png"
+      }
+    ]
+}

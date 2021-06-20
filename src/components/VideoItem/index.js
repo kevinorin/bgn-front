@@ -1,0 +1,78 @@
+import React, { useState } from 'react';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import ModalVideo from 'react-modal-video'
+import image from '../../assets/images/mqdefault.png';
+import icon from '../../assets/images/play-icon.png'
+import yicon from '../../assets/images/y-play-icon.png'
+
+const useStyles = makeStyles((theme) => ({
+  paperWrapper: {
+    backgroundColor: theme.palette.background.black
+  },
+  title: {
+    color: theme.palette.font
+  },
+  mainImg: {
+    height: '100%',
+    width: '100%'
+  },
+  textBlock: {
+    padding: '10px',
+    position: 'relative'
+  },
+  description: {
+    color: theme.palette.font,
+    textAlign: 'center',
+    minHeight: '50px',
+    fontWeight: 'bold'
+  },
+  imgWrapper: {
+    position: 'relative'
+  },
+  icon: {
+    position: 'absolute',
+    left: '0',
+    top: 'calc(50% - 26px)',
+    bottom: '0',
+    right: '0',
+    margin: '0 auto',
+    cursor: 'pointer'
+  },
+  yicon: {
+    background: '#fff',
+    padding: '11px 8px',
+    borderRadius: '100%',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    top: '-30px',
+    position: 'absolute'
+  } 
+}));
+
+const VideoItem = (props) => {
+  const [isOpen, setOpen] = useState(false)
+  const classes = useStyles();
+  const { url } = props.item;
+  return (
+    <>
+      <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} />
+      <Grid item md={3}>
+        <div className={classes.paperWrapper}>
+          <div className={classes.imgWrapper}>
+            <img src={image} className={classes.mainImg} alt={props?.item?.title} />
+            <img src={icon} onClick={() => setOpen(true)} className={classes.icon} alt='Play Icon' />
+          </div>
+          <div className={classes.textBlock}>
+            <img src={yicon} className={classes.yicon} alt='YouTube Icon' />
+            <p className={classes.description}>{props?.item?.title}</p>
+          </div>
+        </div>
+        {/* <img src={image} /> */}
+      </Grid>
+    </>
+
+  )
+}
+
+export default VideoItem;
