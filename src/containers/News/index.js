@@ -9,7 +9,8 @@ import NewsItem from '../../components/NewsItem';
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     background: theme.background,
-    paddingTop: theme.margintop
+    paddingTop: theme.margintop,
+    marginTop: theme.margintop
   },
   title: {
     color: theme.palette.font,
@@ -18,9 +19,11 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '40px',
     marginBottom: '0',
     display: 'inline',
+    marginBottom: '30px'
   },
   link: {
-    float: 'right'
+    float: 'right',
+    marginBottom: '30px'
   }
 }));
 

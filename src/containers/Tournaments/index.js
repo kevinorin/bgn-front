@@ -8,7 +8,8 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
-    background: theme.background
+    background: theme.background,
+    paddingTop: theme.margintop,
   },
   prevIcon: {
     color: theme.palette.font,
