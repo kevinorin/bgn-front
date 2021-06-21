@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerWrapper: {
       position: 'relative',
+      marginBottom: '70px'
   }
 }));
 

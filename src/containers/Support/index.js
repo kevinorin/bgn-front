@@ -7,7 +7,9 @@ import supportImg from '../../assets/images/Mage-Character-Color.png';
 
 const useStyles = makeStyles((theme) => ({
 	paperWrapper: {
-		backgroundColor: theme.palette.supportbg
+		backgroundColor: theme.palette.supportbg,
+		paddingTop: theme.margintop,
+		paddingBottom: theme.margintop
 	},
 	mainImg: {
 		height: '100%',

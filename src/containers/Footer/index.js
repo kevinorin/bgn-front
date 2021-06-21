@@ -7,6 +7,7 @@ import logo from '../../assets/images/bgn-logo.png';
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
     // backgroundColor: theme.palette.supportbg
+    paddingTop: theme.margintop
   },
   mainImg: {
     height: '100%',
