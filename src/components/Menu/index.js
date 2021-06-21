@@ -126,7 +126,8 @@ const Menu = (props) => {
   const closeMenu = () => {
     setMobileNav(false);
   }
-  const { links, logo } = props.navBar;
+  const { links, logo } = props?.navBar;
+  if (!links) return null;
   return (
     <Container maxWidth="xl">
     <nav className={classes.mainWrapper}>

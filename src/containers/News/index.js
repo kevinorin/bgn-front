@@ -30,16 +30,18 @@ const News = (props) => {
   return (
     <Container maxWidth="xl">
       <section className={classes.mainWrapper}>
+        { props?.newsPage ? '' : (
         <div className={classes.headerWrapper}>
           <h2 className={classes.title}>Recent News</h2>
-          <Link href='/' passHref>
+          <Link href='/news' passHref>
             <a className={classes.link}>View All</a>
           </Link>
         </div>
+        )}
         <Grid container spacing={2}>
           {data.slice(0, 6).map((item, index ) => {
             return (
-              <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} />
+              <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} newsPage={props?.newsPage} />
             )
           })}
         </Grid>

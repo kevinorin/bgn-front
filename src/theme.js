@@ -3,6 +3,11 @@ import { red } from '@material-ui/core/colors';
 
 // Create a theme instance.
 const theme = createMuiTheme({
+  props: {
+    MuiContainer: {
+      maxWidth: "1614px",
+    },
+  },
   palette: {
     primary: {
       main: '#CF455C',
