@@ -6,7 +6,7 @@ import Cover from '../../components/Cover';
 export default function Header(props) {
   const { navBar, cover } = props;
     return (
-      <Container maxWidth="md">
+      <Container maxWidth="xl">
         <Cover cover={cover} />
       </Container>
     );
