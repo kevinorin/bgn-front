@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Link from 'next/link'
 import NavItems from '../NavItems';
+import Container from '@material-ui/core/Container';
 import MobileTopHead from '../MobileTopHead';
 import mainLogo from '../../assets/images/logo/logo.png';
 import { getStrapiMedia } from '../../utils/media';
@@ -10,7 +11,8 @@ import { getStrapiMedia } from '../../utils/media';
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     background: theme.background,
-    display: 'flex'
+    display: 'flex',
+    paddingTop: '20px'
   },
   logoContainer: {
     flex: 'auto',
@@ -28,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     backgroundColor: 'transparent',
     marginLeft: '10px',
+    height: '50px',
     '&::before, &::after, & span': {
       margin: '5px -2px',
       display: 'block',
@@ -48,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '30px',
     height: '100%',
     zIndex: '99',
+    marginTop: '-22px',
     '& .mainMenuWrapper': {
       '& li': {
         '&:last-child, &:nth-last-child(2)': {
@@ -124,6 +128,7 @@ const Menu = (props) => {
   }
   const { links, logo } = props.navBar;
   return (
+    <Container maxWidth="xl">
     <nav className={classes.mainWrapper}>
       <div className={classes.logoContainer}>
       <Link href='/' passHref>
@@ -149,6 +154,7 @@ const Menu = (props) => {
        </ClickAwayListener>
       )}
     </nav>
+    </Container>
   )
 }
 

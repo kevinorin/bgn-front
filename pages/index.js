@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { getPageData, getNewsData, getGlobalData } from "../src/utils/api"
 import Header from '../src/containers/Header';
+import Menu  from '../src/components/Menu';
 import Tournaments from '../src/containers/Tournaments';
 import News from '../src/containers/News';
 import Video from '../src/containers/Video';
@@ -18,6 +19,7 @@ export default function Index({ sections, metadata, preview, global, pageContext
   return (
     <>
       <Seo metadata={metadata} />
+      <Menu navBar={navBar} />
       <Header navBar={navBar} cover={cover} />
       <Tournaments tournamentsData={tournamentsData} />
       <News newsSection={newsSection} />

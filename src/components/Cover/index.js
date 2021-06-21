@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import CheckIcon from '@material-ui/icons/Check';
+import ModalVideo from 'react-modal-video'
 import CustomButton from '../../components/Button';
 import LogoSlide from '../LogoSlide';
 import coverimg from '../../assets/images/cover.png'
@@ -61,18 +58,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Cover = (props) => {
+  const [isOpen, setOpen] = useState(false)
   const classes = useStyles();
   const content = props.cover;
   const button = content?.buttons[0];
+  const isBrowser = typeof window !== 'undefined';
+  const buttonClick = () => {
+    setOpen(true)
+  }
   return (
     <section className={classes.mainWrapper}>
+      {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} /> }
       <Grid container spacing={2}>
         <Grid item md={6}>
           <h1>{content.title}</h1>
           <div className={classes.listWrapper} dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
           <h3>{content?.description}</h3>
           <div className={classes.logoWrapper}>
-            <CustomButton newTab={button?.newTab} type={button?.type} text={button?.text} />
+            <CustomButton onClick={buttonClick} newTab={button?.newTab} btnType={button?.type} text={button?.text} />
           </div>
         </Grid>
         <Grid item md={6}>

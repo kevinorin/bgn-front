@@ -23,7 +23,7 @@ function getPath(obj, path) {
     return null;
   }
 
-  return path.split('.').reduce((acc, item) => (acc && acc[item] ? acc[item] : null), obj);
+  return path?.split('.').reduce((acc, item) => (acc && acc[item] ? acc[item] : null), obj);
 }
 
 const warnedOnce = {};
