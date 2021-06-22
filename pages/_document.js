@@ -13,6 +13,14 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
+          <meta name='apple-mobile-web-app-capable' content='yes' />
+          <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+          <meta name='apple-mobile-web-app-title' content='Blockchain Games Network' />
+          <meta name='description' content='Blockchain Games Network | News, Reviews, Trailers and more' />
+          <meta name='format-detection' content='telephone=no' />
+          <meta name='mobile-web-app-capable' content='yes' />
+          <link rel='apple-touch-icon' href='/logo/logo.png'></link>
+          <link rel='shortcut icon' href='/logo/main-logo.png' />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
           <link
