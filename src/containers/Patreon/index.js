@@ -24,7 +24,11 @@ const useStyles = makeStyles((theme) => ({
     mainWrapper: {
         textAlign: 'center',
         marginTop: '100px'
-    }
+    },
+		image: {
+			maxWidth: '100%',
+			maxHeight: '100%'
+		}
 }));
 
 const Patreon = () => {
@@ -35,8 +39,8 @@ const Patreon = () => {
 				<Grid container spacing={2}>
 					<Grid item md={6} className={classes.mainImg}>
 						<div className={classes.mainWrapper}>
-                            <img src={patreonSupport} />
-                            <img src={patreonBtn} />
+                            <img src={patreonSupport} className={classes.image} alt="Patreon Support" />
+                            <img src={patreonBtn} className={classes.image} alt="Patreon Support" />
                         </div>
 					</Grid>
 					<Grid item md={6}>

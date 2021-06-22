@@ -25,7 +25,7 @@ const Support = () => {
 			<section className={classes.paperWrapper}>
 				<Grid container spacing={2}>
 					<Grid item md={4}>
-						<img className={classes.mainImg} src={supportImg} />
+						<img className={classes.mainImg} src={supportImg} alt="Support Logo" />
 					</Grid>
 					<Grid item md={8}>
 						<SupportItem />

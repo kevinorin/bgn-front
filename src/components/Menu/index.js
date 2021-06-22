@@ -134,7 +134,7 @@ const Menu = (props) => {
       <div className={classes.logoContainer}>
       <Link href='/' passHref>
         <a>
-          <img src={mainLogo || getStrapiMedia(logo?.url)} />
+          <img src={mainLogo || getStrapiMedia(logo?.url)} alt="BGN Logo" />
         </a>
       </Link>
       </div>

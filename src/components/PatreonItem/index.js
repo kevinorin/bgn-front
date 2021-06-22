@@ -56,7 +56,7 @@ const PatreonItem = (props) => {
 	const classes = useStyles();
 	return (
 		<div className={classes.mainWrapper}>
-			<h2 className={classes.title}>Subscribe on <img src={logo} /></h2>
+			<h2 className={classes.title}>Subscribe on <img src={logo} alt="BGN Logo" /></h2>
 			<div className={classes.buttonStyle}>
 				<div className={classes.firstPart}>Patron</div>
 				<div className={classes.sendPart}>$3/<sub>month</sub></div>

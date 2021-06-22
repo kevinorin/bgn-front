@@ -44,7 +44,7 @@ const Footer = () => {
     <Container maxWidth="xl">
       <section className={classes.paperWrapper}>
         <div className={classes.upperPart}>
-          <img src={logo} />
+          <img src={logo} alt="BGN Logo" />
           <h2 className={classes.title}>BLOCKCHAIN GAMES NETWORK</h2>
           <FooterSocials />
         </div>
