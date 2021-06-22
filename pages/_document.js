@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
             type="text/css"
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
           />
-          <link rel='manifest' href='../manifest.json' />
+          <link rel='manifest' href='/manifest.json' />
         </Head>
         <body>
           <Main />
