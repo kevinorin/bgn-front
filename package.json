@@ -31,7 +31,7 @@
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-hook-form": "^6.9.2",
+    "react-hook-form": "^7.9.0",
     "react-modal-video": "^1.2.6",
     "react-open-weather": "^1.1.5",
     "react-redux": "^7.2.4",
