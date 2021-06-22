@@ -19,7 +19,11 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: '18px',
     left: 0,
     right: 0,
-    bottom: '-26px'
+    bottom: '-26px',
+    [theme.breakpoints.down('xs')]: {
+      font: 'normal normal bold 40px/50px Oswald',
+      letterSpacing: '15px'
+    }
   },
   title1: {
     color: theme.palette.font,

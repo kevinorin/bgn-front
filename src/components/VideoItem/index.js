@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
     top: '-30px',
     position: 'absolute'
-  } 
+  }
 }));
 
 const VideoItem = (props) => {
@@ -57,19 +57,20 @@ const VideoItem = (props) => {
   const isBrowser = typeof window !== 'undefined';
   return (
     <>
-      {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} /> }
-      <Grid item md={3}>
-        <div className={classes.paperWrapper}>
-          <div className={classes.imgWrapper}>
-            <img src={image} className={classes.mainImg} alt={props?.item?.title} />
-            <img src={icon} onClick={() => setOpen(true)} className={classes.icon} alt='Play Icon' />
-          </div>
-          <div className={classes.textBlock}>
-            <img src={yicon} className={classes.yicon} alt='YouTube Icon' />
-            <p className={classes.description}>{props?.item?.title}</p>
+      {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} />}
+      <Grid item xs={12} sm={6} md={3}>
+        <div className={classes.mainWrapper}>
+          <div className={classes.paperWrapper}>
+            <div className={classes.imgWrapper}>
+              <img src={image} className={classes.mainImg} alt={props?.item?.title} />
+              <img src={icon} onClick={() => setOpen(true)} className={classes.icon} alt='Play Icon' />
+            </div>
+            <div className={classes.textBlock}>
+              <img src={yicon} className={classes.yicon} alt='YouTube Icon' />
+              <p className={classes.description}>{props?.item?.title}</p>
+            </div>
           </div>
         </div>
-        {/* <img src={image} /> */}
       </Grid>
     </>
 

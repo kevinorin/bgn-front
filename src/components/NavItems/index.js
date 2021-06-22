@@ -122,6 +122,11 @@ const useStyles = makeStyles((theme) => ({
     '& span': {
       width: '12px!important'
     }
+  },
+  submenu: {
+    '& li': {
+      display: 'block!important'
+    }
   }
 }));
 

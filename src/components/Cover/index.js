@@ -35,10 +35,8 @@ const useStyles = makeStyles((theme) => ({
     '& li': {
       padding: '0',
       position: 'relative',
-      '&::before': {
-        content: '✓',
-        position: 'absolute'
-      }
+      listStyle: 'disc',
+      marginBottom: '10px'
     }
   },
   checkIcon: {

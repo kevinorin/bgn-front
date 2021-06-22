@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: theme.palette.font,
       opacity: 0.8
+    },
+    [theme.breakpoints.down('xs')]: {
+      position: 'absolute',
+      left: 'calc(50% - 32px)'
     }
   },
   nextIcon: {
@@ -37,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: theme.palette.font,
       opacity: 0.8
+    },
+    [theme.breakpoints.down('xs')]: {
+      position: 'absolute',
+      left: 'calc(50% - 32px)'
+
     }
   }
 }));

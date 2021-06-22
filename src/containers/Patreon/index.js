@@ -17,18 +17,18 @@ const useStyles = makeStyles((theme) => ({
 	mainImg: {
 		height: '100%',
 		width: '100%',
-        backgroundImage: `url(${supportImg})`,
-        minHeight: '400px'
+		backgroundImage: `url(${supportImg})`,
+		minHeight: '400px'
 
 	},
-    mainWrapper: {
-        textAlign: 'center',
-        marginTop: '100px'
-    },
-		image: {
-			maxWidth: '100%',
-			maxHeight: '100%'
-		}
+	mainWrapper: {
+		textAlign: 'center',
+		paddingTop: '100px'
+	},
+	image: {
+		maxWidth: '100%',
+		maxHeight: '100%'
+	}
 }));
 
 const Patreon = () => {
@@ -37,11 +37,11 @@ const Patreon = () => {
 		<Container maxWidth="xl">
 			<section className={classes.paperWrapper}>
 				<Grid container spacing={2}>
-					<Grid item md={6} className={classes.mainImg}>
-						<div className={classes.mainWrapper}>
-                            <img src={patreonSupport} className={classes.image} alt="Patreon Support" />
-                            <img src={patreonBtn} className={classes.image} alt="Patreon Support" />
-                        </div>
+					<Grid item md={6}>
+						<div className={`${classes.mainWrapper} ${classes.mainImg}`}>
+							<img src={patreonSupport} className={classes.image} alt="Patreon Support" />
+							<img src={patreonBtn} className={classes.image} alt="Patreon Support" />
+						</div>
 					</Grid>
 					<Grid item md={6}>
 						<PatreonItem />

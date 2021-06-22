@@ -5,7 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import { useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
-import CustomButton from '../Button';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+// import CustomButton from '../Button';
 
 const useStyles = makeStyles((theme) => ({
 	paperWrapper: {
@@ -31,6 +32,37 @@ const useStyles = makeStyles((theme) => ({
 				borderBottom: '1pt solid #E8E8E8'
 			}
 		}
+	},
+	mainBtn: {
+		position: 'relative',
+		padding: '15px 103px 15px 27px',
+		overflow: 'hidden',
+		textTransform: 'none',
+		'&::before': {
+			position: 'absolute',
+			height: '100%',
+			left: 'auto',
+			top: '0',
+			lineHeight: '3',
+			fontSize: '140%',
+			width: '60px',
+			content: '""',
+			right: '10px'
+		},
+		"&::after": {
+			width: '30%',
+			height: '200%',
+			background: 'rgba(255,255,255,0.1)',
+			zIndex: '1',
+			right: '0',
+			top: '0',
+			margin: '-5px 0 0 -5px',
+			transformOrigin: '0 0',
+			transform: 'rotate(-20deg)',
+			content: '""',
+			position: 'absolute',
+			transition: 'all 0.3s'
+		}
 	}
 
 }));
@@ -49,7 +81,7 @@ const SupportItem = (props) => {
 			<form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
 				<Container maxWidth="xl">
 					<Grid container spacing={2}>
-						<Grid item md={6}>
+						<Grid item xs={12} md={6}>
 							<TextField
 								id="name-input"
 								name="name-input"
@@ -59,13 +91,13 @@ const SupportItem = (props) => {
 								fullWidth
 								margin="normal"
 								className={classes.commonform}
-								{...register('name-input', { required: true })}
+								ref={register({ required: true })}
 								InputLabelProps={{
 									shrink: true,
 								}}
 							/>
 						</Grid>
-						<Grid item md={6}>
+						<Grid item xs={12} md={6}>
 							<TextField
 								id="email-input"
 								label="Your Email"
@@ -75,13 +107,13 @@ const SupportItem = (props) => {
 								margin="normal"
 								name="email-input"
 								className={classes.commonform}
-								{...register('email-input', { required: true })}
+								ref={register({ required: true })}
 								InputLabelProps={{
 									shrink: true,
 								}}
 							/>
 						</Grid>
-						<Grid item md={12}>
+						<Grid item xs={12} md={12}>
 							<TextField
 								id="message-input"
 								name="message-input"
@@ -91,14 +123,25 @@ const SupportItem = (props) => {
 								fullWidth
 								margin="normal"
 								className={classes.commonform}
-								{...register('message-input', { required: true })}
+								ref={register({ required: true })}
 								InputLabelProps={{
 									shrink: true,
 								}}
 							/>
 						</Grid>
-						<Grid item md={12}>
-							<CustomButton btnType="primary" text="Send Message" />
+						<Grid item xs={12} md={12}>
+							<Button
+								variant="contained"
+								color="primary"
+								className={`${classes.mainBtn}`}
+								type="submit"
+								endIcon={<ArrowRightAltIcon />}
+								onClick={props.onClick}
+							>
+								Send Message
+    </Button>
+							{/* <CustomButton btnType="primary" text="Send Message" /> */}
+							{/* <button>submit</button> */}
 						</Grid>
 					</Grid>
 				</Container>

@@ -6,7 +6,10 @@ const useStyles = makeStyles((theme) => ({
     mainWrapper: {
         color: theme.palette.menu.main,
         cursor: 'pointer',
-        marginTop: '20px'
+        marginTop: '20px',
+        height: '1.3em',
+        width: '1.3em',
+        marginLeft: 'auto'
     }
 }));
 
