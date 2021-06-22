@@ -91,7 +91,7 @@ const SupportItem = (props) => {
 								fullWidth
 								margin="normal"
 								className={classes.commonform}
-								ref={register({ required: true })}
+								{...register('name-input', { required: true })}
 								InputLabelProps={{
 									shrink: true,
 								}}
@@ -107,7 +107,7 @@ const SupportItem = (props) => {
 								margin="normal"
 								name="email-input"
 								className={classes.commonform}
-								ref={register({ required: true })}
+								{...register('email-input', { required: true })}
 								InputLabelProps={{
 									shrink: true,
 								}}
@@ -123,7 +123,7 @@ const SupportItem = (props) => {
 								fullWidth
 								margin="normal"
 								className={classes.commonform}
-								ref={register({ required: true })}
+								{...register('message-input', { required: true })}
 								InputLabelProps={{
 									shrink: true,
 								}}
