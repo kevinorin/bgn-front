@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     zIndex: '99',
     marginTop: '-22px',
+    overflow: 'scroll',
     '& .mainMenuWrapper': {
       '& li': {
         '&:last-child, &:nth-last-child(2)': {

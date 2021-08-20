@@ -76,10 +76,10 @@ const SupportItem = (props) => {
 
 	return (
 		<>
+		<Container maxWidth="xl">
 			<h2 className={classes.title}>Need Support or have a Question?</h2>
 			<p className={classes.subtitle}>Please write to us incase of any query, our team will get back to you as soon as possible.</p>
 			<form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
-				<Container maxWidth="xl">
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={6}>
 							<TextField
@@ -144,8 +144,8 @@ const SupportItem = (props) => {
 							{/* <button>submit</button> */}
 						</Grid>
 					</Grid>
-				</Container>
 			</form>
+			</Container>
 		</>
 
 	)

@@ -1,12 +1,12 @@
-const withCSS = require("@zeit/next-css");
+// const withCSS = require("@zeit/next-css");
 require('dotenv').config()
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const withPWA = require('next-pwa')
 
-const withImages = require('next-images')
+// const withImages = require('next-images')
 
-module.exports = withPWA(withCSS(withImages({
+module.exports = withPWA(withImages({
     inlineImageLimit: 16384,
     pwa: {
         dest: 'public'
@@ -31,4 +31,4 @@ module.exports = withPWA(withCSS(withImages({
         ];
         return config
     }
-})));
+}));

@@ -124,9 +124,12 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   submenu: {
-    '& li': {
-      display: 'block!important'
-    }
+    [theme.breakpoints.down('xs')]: {
+      '& li': {
+        display: 'block!important',
+        width: '100%'
+      }
+  }
   }
 }));
 
