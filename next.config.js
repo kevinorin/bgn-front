@@ -4,7 +4,7 @@ const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const withPWA = require('next-pwa')
 
-// const withImages = require('next-images')
+const withImages = require('next-images')
 
 module.exports = withPWA(withImages({
     inlineImageLimit: 16384,
