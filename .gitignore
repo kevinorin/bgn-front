@@ -3,3 +3,5 @@ node_modules
 .next
 build
 package-lock.json
+.env.development
+.env.local

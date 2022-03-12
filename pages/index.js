@@ -24,8 +24,8 @@ export default function Index({ sections, metadata, preview, global, pageContext
       <Tournaments tournamentsData={tournamentsData} />
       <News newsSection={newsSection} />
       <Video videoData={videoData} />
-      <Patreon />
-      <Support />
+      {/* <Patreon /> */}
+      {/* <Support /> */}
       <Footer />
     </>
   );
