@@ -81,7 +81,7 @@ const Cover = (props) => {
         </Grid>
       </Grid>
        <div className={classes.logoWrapper}>
-        <LogoSlide />
+        <LogoSlide logos={props.logos} />
        </div>
     </section>
   )

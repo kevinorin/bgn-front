@@ -22,6 +22,12 @@ const useStyles = makeStyles((theme) => ({
             width: '100px',
             verticalAlign: 'middle'
             
+        },
+        '& .slick-cloned' :{
+          display: 'none'
+        },
+        '& .slick-track': {
+          margin: 'auto'
         }
     },
     youtubeWrapper: {
@@ -37,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const LogoSlide = (props) => {
+const LogoSlide = ({ logos }) => {
   const classes = useStyles();
   const settings = {
     infinite: true,
@@ -72,50 +78,22 @@ const LogoSlide = (props) => {
         }
       ]
   };
+  console.log('Arun Jha logos', logos)
   return (
     <div className={classes.logoWrapper}>
         <Slider {...settings}>
+          {logos.map(item => (
             <div>
-            <Link href='/' passHref><a>
-                <img src={img1} alt="" />
-                </a></Link>
+              {item.logo[0].url ? (
+                <a href={item.logo[0].url} target="_blank" title={item.logo[0].title}>
+                <img src={item.logo[0].icon[0].url} alt={item.logo[0].title} />
+                </a>
+              ) : (
+                <img src={item.logo[0].icon[0].url} alt={item.logo[0].title} />
+              )}
+            
             </div>
-            <div>
-            <Link href='/' passHref><a>
-                <img src={img2} alt="" />
-                </a></Link>
-            </div>
-            <div>
-            <Link href='/' passHref><a>
-                <img src={img3} alt="" />
-                </a></Link>
-            </div>
-            <div>
-            <Link href='/' passHref><a>
-                <img src={img4} alt="" />
-                </a></Link>
-            </div>
-            <div className={classes.youtubeWrapper}>
-            <Link href='/' passHref><a>
-                <img src={img5} alt="" />
-                <img src={img6} alt="" />
-                </a></Link>
-            </div>
-            <div>
-            <Link href='/' passHref><a>
-                <img src={img7} alt="" />
-                </a></Link>
-            </div>
-            <div>
-            <Link href='/' passHref><a>
-                <img src={img8} alt="" />
-                </a></Link>
-            </div>
-            <div>
-            <Link href='/' passHref><a>
-                <img src={img9} alt="" />
-                </a></Link>
-            </div>
+          ))}
         </Slider>
     </div>
   )

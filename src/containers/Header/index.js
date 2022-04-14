@@ -4,10 +4,10 @@ import Menu from '../../components/Menu';
 import Cover from '../../components/Cover';
 
 export default function Header(props) {
-  const { navBar, cover } = props;
+  const { navBar, cover, logos } = props;
     return (
       <Container>
-        <Cover cover={cover} />
+        <Cover cover={cover} logos={logos} />
       </Container>
     );
   }

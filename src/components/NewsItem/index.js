@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NewsItem = (props) => {
-    const { title, smallTextWithLink, picture } = props?.item;
+    const { title = '', smallTextWithLink, picture } = props?.item;
     const image = getStrapiMedia(picture?.url);
     const classes = useStyles();
     return (

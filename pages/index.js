@@ -12,7 +12,8 @@ import { useRouter } from "next/router"
 import Seo from '../src/components/Seo';
 
 
-export default function Index({ sections, metadata, preview, global, pageContext, newsSection, tournamentsData, videoData }) {
+export default function Index({ sections, metadata, preview, global, pageContext, newsSection, tournamentsData, videoData, logos }) {
+  console.log('Arun Jha locale, preview', logos)
   const router = useRouter()
   const cover  = sections[0];
   const navBar = global?.navbar;
@@ -20,7 +21,7 @@ export default function Index({ sections, metadata, preview, global, pageContext
     <>
       <Seo metadata={metadata} />
       <Menu navBar={navBar} />
-      <Header navBar={navBar} cover={cover} />
+      <Header navBar={navBar} cover={cover} logos={logos} />
       <Tournaments tournamentsData={tournamentsData} />
       <News newsSection={newsSection} />
       <Video videoData={videoData} />
@@ -47,7 +48,11 @@ export default function Index({ sections, metadata, preview, global, pageContext
 
     // Fetch pages. Include drafts if preview mode is on
     const videoData = await getNewsData( '/video', locale, preview)
+    
+    const logos = await getNewsData( '/logos', locale, preview)
   
+  
+
     if (pageData == null) {
       // Giving the page no props will trigger a 404 page
       return { props: {} }
@@ -65,6 +70,7 @@ export default function Index({ sections, metadata, preview, global, pageContext
         videoData: videoData,
         metadata,
         global: globalLocale,
+        logos: logos,
         pageContext: {
           slug: pageData.slug,
           locale: pageData.locale,
