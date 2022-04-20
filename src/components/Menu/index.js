@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     backgroundColor: 'transparent',
     marginLeft: '10px',
-    height: '50px',
+    height: '25px',
     '&::before, &::after, & span': {
       margin: '5px -2px',
       display: 'block',
