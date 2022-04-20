@@ -38,8 +38,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NewsItem = (props) => {
-    const { title = '', smallTextWithLink, picture } = props?.item;
+    const updatedValue = props?.item;
+    if (!updatedValue) return '';
+    const { title='', smallTextWithLink, picture } = updatedValue;
     const image = getStrapiMedia(picture?.url);
+    console.log('Arun Jha props >>>', props)
     const classes = useStyles();
     return (
         <>
@@ -47,7 +50,7 @@ const NewsItem = (props) => {
             <Link href={`/news${props?.slug}`} passHref>
                 <a className={classes.link}>
                 <div className={classes.paperWrapper}>
-                    <img src={images || image} className={classes.mainImg} alt={title} />
+                    <img src={picture?.url} className={classes.mainImg} alt={title} />
                     <div className={classes.textBlock}>
                         <p className={classes.gener}>
                             <span className={classes.case1}>#ADVENTURE </span>
@@ -57,7 +60,7 @@ const NewsItem = (props) => {
                         <p className={classes.description}>{smallTextWithLink.substring(0,388)}</p>
                     </div>
                 </div>
-                {/* <img src={image} /> */}
+                {/* <img src={picture?.url} /> */}
                 </a>
                 </Link>
             </Grid>

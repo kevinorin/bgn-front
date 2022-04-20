@@ -5,7 +5,6 @@ import CheckIcon from '@material-ui/icons/Check';
 import ModalVideo from 'react-modal-video'
 import CustomButton from '../../components/Button';
 import LogoSlide from '../LogoSlide';
-import coverimg from '../../assets/images/cover.png'
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -77,7 +76,7 @@ const Cover = (props) => {
           </div>
         </Grid>
         <Grid item md={6}>
-          <img className={classes.coverImg} src={content?.picture?.formats?.thumbnail?.url || coverimg} alt="" />
+          <img className={classes.coverImg} src={content?.picture?.url} alt="" />
         </Grid>
       </Grid>
        <div className={classes.logoWrapper}>

@@ -12,10 +12,10 @@ import { useRouter } from "next/router"
 import Seo from '../src/components/Seo';
 
 
-export default function Index({ sections, metadata, preview, global, pageContext, newsSection, tournamentsData, videoData, logos }) {
+export default function Index({ sections, metadata, preview, global, newsSection, tournamentsData, videoData, logos }) {
   console.log('Arun Jha locale, preview', logos)
   const router = useRouter()
-  const cover  = sections[0];
+  const cover  = sections && sections[0];
   const navBar = global?.navbar;
   return (
     <>
@@ -71,13 +71,6 @@ export default function Index({ sections, metadata, preview, global, pageContext
         metadata,
         global: globalLocale,
         logos: logos,
-        pageContext: {
-          slug: pageData.slug,
-          locale: pageData.locale,
-          locales,
-          defaultLocale,
-          localizations,
-        },
       },
     }
 }

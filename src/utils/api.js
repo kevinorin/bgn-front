@@ -1,5 +1,5 @@
 export function getStrapiURL(path) {
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+  return `${"http://localhost:1337" || process.env.NEXT_PUBLIC_STRAPI_API_URL
     }${path}`
 }
 
@@ -35,9 +35,7 @@ export async function getPageData(params, locale, preview) {
   const slug = params;
   // Find the pages that match this slug
   const pagesData = await fetchAPI(
-    `/pages?slug=${slug}&_locale=${locale}&status=published${
-      preview ? "&status=draft" : ""
-    }`
+    `/pages?slug=${slug}`
   )
 
   // Make sure we found something, otherwise return null
@@ -51,7 +49,7 @@ export async function getPageData(params, locale, preview) {
 
 // Get site data from Strapi (metadata, navbar, footer...)
 export async function getGlobalData(locale) {
-  const global = await fetchAPI(`/global?_locale=${locale}`)
+  const global = await fetchAPI(`/global`)
   return global
 }
 
@@ -67,7 +65,7 @@ export async function getNewsData(params, locale, preview) {
   const slug = params;
   // Find the pages that match this slug
   const pagesData = await fetchAPI(
-    `${slug}?_locale=${locale}&status=published`
+    `${slug}`
   )
 
   // Make sure we found something, otherwise return null

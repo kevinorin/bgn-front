@@ -1,4 +1,4 @@
-// import { otherPageData } from "../../utils/api"
+import { otherPageData } from "../../src/utils/api"
 // import Article from '../../src/containers/Article';
 // import Seo from '../../src/components/Seo'
 
