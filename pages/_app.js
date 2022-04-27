@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import App from "next/app";
 import { Provider as ReduxProvider, useDispatch, useSelector } from 'react-redux';
 import initRedux from '../src/redux/initRedux';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -10,6 +11,8 @@ import createCache from '@emotion/cache';
 import theme from '../src/theme';
 import NProgress from 'nprogress';
 import Router from 'next/router';
+import { getNewsData, getGlobalData } from "../src/utils/api"
+import Layout from "../src/components/Layout";
 
 // import 'node_modules/react-modal-video/scss/modal-video.scss';
 // import '../src/assets/style/main.css';
@@ -34,7 +37,7 @@ Router.onRouteChangeError = () => {
 };
 
 export default function MyApp(props) {
-  const { Component, pageProps } = props;
+  const { Component, pageProps, global } = props;
 
   const [redux] = React.useState(() =>
   initRedux({ options: { userLanguage: pageProps.userLanguage } }),
@@ -55,15 +58,31 @@ export default function MyApp(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ReduxProvider store={redux}>
+        
       <ThemeProvider theme={theme}>
+      <Layout global={global}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
       </ReduxProvider>
     </CacheProvider>
   );
 }
+
+MyApp.getInitialProps = async (ctx) => {
+  // Calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(ctx);
+  const globalLocale = await getGlobalData()
+  // Fetch global site settings from Strapi
+  // const categories = await getCategories();
+  // Pass the data to our page via props
+  const { contentSections, metadata, localizations, slug } = globalLocale
+  
+  // const localizedPaths = getLocalizedPaths()
+  return { ...appProps, global: globalLocale, pageProps: { path: ctx.pathname } };
+};
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,

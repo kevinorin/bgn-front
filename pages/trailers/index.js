@@ -20,10 +20,10 @@ export default function Index({ global, videoData }) {
   return (
     <>
       <Seo metadata={metadata} />
-      <Menu navBar={navBar} />
+      {/* <Menu navBar={navBar} /> */}
       <CommonCover />
       <Video videoData={videoData} />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

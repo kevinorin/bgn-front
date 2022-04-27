@@ -19,10 +19,10 @@ export default function Index({ global, newsSection }) {
   return (
     <>
       <Seo metadata={metadata} />
-      <Menu navBar={navBar} />
+      {/* <Menu navBar={navBar} /> */}
       <CommonCover />
       <News newsSection={newsSection} newsPage />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -42,7 +42,6 @@ const NewsItem = (props) => {
     if (!updatedValue) return '';
     const { title='', smallTextWithLink, picture } = updatedValue;
     const image = getStrapiMedia(picture?.url);
-    console.log('Arun Jha props >>>', props)
     const classes = useStyles();
     return (
         <>

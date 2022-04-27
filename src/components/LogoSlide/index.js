@@ -78,7 +78,6 @@ const LogoSlide = ({ logos }) => {
         }
       ]
   };
-  console.log('Arun Jha logos', logos)
   return (
     <div className={classes.logoWrapper}>
         <Slider {...settings}>

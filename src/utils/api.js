@@ -61,12 +61,10 @@ export async function getGlobalData(locale) {
 * @param {string} locale The current locale specified in router.locale
 * @param {boolean} preview router isPreview value
 */
-export async function getNewsData(params, locale, preview) {
+export async function getNewsData(params) {
   const slug = params;
   // Find the pages that match this slug
-  const pagesData = await fetchAPI(
-    `${slug}`
-  )
+  const pagesData = await fetchAPI(`${slug}`)
 
   // Make sure we found something, otherwise return null
   if (pagesData == null || pagesData.length === 0) {

@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 const News = (props) => {
   const data = props?.newsSection
+  if (!data) return null;
   const classes = useStyles();
   return (
     <Container maxWidth="xl">

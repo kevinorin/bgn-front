@@ -13,21 +13,20 @@ import Seo from '../src/components/Seo';
 
 
 export default function Index({ sections, metadata, preview, global, newsSection, tournamentsData, videoData, logos }) {
-  console.log('Arun Jha locale, preview', logos)
   const router = useRouter()
   const cover  = sections && sections[0];
   const navBar = global?.navbar;
   return (
     <>
       <Seo metadata={metadata} />
-      <Menu navBar={navBar} />
+      {/* <Menu navBar={navBar} /> */}
       <Header navBar={navBar} cover={cover} logos={logos} />
       <Tournaments tournamentsData={tournamentsData} />
       <News newsSection={newsSection} />
       <Video videoData={videoData} />
       {/* <Patreon /> */}
       {/* <Support /> */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
