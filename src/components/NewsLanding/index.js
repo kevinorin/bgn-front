@@ -51,7 +51,6 @@ export default function NewsLanding({ contentSections }) {
       <h1>{contentSections[0].title}</h1>
       <Divider className={classes.divider} />
       <div dangerouslySetInnerHTML={{ __html: contentSections[0].smallTextWithLink }} />
-      <Divider className={classes.divider} />
     </div>
   )
 }

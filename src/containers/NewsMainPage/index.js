@@ -1,6 +1,7 @@
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 import NewsLanding from '../../components/NewsLanding';
 
 const useStyles = makeStyles((theme) => ({
