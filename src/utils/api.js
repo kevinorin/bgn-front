@@ -3,6 +3,7 @@ export function getStrapiURL(path) {
     }${path}`
 }
 
+
 // Helper to make GET requests to Strapi
 export async function fetchAPI(path, options = {}) {
   const defaultOptions = {
