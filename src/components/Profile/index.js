@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '300px',
     '& svg': {
       verticalAlign: 'middle'
+    },
+    '& button': {
+      paddingLeft: '0'
     }
   },
   mainProfile: {
