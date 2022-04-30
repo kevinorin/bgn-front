@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
       verticalAlign: 'middle'
     },
     '& button': {
-      paddingLeft: '0'
+      padding: '0'
     }
   },
   mainProfile: {
