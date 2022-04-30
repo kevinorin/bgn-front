@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import NewsLanding from '../../components/NewsLanding';
+import Profile from '../../components/Profile';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -17,16 +18,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function NewsMainPage({ contentSections }) {
+export default function NewsMainPage({ contentSections, createdAt }) {
   console.log('Arun Jha contentSections', contentSections)
   const classes = useStyles();
   return (
     <Container maxWidth="xl" className={classes.mainContainer}>
       <Grid container spacing={2}>
       <Grid item md={8}>
-      <NewsLanding contentSections={contentSections} />
+      <NewsLanding createdAt={createdAt} contentSections={contentSections} />
       </Grid>
-      <Grid item md={4}></Grid>
+      <Grid item md={4}>
+        <Profile />
+      </Grid>
       </Grid>
       <Divider className={classes.divider} />
     </Container>

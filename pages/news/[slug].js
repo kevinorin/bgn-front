@@ -12,7 +12,7 @@ export default function Index({ ostPrograms }) {
   const router = useRouter()
   // const navBar = global?.navbar;
   console.log('newsSection', ostPrograms);
-  const { metadata, contentSections } = ostPrograms[0];
+  const { metadata, contentSections, createdAt } = ostPrograms[0];
   // const metadata = {
   //   metaTitle: 'News Section',
   //   metaDescription: 'Subscribe, support, and have a heard voice in the development of the games you play.'
@@ -22,7 +22,7 @@ export default function Index({ ostPrograms }) {
       <Seo metadata={metadata} />
       {/* <Menu navBar={navBar} /> */}
       <CommonCover />
-      <NewsMainPage contentSections={contentSections} />
+      <NewsMainPage contentSections={contentSections} createdAt={createdAt} />
       {/* <News newsSection={ostPrograms} newsPage /> */}
       {/* <Footer /> */}
     </>

@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
@@ -35,11 +37,19 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '1rem',
     marginTop: '1rem',
     backgroundColor: '#878787'
+  },
+  flexWrapper: {
+    display: 'flex',
+    '& p': {
+      marginRight: '10px',
+      margin: 0
+    }
   }
 }));
 
-export default function NewsLanding({ contentSections }) {
+export default function NewsLanding({ contentSections, createdAt }) {
   const classes = useStyles();
+  console.log('Arun Jha contentSections', createdAt.replace('T06:58:06.368Z', ''))
   return (
     <div className={classes.textBlock}>
       <p className={classes.gener}>
@@ -49,6 +59,14 @@ export default function NewsLanding({ contentSections }) {
 
 
       <h1>{contentSections[0].title}</h1>
+      <div className={classes.flexWrapper}>
+        <p>Blockchain Games Network</p>
+        <p>2 min read</p>
+        <p><i>{createdAt.replace('T06:58:06.368Z', '')}</i></p>
+        
+        <p><FavoriteBorderIcon /></p>
+        <p><ShareIcon /></p>
+      </div>
       <Divider className={classes.divider} />
       <div dangerouslySetInnerHTML={{ __html: contentSections[0].smallTextWithLink }} />
     </div>
