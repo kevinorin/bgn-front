@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NewsLanding({ contentSections, createdAt }) {
   const classes = useStyles();
-  console.log('Arun Jha contentSections', createdAt.replace('T06:58:06.368Z', ''))
   return (
     <div className={classes.textBlock}>
       <p className={classes.gener}>

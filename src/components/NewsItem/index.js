@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
     },
     link: {
         textDecoration: 'none'
+    },
+    addSpace: {
+        maxWidth: 'calc(100% - 15px)'
     }
 }));
 
@@ -45,7 +48,7 @@ const NewsItem = (props) => {
     const classes = useStyles();
     return (
         <>
-            <Grid item md={4}>
+            <Grid item md={4} className={props.slider ? classes.addSpace : ''}>
             <Link href={`/news${props?.slug}`} passHref>
                 <a className={classes.link}>
                 <div className={classes.paperWrapper}>

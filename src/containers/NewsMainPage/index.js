@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import NewsLanding from '../../components/NewsLanding';
 import Profile from '../../components/Profile';
+import NewsItem from '../../components/NewsItem';
+import Slider from "react-slick";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -18,20 +20,43 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function NewsMainPage({ contentSections, createdAt }) {
+export default function NewsMainPage({ contentSections, createdAt, newsSection }) {
   console.log('Arun Jha contentSections', contentSections)
   const classes = useStyles();
+  const data = newsSection
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [{
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
+  };
   return (
     <Container maxWidth="xl" className={classes.mainContainer}>
       <Grid container spacing={2}>
-      <Grid item md={8}>
-      <NewsLanding createdAt={createdAt} contentSections={contentSections} />
-      </Grid>
-      <Grid item md={4}>
-        <Profile />
-      </Grid>
+        <Grid item md={8}>
+          <NewsLanding createdAt={createdAt} contentSections={contentSections} />
+        </Grid>
+        <Grid item md={4}>
+          <Profile />
+        </Grid>
       </Grid>
       <Divider className={classes.divider} />
+      <h2>Related News</h2>
+      <Slider {...settings}>
+      {data.slice(0, 6).map((item, index ) => {
+            return (
+              <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} slider />
+            )
+          })}
+          </Slider>
     </Container>
   )
 }
