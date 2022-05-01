@@ -70,9 +70,9 @@ export default function Profile() {
       <div className={classes.wheatherWrapper}>
         <p><Whether /></p>
       </div>
-      <p><FavoriteBorderIcon /> Favourite News</p>
+      <p><FavoriteBorderIcon /> Favorites</p>
       <p><Translate /></p>
-      <p><Setting /> User Settings</p>
+      <p><Setting /> Settings</p>
       <p><Notifications /> Notifications</p>
       <div className={classes.buttonWrapper}>
         <CustomBtn text='Join the Discord' btnType='primary' />

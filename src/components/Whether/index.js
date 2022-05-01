@@ -50,6 +50,7 @@ const Whether = (props) => {
     });
 	}, []);
 	if (!data) return '';
+	console.log('Arun Jha data', data)
 	return (
 		<div className={classes.whetherWrapper}>
 			<p className={classes.label}>Current Whether</p>

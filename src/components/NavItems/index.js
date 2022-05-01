@@ -104,7 +104,8 @@ const useStyles = makeStyles((theme) => ({
         verticalAlign: 'bottom'
       },
       '& button': {
-        padding: '5px 7px 5px 18px'
+        padding: '5px 7px 5px 18px',
+        marginRight: 12
       }
     }
   },
