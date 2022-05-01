@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function NewsMainPage({ contentSections, createdAt, newsSection }) {
-  console.log('Arun Jha contentSections', contentSections)
   const classes = useStyles();
   const data = newsSection
   const settings = {

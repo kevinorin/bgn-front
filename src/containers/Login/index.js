@@ -53,26 +53,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login(props) {
-  // const [open, setOpen] = useState(false);
   const classes = useStyles();
-  // useEffect(() => {
-  //   // Update the document title using the browser API
-  //   setOpen(isOpened)
-  // }, [isOpened]);
 
   const handleSubmit = () => {
     console.log('Clicked')
   }
-
-  // const handleClickOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
-
-
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />

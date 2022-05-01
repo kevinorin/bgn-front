@@ -71,7 +71,7 @@ const SupportItem = (props) => {
 	const classes = useStyles();
 	const { register, handleSubmit } = useForm();
 	const onSubmit = (data) => {
-		console.log('Arun jha data', data);
+		console.log(data);
 	};
 
 	return (
