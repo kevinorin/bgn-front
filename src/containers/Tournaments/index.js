@@ -80,7 +80,7 @@ const Tournaments = (props) => {
     prevArrow: <PrevArrow />
   };
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
         <Slider {...settings}>
           {props?.tournamentsData.map((slider, index) => {

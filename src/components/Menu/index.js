@@ -130,7 +130,7 @@ const Menu = (props) => {
   const { links, logo } = props?.navBar;
   if (!links) return null;
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
     <nav className={classes.mainWrapper}>
       <div className={classes.logoContainer}>
       <Link href='/' passHref>

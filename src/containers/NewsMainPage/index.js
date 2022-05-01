@@ -39,7 +39,7 @@ export default function NewsMainPage({ contentSections, createdAt, newsSection }
     }]
   };
   return (
-    <Container maxWidth="xl" className={classes.mainContainer}>
+    <Container maxWidth="lg" className={classes.mainContainer}>
       <Grid container spacing={2}>
         <Grid item md={8}>
           <NewsLanding createdAt={createdAt} contentSections={contentSections} />

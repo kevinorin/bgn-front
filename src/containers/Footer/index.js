@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <section className={classes.paperWrapper}>
         <div className={classes.upperPart}>
           <img src={logo} alt="BGN Logo" />

@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const Support = () => {
 	const classes = useStyles();
 	return (
-		<Container maxWidth="xl">
+		<Container maxWidth="lg">
 			<section className={classes.paperWrapper}>
 				<Grid container spacing={2}>
 					<Grid item md={4}>

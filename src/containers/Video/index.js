@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 const Video = (props) => {
   const classes = useStyles();
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
         <div className={classes.headerWrapper}>
           <h2 className={classes.title}>VIDEOS & STREAMS</h2>

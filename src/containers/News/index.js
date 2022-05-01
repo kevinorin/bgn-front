@@ -32,7 +32,7 @@ const News = (props) => {
   if (!data) return null;
   const classes = useStyles();
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
         { props?.newsPage ? '' : (
         <div className={classes.headerWrapper}>

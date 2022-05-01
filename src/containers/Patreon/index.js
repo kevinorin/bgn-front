@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 const Patreon = () => {
 	const classes = useStyles();
 	return (
-		<Container maxWidth="xl">
+		<Container maxWidth="lg">
 			<section className={classes.paperWrapper}>
 				<Grid container spacing={2}>
 					<Grid item md={6}>
