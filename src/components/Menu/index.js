@@ -12,7 +12,10 @@ const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     background: theme.background,
     display: 'flex',
-    paddingTop: '20px'
+    paddingTop: '20px',
+    '& a': {
+      cursor: 'pointer'
+    }
   },
   logoContainer: {
     flex: 'auto',
@@ -56,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     '& .mainMenuWrapper': {
       '& li': {
         '&:last-child, &:nth-last-child(2)': {
-          display: 'inline-block!important',
+          display: 'inline-block',
           '& a': {
             fontSize: '18px'
           }
@@ -78,6 +81,11 @@ const useStyles = makeStyles((theme) => ({
       '& li': {
         marginTop: '5px',
         paddingBottom: '0!important',
+        display: 'block!important',
+        '&:last-child, &:nth-last-child(2)': {
+          display: 'block!important',
+         
+        },
         '& a': {
           color: `${theme.palette.font}!important`,
           fontSize: '18px',
