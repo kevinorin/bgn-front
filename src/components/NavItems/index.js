@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PersonIcon from '@material-ui/icons/Person';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CustomIconButton from '../Button';
-import data from './data.json';
+import Login from '../../containers/Login';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -133,42 +133,59 @@ const useStyles = makeStyles((theme) => ({
         display: 'block!important',
         width: '100%'
       }
-  }
+    }
   }
 }));
 
 const NavItems = (props) => {
   const classes = useStyles();
   return (
-      <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
-        {props?.items.map((menu, index) => {
-          return (
-            <li key={menu?.text}>
+    <>
+    <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
+      
+      {props?.items.map((menu, index) => {
+        return (
+          <li key={menu?.text}>
+            {menu.text === 'Login' ? (
+              <>
+                {/* <Link href={menu?.url || ''} passHref> */}
+                  <a>
+                    <PersonIcon /> {menu.text}
+                  </a>
+                {/* </Link> */}
+              </>
+            ) :
               <Link href={menu?.url || ''} passHref>
-                <a className={`${menu.text !== 'Join BGN' ? classes.addHover : ''} ${index === 0 ? classes.active : ''}`}>
+                <a className={`${menu.text !== 'Register' ? classes.addHover : ''} ${index === 0 ? classes.active : ''}`}>
                   {menu.text === 'Login' ? <PersonIcon /> : ''}
-                  {menu.text === 'Join BGN' ? <CustomIconButton text={menu.text} btnType='primary' /> : menu.text}
+                  {menu.text === 'Register' ? <CustomIconButton text={menu.text} btnType='primary' /> : menu.text}
                   {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
                 </a>
               </Link>
-              {menu.links.length ?
+
+            }
+
+            {
+              menu.links.length ?
                 <ul className={`${classes.submenu} submenu`}>
                   {menu.links.map((submenu, index) => {
-                  return (
-                    <li key={submenu.text}>
-                    <Link href={submenu?.url || ''} passHref>
-                      <a className={classes.addHover}>{submenu?.text}</a>
-                    </Link>
-                  </li>
-                  )
+                    return (
+                      <li key={submenu.text}>
+                        <Link href={submenu?.url || ''} passHref>
+                          <a className={classes.addHover}>{submenu?.text}</a>
+                        </Link>
+                      </li>
+                    )
                   })}
                 </ul>
                 : ''
             }
-            </li>
-          )
-        })}
-      </ul>
+          </li>
+        )
+      })}
+    </ul >
+    <Login />
+    </>
   )
 }
 

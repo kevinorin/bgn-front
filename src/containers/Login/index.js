@@ -18,21 +18,21 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-import background from '../../src/assets/images/login.jpg';
+// import background from '../../src/assets/images/login.jpg';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
-  image: {
-    backgroundImage: `url(${background})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
+  // root: {
+  //   height: '100vh',
+  // },
+  // image: {
+  //   backgroundImage: `url(${background})`,
+  //   backgroundRepeat: 'no-repeat',
+  //   backgroundColor:
+  //     theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+  //   backgroundSize: 'cover',
+  //   backgroundPosition: 'center',
+  // },
   paper: {
     margin: theme.spacing(8, 4),
     display: 'flex',
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+export default function Login() {
   const [open, setOpen] = React.useState(true);
   const classes = useStyles();
 
