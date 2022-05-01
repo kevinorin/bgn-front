@@ -52,33 +52,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login({ isOpened }) {
-  const [open, setOpen] = useState(false);
+export default function Login(props) {
+  // const [open, setOpen] = useState(false);
   const classes = useStyles();
-  useEffect(() => {
-    // Update the document title using the browser API
-    setOpen(isOpened)
-  }, [isOpened]);
+  // useEffect(() => {
+  //   // Update the document title using the browser API
+  //   setOpen(isOpened)
+  // }, [isOpened]);
 
   const handleSubmit = () => {
     console.log('Clicked')
   }
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Dialog
-        open={open}
-        onClose={handleClose}
+        {...props}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >

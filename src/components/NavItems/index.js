@@ -140,10 +140,12 @@ const useStyles = makeStyles((theme) => ({
 const NavItems = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const handleClick = () => {
-    console.log('Arun jha>>>>')
+  const handleOpen = () => {
     setOpen(true)
   }
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
     <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
@@ -154,7 +156,7 @@ const NavItems = (props) => {
             {menu.text === 'Login' ? (
               <>
                 {/* <Link href={menu?.url || ''} passHref> */}
-                  <a onClick={handleClick}>
+                  <a onClick={handleOpen}>
                     <PersonIcon /> {menu.text}
                   </a>
                 {/* </Link> */}
@@ -189,7 +191,7 @@ const NavItems = (props) => {
         )
       })}
     </ul >
-    <Login isOpened={open} />
+    <Login open={open} onClose={handleClose} />
     </>
   )
 }
