@@ -54,10 +54,10 @@ const NewsItem = (props) => {
                 <div className={classes.paperWrapper}>
                     <img src={picture?.url} className={classes.mainImg} alt={title} />
                     <div className={classes.textBlock}>
-                        <p className={classes.gener}>
+                        {/* <p className={classes.gener}>
                             <span className={classes.case1}>#ADVENTURE </span>
                             <span className={classes.case2}>#CRIME</span>
-                        </p>
+                        </p> */}
                         <h3 className={classes.title}>{title}</h3>
                         <p className={classes.description}>{smallTextWithLink.substring(0,388)}</p>
                     </div>

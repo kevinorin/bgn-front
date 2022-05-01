@@ -51,10 +51,10 @@ export default function NewsLanding({ contentSections, createdAt }) {
   const classes = useStyles();
   return (
     <div className={classes.textBlock}>
-      <p className={classes.gener}>
+      {/* <p className={classes.gener}>
         <span className={classes.case1}>#ADVENTURE </span>
         <span className={classes.case2}>#CRIME</span>
-      </p>
+      </p> */}
 
 
       <h1>{contentSections[0].title}</h1>
