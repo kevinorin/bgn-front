@@ -56,6 +56,13 @@ const useStyles = makeStyles((theme) => ({
     zIndex: '99',
     marginTop: '-22px',
     overflow: 'scroll',
+    '& li': {
+      '& a': {
+        '& svg': {
+          display: 'none'
+        }
+      }
+    },
     '& .mainMenuWrapper': {
       '& li': {
         '&:last-child, &:nth-last-child(2)': {
@@ -89,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
         '& a': {
           color: `${theme.palette.font}!important`,
           fontSize: '18px',
-          opacity: '0.5'
+          opacity: '0.5',
         }
       }
     },
