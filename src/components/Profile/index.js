@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonWrapper: {
     '& button': {
-      padding: '15px 75px 15px 27px'
+      padding: '8px 60px 8px 20px'
     }
   },
   wheatherWrapper: {
@@ -75,7 +75,7 @@ export default function Profile() {
       <p><Setting /> User Settings</p>
       <p><Notifications /> Notifications</p>
       <div className={classes.buttonWrapper}>
-        <CustomBtn text='Community Chat' />
+        <CustomBtn text='Join the Discord' btnType='primary' />
       </div>
 
     </div>
