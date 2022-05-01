@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '1rem',
     marginTop: '1rem',
     backgroundColor: '#878787'
+  },
+  flexEnd: {
+    display: 'flex',
+    justifyContent: 'flex-end'
   }
 }))
 
@@ -43,19 +47,19 @@ export default function NewsMainPage({ contentSections, createdAt, newsSection }
         <Grid item md={8}>
           <NewsLanding createdAt={createdAt} contentSections={contentSections} />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} className={classes.flexEnd}>
           <Profile />
         </Grid>
       </Grid>
       <Divider className={classes.divider} />
       <h2>Related News</h2>
       <Slider {...settings}>
-      {data.slice(0, 6).map((item, index ) => {
-            return (
-              <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} slider />
-            )
-          })}
-          </Slider>
+        {data.slice(0, 6).map((item, index) => {
+          return (
+            <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} slider />
+          )
+        })}
+      </Slider>
     </Container>
   )
 }
