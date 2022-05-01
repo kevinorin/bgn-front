@@ -102,6 +102,9 @@ const useStyles = makeStyles((theme) => ({
       },
       '& svg': {
         verticalAlign: 'bottom'
+      },
+      '& button': {
+        padding: '5px 7px 5px 18px'
       }
     }
   },
@@ -141,9 +144,9 @@ const NavItems = (props) => {
           return (
             <li key={menu?.text}>
               <Link href={menu?.url || ''} passHref>
-                <a className={`${menu.text !== 'Register' ? classes.addHover : ''} ${index === 0 ? classes.active : ''}`}>
+                <a className={`${menu.text !== 'Join BGN' ? classes.addHover : ''} ${index === 0 ? classes.active : ''}`}>
                   {menu.text === 'Login' ? <PersonIcon /> : ''}
-                  {menu.text === 'Register' ? <CustomIconButton text={menu.text} /> : menu.text}
+                  {menu.text === 'Join BGN' ? <CustomIconButton text={menu.text} btnType='primary' /> : menu.text}
                   {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
                 </a>
               </Link>
