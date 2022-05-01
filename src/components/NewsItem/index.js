@@ -7,7 +7,8 @@ import images from '../../assets/images/4648-screenshot-2897.png'
 
 const useStyles = makeStyles((theme) => ({
     paperWrapper: {
-        backgroundColor: theme.palette.background.black
+        backgroundColor: theme.palette.background.black,
+        minHeight: '425px'
     },
     title: {
         color: theme.palette.font
@@ -59,7 +60,7 @@ const NewsItem = (props) => {
                             <span className={classes.case2}>#CRIME</span>
                         </p> */}
                         <h3 className={classes.title}>{title}</h3>
-                        <p className={classes.description}>{smallTextWithLink.substring(0,388)}</p>
+                        <p className={classes.description}>{smallTextWithLink.substring(0,155)}</p>
                     </div>
                 </div>
                 {/* <img src={picture?.url} /> */}
