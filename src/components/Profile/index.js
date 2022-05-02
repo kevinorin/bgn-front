@@ -10,9 +10,6 @@ import CustomBtn from '../Button';
 
 const useStyles = makeStyles((theme) => ({
   profile: {
-    backgroundColor: '#000',
-    padding: '20px',
-    borderRadius: '10px',
     maxWidth: '300px',
     '& svg': {
       verticalAlign: 'middle'
@@ -20,6 +17,11 @@ const useStyles = makeStyles((theme) => ({
     '& button': {
       padding: '0'
     }
+  },
+  innerProfile: {
+    backgroundColor: '#000',
+    padding: '20px',
+    borderRadius: '10px',
   },
   mainProfile: {
     display: 'flex',
@@ -60,6 +62,7 @@ export default function Profile() {
   const classes = useStyles();
   return (
     <div className={classes.profile}>
+      <div className={classes.innerProfile}>
       <div className={classes.mainProfile}>
         <div className={classes.avatars}>
           <PersonIcon />
@@ -77,7 +80,7 @@ export default function Profile() {
       <div className={classes.buttonWrapper}>
         <CustomBtn text='Join the Discord' btnType='primary' />
       </div>
-
+      </div>
     </div>
   )
 }
