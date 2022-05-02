@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     paddingTop: '20px',
     paddingBottom: '20px',
+    alignItems: 'center',
     '& a': {
       cursor: 'pointer'
     }
