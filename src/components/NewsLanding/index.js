@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import ReactMarkdown from "react-markdown";
 import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles((theme) => ({
@@ -67,7 +68,9 @@ export default function NewsLanding({ contentSections, createdAt }) {
         <p><ShareIcon /></p>
       </div>
       <Divider className={classes.divider} />
-      <div dangerouslySetInnerHTML={{ __html: contentSections[0].smallTextWithLink }} />
+      {/* <div dangerouslySetInnerHTML={{ __html: contentSections[0].smallTextWithLink }} /> */}
+      {/* <ReactMarkdown source={contentSections[0].smallTextWithLink} escapeHtml={false} /> */}
+      <ReactMarkdown children={contentSections[0].smallTextWithLink} />
     </div>
   )
 }
