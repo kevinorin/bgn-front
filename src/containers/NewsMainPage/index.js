@@ -54,7 +54,7 @@ export default function NewsMainPage({ contentSections, createdAt, newsSection }
       <Divider className={classes.divider} />
       <h2>Related News</h2>
       <Slider {...settings}>
-        {data.slice(0, 6).map((item, index) => {
+        {data.map((item, index) => {
           return (
             <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} slider />
           )

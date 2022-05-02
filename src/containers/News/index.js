@@ -31,23 +31,28 @@ const News = (props) => {
   const data = props?.newsSection
   if (!data) return null;
   const classes = useStyles();
+  const finalData = props?.newsPage ? data : data.slice(0, 6);
   return (
     <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
-        { props?.newsPage ? '' : (
-        <div className={classes.headerWrapper}>
-          <h2 className={classes.title}>Recent News</h2>
-          <Link href='/news' passHref>
-            <a className={classes.link}>View All</a>
-          </Link>
-        </div>
+        {props?.newsPage ? '' : (
+          <div className={classes.headerWrapper}>
+            <h2 className={classes.title}>Recent News</h2>
+
+          </div>
         )}
         <Grid container spacing={2}>
-          {data.slice(0, 6).map((item, index ) => {
+          {finalData.map((item, index) => {
             return (
               <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} newsPage={props?.newsPage} />
             )
           })}
+          {props?.newsPage ? '' : (
+            <Link href='/news' passHref>
+              <a className={classes.link}>View All</a>
+            </Link>
+          )}
+
         </Grid>
       </section>
     </Container>
