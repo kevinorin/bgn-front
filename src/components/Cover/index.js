@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: '25px'
   },
   logoWrapper: {
-    marginTop: theme.marginSection,
+    marginTop: theme.margintop,
   }
 }));
 
