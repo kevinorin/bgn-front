@@ -10,3 +10,7 @@ img {
 li, p {
     font-size: 1rem;
 }
+
+svg {
+    vertical-align: middle;
+}
