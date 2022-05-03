@@ -21,7 +21,7 @@ export default function Index({ ostPrograms, newsSection }) {
     <>
       <Seo metadata={metadata} />
       {/* <Menu navBar={navBar} /> */}
-      <CommonCover />
+      <CommonCover title={contentSections[0].title} createdAt={createdAt} article />
       <NewsMainPage contentSections={contentSections} createdAt={createdAt} newsSection={newsSection} />
       {/* <News newsSection={ostPrograms} newsPage /> */}
       {/* <Footer /> */}

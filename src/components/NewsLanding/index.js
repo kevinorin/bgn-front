@@ -59,8 +59,8 @@ export default function NewsLanding({ contentSections, createdAt }) {
       </p> */}
 
 
-      <h1>{contentSections[0].title}</h1>
-      <div className={classes.flexWrapper}>
+      {/* <h1>{contentSections[0].title}</h1> */}
+      {/* <div className={classes.flexWrapper}>
         <p>Blockchain Games Network</p>
         <p>2 min read</p>
         <p><i><Moment format="MMM Do YYYY">
@@ -68,8 +68,8 @@ export default function NewsLanding({ contentSections, createdAt }) {
         
         <p><FavoriteBorderIcon /></p>
         <p><ShareIcon /></p>
-      </div>
-      <Divider className={classes.divider} />
+      </div> */}
+      {/* <Divider className={classes.divider} /> */}
       {/* <div dangerouslySetInnerHTML={{ __html: contentSections[0].smallTextWithLink }} /> */}
       {/* <ReactMarkdown source={contentSections[0].smallTextWithLink} escapeHtml={false} /> */}
       <ReactMarkdown children={contentSections[0].smallTextWithLink} escapeHtml={false} allowDangerousHtml={false} />

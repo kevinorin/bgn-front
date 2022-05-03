@@ -15,6 +15,9 @@ import Dialog from '@material-ui/core/Dialog';
 import Cookies from "js-cookie"
 import CustomButton from '../../components/Button';
 import { useRouter } from 'next/router'
+import { withStyles } from '@material-ui/core/styles';
+import CloseIcon from '@material-ui/icons/Close';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
 
 // import background from '../../src/assets/images/login.jpg';
 
@@ -82,9 +85,24 @@ export default function Login(props) {
     } else {
       Cookies.set("jwt_token", jwt)
       setError(false)
-      router.push('/')
+      // router.push('/')
+      typeof window !== 'undefined' && window.open('/')
     }
   }
+
+  const DialogTitle = withStyles(useStyles)((props) => {
+    const { children, classes, onClose, ...other } = props;
+    return (
+      <MuiDialogTitle disableTypography className={classes.root} {...other}>
+        <Typography variant="h6">{children}</Typography>
+        {onClose ? (
+          <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+            <CloseIcon />
+          </IconButton>
+        ) : null}
+      </MuiDialogTitle>
+    );
+  });
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -94,15 +112,11 @@ export default function Login(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
+        <DialogTitle id="customized-dialog-title" onClose={props.handleClose}>
+          Modal title
+        </DialogTitle>
         <Grid item xs={12} sm={8} md={12} component={Paper} elevation={6} square>
           <div className={classes.paper}>
-            {Cookies.get("jwt_token") ? (
-              <>
-                <h4>Your registration was successful!</h4>
-                <p>Check your email to confirm and welcome to BGN.</p>
-              </>
-            ) : (
-              <>
                 <Typography component="h1" variant="h5">
                   Login
                 </Typography>
@@ -151,8 +165,6 @@ export default function Login(props) {
                     </Grid>
                   </Grid>
                 </Box>
-              </>
-            )}
           </div>
         </Grid>
       </Dialog>

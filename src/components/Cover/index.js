@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
       fontSize: '22px',
       lineHeight: '26px',
-      marginTop: theme.marginSection
+      marginTop: theme.marginSection,
+      maxWidth: '450px'
     },
     '& button': {
       marginRight: '15px',
@@ -86,8 +87,9 @@ const Cover = (props) => {
       <Grid container spacing={2}>
         <Grid item md={6}>
           <h1>{content.title}</h1>
-          <div className={classes.listWrapper} dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
           <h3>{content?.description}</h3>
+          <div className={classes.listWrapper} dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
+          
           <div className={classes.logoWrapper}>
             {content.buttons.map((item_) => <CustomButton onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
             

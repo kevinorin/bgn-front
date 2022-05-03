@@ -21,7 +21,7 @@ export default function Index({ global, videoData }) {
     <>
       <Seo metadata={metadata} />
       {/* <Menu navBar={navBar} /> */}
-      <CommonCover />
+      <CommonCover title='COVERAGE' subtitle='Like and subscribe for the latest from BGN' newPage />
       <Video videoData={videoData} />
       {/* <Footer /> */}
     </>
