@@ -14,13 +14,13 @@ export default function Index({ global, newsSection }) {
   console.log('newsSection', newsSection);
   const metadata = {
     metaTitle: 'News Section',
-    metaDescription: 'Subscribe, support, and have a heard voice in the development of the games you play.'
+    metaDescription: 'Like and subscribe for the latest from BGN'
   }
   return (
     <>
       <Seo metadata={metadata} />
       {/* <Menu navBar={navBar} /> */}
-      <CommonCover />
+      <CommonCover title='COVERAGE' subtitle='Like and subscribe for the latest from BGN' newPage />
       <News newsSection={newsSection} newsPage />
       {/* <Footer /> */}
     </>
