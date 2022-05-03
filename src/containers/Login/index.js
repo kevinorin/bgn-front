@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Avatar from '@material-ui/core/Avatar';
+import { useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -9,30 +9,14 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 // import background from '../../src/assets/images/login.jpg';
 
 
 const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   height: '100vh',
-  // },
-  // image: {
-  //   backgroundImage: `url(${background})`,
-  //   backgroundRepeat: 'no-repeat',
-  //   backgroundColor:
-  //     theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-  //   backgroundSize: 'cover',
-  //   backgroundPosition: 'center',
-  // },
   paper: {
     margin: theme.spacing(8, 4),
     display: 'flex',
@@ -54,10 +38,45 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login(props) {
   const classes = useStyles();
+  const [error, setError] = useState(false);
 
-  const handleSubmit = () => {
-    console.log('Clicked')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    
+    if (!data.email || !data.password) return;
+
+    const loginInfo = {
+      identifier: data.email,
+      password: data.password
+    }
+  
+    const APIURL = process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337";
+    const login = await fetch(`${APIURL}/auth/local`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(loginInfo)
+    })
+
+    const loginResponse = await login.json();
+    const { error, jwt } = loginResponse;
+    if (error) {
+      setError(true)
+      return;
+    } else {
+      Cookies.set("jwt_token", jwt)
+      onLogin(jwt)
+      setError(false)
+    }
   }
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -71,8 +90,7 @@ export default function Login(props) {
             <Typography component="h1" variant="h5">
               Login
             </Typography>
-            <form className={classes.form} noValidate>
-              <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+              <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
                 <TextField
                   margin="normal"
                   required
@@ -81,6 +99,9 @@ export default function Login(props) {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  {...register('email', { required: true })}
+                  error={errors.email || error}
+                  helperText={errors.email ? 'Email is Required' : error ? 'Invalid Email or Password' : ''}
                   autoFocus
                 />
                 <TextField
@@ -91,6 +112,9 @@ export default function Login(props) {
                   label="Password"
                   type="password"
                   id="password"
+                  {...register('password', { required: true })}
+                  error={errors.password || error}
+                  helperText={errors.password ? 'Password is Required' : error ? 'Invalid Email or Password' : ''}
                   autoComplete="current-password"
                 />
                 <FormControlLabel
@@ -119,8 +143,6 @@ export default function Login(props) {
                   </Grid>
                 </Grid>
               </Box>
-
-            </form>
           </div>
         </Grid>
       </Dialog>

@@ -58,6 +58,7 @@ const Cover = (props) => {
   const [isOpen, setOpen] = useState(false)
   const classes = useStyles();
   const content = props.cover;
+  console.log('Arun Jha props', props)
   const button = content?.buttons[0];
   const isBrowser = typeof window !== 'undefined';
   const buttonClick = () => {
@@ -65,7 +66,7 @@ const Cover = (props) => {
   }
   return (
     <section className={classes.mainWrapper}>
-      {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} /> }
+      {/* {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} /> } */}
       <Grid container spacing={2}>
         <Grid item md={6}>
           <h1>{content.title}</h1>
