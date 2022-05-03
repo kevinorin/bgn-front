@@ -7,6 +7,8 @@ import CustomIconButton from '../Button';
 import Login from '../../containers/Login';
 import Registration from '../../containers/Registration';
 import Cookies from "js-cookie"
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {

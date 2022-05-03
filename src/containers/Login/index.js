@@ -85,24 +85,12 @@ export default function Login(props) {
     } else {
       Cookies.set("jwt_token", jwt)
       setError(false)
-      // router.push('/')
-      typeof window !== 'undefined' && window.open('/')
+      router.push('/')
+      // typeof window !== 'undefined' && window.open('/')
     }
   }
 
-  const DialogTitle = withStyles(useStyles)((props) => {
-    const { children, classes, onClose, ...other } = props;
-    return (
-      <MuiDialogTitle disableTypography className={classes.root} {...other}>
-        <Typography variant="h6">{children}</Typography>
-        {onClose ? (
-          <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-            <CloseIcon />
-          </IconButton>
-        ) : null}
-      </MuiDialogTitle>
-    );
-  });
+
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -112,9 +100,6 @@ export default function Login(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="customized-dialog-title" onClose={props.handleClose}>
-          Modal title
-        </DialogTitle>
         <Grid item xs={12} sm={8} md={12} component={Paper} elevation={6} square>
           <div className={classes.paper}>
                 <Typography component="h1" variant="h5">

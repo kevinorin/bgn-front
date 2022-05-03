@@ -7,6 +7,8 @@ import Translate from '../Translate';
 import Setting from '../Setting';
 import Notifications from '../Notification';
 import CustomBtn from '../Button';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Cookies from "js-cookie"
 
 const useStyles = makeStyles((theme) => ({
   profile: {
@@ -16,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     },
     '& button': {
       padding: '0'
+    },
+    '& p': {
+      cursor: 'pointer'
     }
   },
   innerProfile: {
@@ -60,25 +65,33 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Profile() {
   const classes = useStyles();
+  const handleClick = () => {
+    typeof window !== 'undefined' && window.open('https://discord.com/invite/sxjn9kWQgY')
+  }
+  const handleLogout = () => {
+    Cookies.remove("jwt_token")
+
+  }
   return (
     <div className={classes.profile}>
       <div className={classes.innerProfile}>
-      <div className={classes.mainProfile}>
+      {/* <div className={classes.mainProfile}>
         <div className={classes.avatars}>
           <PersonIcon />
         </div>
         <p>John Doe<br /><span>john@gmail.com</span></p>
-      </div>
-      <p><Divider className={classes.divider} /></p>
+      </div> */}
+      {/* <p><Divider className={classes.divider} /></p> */}
       <div className={classes.wheatherWrapper}>
         <p><Whether /></p>
       </div>
-      <p><FavoriteBorderIcon /> Favorites</p>
-      <p><Translate /></p>
-      <p><Setting /> Settings</p>
-      <p><Notifications /> Notifications</p>
+      {/* <p><FavoriteBorderIcon /> Favorites</p> */}
+      {/* <p><Translate /></p> */}
+      {/* <p><Setting /> Settings</p> */}
+      {/* <p><Notifications /> Notifications</p> */}
+      {Cookies.get("jwt_token") ? <p onClick={handleLogout}><ExitToAppIcon /> Logout</p> : ''}
       <div className={classes.buttonWrapper}>
-        <CustomBtn text='Join the Discord' btnType='primary' />
+        <CustomBtn onClick={handleClick} text='Join the Discord' btnType='primary' />
       </div>
       </div>
     </div>
