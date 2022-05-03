@@ -3,6 +3,7 @@ import Divider from '@material-ui/core/Divider';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ReactMarkdown from "react-markdown";
 import ShareIcon from '@material-ui/icons/Share';
+import Moment from "react-moment";
 
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
@@ -62,7 +63,8 @@ export default function NewsLanding({ contentSections, createdAt }) {
       <div className={classes.flexWrapper}>
         <p>Blockchain Games Network</p>
         <p>2 min read</p>
-        <p><i>{createdAt.replace('T06:58:06.368Z', '')}</i></p>
+        <p><i><Moment format="MMM Do YYYY">
+          {createdAt}</Moment></i></p>
         
         <p><FavoriteBorderIcon /></p>
         <p><ShareIcon /></p>

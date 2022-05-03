@@ -7,6 +7,7 @@ import Profile from '../../components/Profile';
 import NewsItem from '../../components/NewsItem';
 import Slider from "react-slick";
 
+
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     color: '#fff',

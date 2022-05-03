@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     mainImg: {
         height: 'auto',
-        width: '100%',
+        width: 'auto',
         maxHeight: '271px',
         alignItems: 'center',
         display: 'block',
