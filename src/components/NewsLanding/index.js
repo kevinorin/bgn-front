@@ -70,7 +70,7 @@ export default function NewsLanding({ contentSections, createdAt }) {
       <Divider className={classes.divider} />
       {/* <div dangerouslySetInnerHTML={{ __html: contentSections[0].smallTextWithLink }} /> */}
       {/* <ReactMarkdown source={contentSections[0].smallTextWithLink} escapeHtml={false} /> */}
-      <ReactMarkdown children={contentSections[0].smallTextWithLink} />
+      <ReactMarkdown children={contentSections[0].smallTextWithLink} escapeHtml={false} allowDangerousHtml={false} />
     </div>
   )
 }
