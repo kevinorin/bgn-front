@@ -48,6 +48,21 @@ const FooterSocials = () => {
 					<img src={discord} alt="Discord" />
 				</a>
 			</Link>
+			<Link href="https://www.facebook.com/BlockchainGamesNetwork" passHref>
+				<a target="_blank">
+					<img src={facebook} alt="Facebook" />
+				</a>
+			</Link>
+			<Link href="https://www.youtube.com/channel/UCspvE_U90Doi1ox2Tpn-sLQ" passHref>
+				<a target="_blank">
+					<img src={youtube} alt="Youtube" />
+				</a>
+			</Link>
+			<Link href="https://twitter.com/kevinorin" passHref>
+				<a target="_blank">
+					<img src={twitter} alt="Twitter" />
+				</a>
+			</Link>
 			{/* <Link href="/">
 				<a>
 					<img src={wasder} alt="Wasder" />
@@ -58,26 +73,14 @@ const FooterSocials = () => {
 					<img src={medium} alt="Medium" />
 				</a>
 			</Link>
-			<Link href="https://www.youtube.com/channel/UCspvE_U90Doi1ox2Tpn-sLQ" passHref>
-				<a target="_blank">
-					<img src={youtube} alt="Youtube" />
-				</a>
-			</Link>
+			
 			{/* <Link href="/">
 				<a>
 					<img src={theta} alt="Theta" />
 				</a>
 			</Link> */}
-			<Link href="https://twitter.com/kevinorin" passHref>
-				<a target="_blank">
-					<img src={twitter} alt="Twitter" />
-				</a>
-			</Link>
-			<Link href="https://www.facebook.com/BlockchainGamesNetwork" passHref>
-				<a target="_blank">
-					<img src={facebook} alt="Facebook" />
-				</a>
-			</Link>
+			
+			
 		</div>
 	)
 }

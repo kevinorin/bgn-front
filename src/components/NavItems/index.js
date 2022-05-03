@@ -9,6 +9,8 @@ import Registration from '../../containers/Registration';
 import Cookies from "js-cookie"
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
+import { useRouter } from 'next/router'
+
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -153,6 +155,7 @@ const NavItems = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [ropen, setrOpen] = React.useState(false);
+  const router = useRouter()
   const handleOpen = () => {
     setOpen(true)
   }
@@ -168,6 +171,12 @@ const NavItems = (props) => {
   const handleOpenLink = () => {
     typeof window !== 'undefined' && window.open('https://gala.fan/xgtIrFHDoB', "_blank");
   }
+  const handleLogout = () => {
+    Cookies.remove("jwt_token")
+    router.push('/')
+
+
+  }
   return (
     <>
       <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
@@ -181,7 +190,7 @@ const NavItems = (props) => {
                     <PersonIcon /> {menu.text}
                   </a>
                 </>
-              ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? '' : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
+              ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleLogout} text='Logout' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
                 <Link href={menu?.url || ''} passHref>
                   <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
                     {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
