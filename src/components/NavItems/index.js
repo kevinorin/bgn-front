@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
   menuWrapper: {
     margin: 0,
     padding: 0,
+    marginTop: '20px',
     [theme.breakpoints.down('sm')]: {
       display: 'none'
     },
@@ -110,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   menuIcon: {
+    marginTop: '20px',
     border: '1px solid transparent',
     borderRadius: '.375rem',
     width: '22px',

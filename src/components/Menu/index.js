@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     paddingTop: '20px',
     paddingBottom: '20px',
-    alignItems: 'center',
+    // alignItems: 'center',
     '& a': {
       cursor: 'pointer'
     }
@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   menuIcon: {
+    marginTop: '20px',
     border: '1px solid transparent',
     borderRadius: '.375rem',
     width: '22px',
