@@ -2,6 +2,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import NewsLanding from '../../components/NewsLanding';
 import Profile from '../../components/Profile';
 import NewsItem from '../../components/NewsItem';
@@ -53,7 +54,7 @@ export default function NewsMainPage({ contentSections, createdAt, newsSection }
         </Grid>
       </Grid>
       <Divider className={classes.divider} />
-      <h2>Related Coverage</h2>
+      <h2>Related Coverage <AssignmentIcon /></h2>
       <Slider {...settings}>
         {data.map((item, index) => {
           return (

@@ -37,9 +37,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login(props) {
+export default function Registration(props) {
   const classes = useStyles();
   const [error, setError] = useState(false);
+  const [errorm, setErrorm] = useState('');
 
   const {
     register,
@@ -52,12 +53,13 @@ export default function Login(props) {
     if (!data.email || !data.password) return;
 
     const loginInfo = {
-      identifier: data.email,
+      username: data.username,
+      email: data.email,
       password: data.password
     }
   
     const APIURL = process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337";
-    const login = await fetch(`${APIURL}/auth/local`, {
+    const login = await fetch(`${APIURL}/auth/local/register`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -70,14 +72,15 @@ export default function Login(props) {
     const { error, jwt } = loginResponse;
     if (error) {
       setError(true)
+      setErrorm(loginResponse?.message[0].messages[0].message)
       return;
     } else {
       Cookies.set("jwt_token", jwt)
-      onLogin(jwt)
+      // onLogin(jwt)
       setError(false)
     }
   }
-
+console.log('Arun Jha >>>', errorm)
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -89,7 +92,7 @@ export default function Login(props) {
         <Grid item xs={12} sm={8} md={12} component={Paper} elevation={6} square>
           <div className={classes.paper}>
             <Typography component="h1" variant="h5">
-              Login
+              Join BGN
             </Typography>
               <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
                 <TextField
@@ -102,8 +105,21 @@ export default function Login(props) {
                   autoComplete="email"
                   {...register('email', { required: true })}
                   error={errors.email || error}
-                  helperText={errors.email ? 'Email is Required' : error ? 'Invalid Email or Password' : ''}
+                  helperText={errors.email ? 'Email is Required' : errorm}
                   autoFocus
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
+                  {...register('username', { required: true })}
+                  error={errors.email || error}
+                  helperText={errors.username ? 'Username is Required' : errorm}
+                  
                 />
                 <TextField
                   margin="normal"
@@ -115,8 +131,21 @@ export default function Login(props) {
                   id="password"
                   {...register('password', { required: true })}
                   error={errors.password || error}
-                  helperText={errors.password ? 'Password is Required' : error ? 'Invalid Email or Password' : ''}
+                  helperText={errors.password ? 'Password is Required' : errorm}
                   autoComplete="current-password"
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="confirmpassword"
+                  label="Confirm Password"
+                  type="password"
+                  id="confirm-password"
+                  {...register('confirmpassword', { required: true })}
+                  error={errors.confirmpassword || error}
+                  helperText={errors.confirmpassword ? 'Confirm Password is Required' : errorm}
+                  autoComplete="currentpassword"
                 />
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}

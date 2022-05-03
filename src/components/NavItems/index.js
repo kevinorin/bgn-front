@@ -5,6 +5,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CustomIconButton from '../Button';
 import Login from '../../containers/Login';
+import Registration from '../../containers/Registration';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -142,11 +143,18 @@ const useStyles = makeStyles((theme) => ({
 const NavItems = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [ropen, setrOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true)
   }
+  const handlerOpen = () => {
+    setrOpen(true)
+  }
   const handleClose = () => {
     setOpen(false);
+  };
+  const handlerClose = () => {
+    setrOpen(false);
   };
   return (
     <>
@@ -163,11 +171,11 @@ const NavItems = (props) => {
                   </a>
                 {/* </Link> */}
               </>
-            ) :
+            ) : menu.text === 'Register' ? <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> : 
               <Link href={menu?.url || ''} passHref>
-                <a className={`${menu.text !== 'Register' ? classes.addHover : ''} ${index === 0 ? classes.active : ''}`}>
-                  {menu.text === 'Login' ? <PersonIcon /> : ''}
-                  {menu.text === 'Register' ? <CustomIconButton text={menu.text} btnType='primary' /> : menu.text}
+                <a className={`${index === 0 ? classes.active : ''}`}>
+                  {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
+                  {menu.text}
                   {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
                 </a>
               </Link>
@@ -194,6 +202,7 @@ const NavItems = (props) => {
       })}
     </ul >
     <Login open={open} onClose={handleClose} />
+    <Registration open={ropen} onClose={handlerClose} />
     </>
   )
 }
