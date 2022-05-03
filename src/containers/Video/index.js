@@ -3,11 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import VideoItem from '../../components/VideoItem';
+import CustomButton from '../../components/Button';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     background: theme.background,
-    paddingTop: theme.margintop
+    paddingTop: theme.margintop,
+    
   },
   title: {
     color: theme.palette.font,
@@ -36,11 +38,19 @@ const useStyles = makeStyles((theme) => ({
   headerWrapper: {
       position: 'relative',
       marginBottom: '70px'
+  },
+  buttonWrapper: {
+    margin: 'auto',
+    marginTop: '20px'
   }
 }));
 
 const Video = (props) => {
   const classes = useStyles();
+  const buttonClick = (e) => {
+    e.preventDefault()
+    typeof window !== 'undefined' && window.open('https://www.youtube.com/channel/UCspvE_U90Doi1ox2Tpn-sLQ', '_blank')
+  }
   return (
     <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
@@ -54,6 +64,11 @@ const Video = (props) => {
               <VideoItem key={item.title + index} item={item?.contentSections[0]} />
             )
           })}
+           {props?.newsPage ? '' : (
+            <div className={classes.buttonWrapper}>
+            <CustomButton onClick={(e) => buttonClick(e)} btnType='secondary' text='View All' />
+            </div>
+          )}
         </Grid>
       </section>
     </Container>

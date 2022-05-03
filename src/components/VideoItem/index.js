@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     color: theme.palette.font,
-    textAlign: 'center',
+    textAlign: 'left',
     minHeight: '50px',
     fontWeight: 'bold'
   },
