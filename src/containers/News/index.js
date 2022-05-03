@@ -4,6 +4,9 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Link from 'next/link'
 import NewsItem from '../../components/NewsItem';
+import CustomButton from '../../components/Button';
+import { useRouter } from 'next/router'
+
 // import data from './data.json';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,14 +27,23 @@ const useStyles = makeStyles((theme) => ({
   link: {
     float: 'right',
     marginBottom: '30px'
+  },
+  buttonWrapper: {
+    margin: 'auto',
+    marginTop: '20px'
   }
 }));
 
 const News = (props) => {
+  const router = useRouter()
   const data = props?.newsSection
   if (!data) return null;
   const classes = useStyles();
   const finalData = props?.newsPage ? data : data.slice(0, 6);
+  const buttonClick = (e) => {
+    e.preventDefault()
+    router.push('/news')
+  }
   return (
     <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
@@ -48,9 +60,9 @@ const News = (props) => {
             )
           })}
           {props?.newsPage ? '' : (
-            <Link href='/news' passHref>
-              <a className={classes.link}>View All</a>
-            </Link>
+            <div className={classes.buttonWrapper}>
+            <CustomButton onClick={(e) => buttonClick(e)} btnType='secondary' text='View All' />
+            </div>
           )}
 
         </Grid>
