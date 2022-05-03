@@ -9,6 +9,9 @@ import Notifications from '../Notification';
 import CustomBtn from '../Button';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Cookies from "js-cookie"
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import { useRouter } from 'next/router'
+
 
 const useStyles = makeStyles((theme) => ({
   profile: {
@@ -65,11 +68,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Profile() {
   const classes = useStyles();
-  const handleClick = () => {
-    typeof window !== 'undefined' && window.open('https://discord.com/invite/sxjn9kWQgY')
+  const router = useRouter()
+  const handleClick = (link) => {
+    typeof window !== 'undefined' && window.open(link)
   }
   const handleLogout = () => {
     Cookies.remove("jwt_token")
+    router.push('/')
+
 
   }
   return (
@@ -85,13 +91,13 @@ export default function Profile() {
       <div className={classes.wheatherWrapper}>
         <p><Whether /></p>
       </div>
-      {/* <p><FavoriteBorderIcon /> Favorites</p> */}
+      <p onClick={() => handleClick('https://gala.fan/xgtIrFHDoB')}><FavoriteBorderIcon /> Gala Games</p>
       {/* <p><Translate /></p> */}
       {/* <p><Setting /> Settings</p> */}
-      {/* <p><Notifications /> Notifications</p> */}
+      <p onClick={() => handleClick()}><YouTubeIcon /> BGN YouTube</p>
       {Cookies.get("jwt_token") ? <p onClick={handleLogout}><ExitToAppIcon /> Logout</p> : ''}
       <div className={classes.buttonWrapper}>
-        <CustomBtn onClick={handleClick} text='Join the Discord' btnType='primary' />
+        <CustomBtn onClick={() => handleClick('https://discord.com/invite/sxjn9kWQgY')} text='Join the Discord' btnType='primary' />
       </div>
       </div>
     </div>
