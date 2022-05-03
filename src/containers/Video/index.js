@@ -49,7 +49,6 @@ const Video = (props) => {
           <h2 className={classes.title1}>Videos & Streams</h2>
         </div>
         <Grid container spacing={2}>
-        <div class="embedsocial-hashtag" data-ref="c6ac661358d843b45ee588603b038df9b3c249a8"></div>
           {props?.videoData.map((item, index ) => {
             return (
               <VideoItem key={item.title + index} item={item?.contentSections[0]} />

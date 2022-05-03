@@ -49,7 +49,6 @@ export default class MyDocument extends Document {
             type="text/css"
             href="/style/main.css"
           />
-          <script src="https://embedsocial.com/cdn/ht.js" />
           <link rel='manifest' href='/manifest.json' />
         </Head>
         <body>

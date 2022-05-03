@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold'
   },
   imgWrapper: {
-    position: 'relative'
+    position: 'relative',
+    minHeight: '200px',
   },
   icon: {
     position: 'absolute',
@@ -53,20 +54,26 @@ const useStyles = makeStyles((theme) => ({
 const VideoItem = (props) => {
   const [isOpen, setOpen] = useState(false)
   const classes = useStyles();
-  const { url } = props.item;
+  const { url, cover } = props.item;
+  const finalCover = cover?.url;
   const isBrowser = typeof window !== 'undefined';
+  console.log('Arun Jha props sfdsfdsfds', props)
+  const getId = (urls) => {
+    let regex = /(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))/gm;
+    return regex.exec(urls)[3];
+  }
   return (
     <>
-      {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} />}
+      {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={getId(url)} onClose={() => setOpen(false)} />}
       <Grid item xs={12} sm={6} md={3}>
         <div className={classes.mainWrapper}>
           <div className={classes.paperWrapper}>
             <div className={classes.imgWrapper}>
-              <img src={image} className={classes.mainImg} alt={props?.item?.title} />
+              <img src={finalCover || image} className={classes.mainImg} alt={props?.item?.title} />
               <img src={icon} onClick={() => setOpen(true)} className={classes.icon} alt='Play Icon' />
             </div>
             <div className={classes.textBlock}>
-              <img src={yicon} className={classes.yicon} alt='YouTube Icon' />
+              {/* <img src={yicon} className={classes.yicon} alt='YouTube Icon' /> */}
               <p className={classes.description}>{props?.item?.title}</p>
             </div>
           </div>
