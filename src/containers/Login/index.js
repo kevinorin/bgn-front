@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import Cookies from "js-cookie"
+import CustomButton from '../../components/Button';
+import { useRouter } from 'next/router'
 
 // import background from '../../src/assets/images/login.jpg';
 
@@ -23,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    '& button': {
+      width: '100%',
+      marginTop: '20px',
+      padding: '6px 16px'
+    }
   },
   avatar: {
     margin: theme.spacing(1),
@@ -40,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login(props) {
   const classes = useStyles();
   const [error, setError] = useState(false);
+  const router = useRouter()
 
   const {
     register,
@@ -48,14 +56,14 @@ export default function Login(props) {
   } = useForm();
 
   const onSubmit = async (data) => {
-    
+
     if (!data.email || !data.password) return;
 
     const loginInfo = {
       identifier: data.email,
       password: data.password
     }
-  
+
     const APIURL = process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337";
     const login = await fetch(`${APIURL}/auth/local`, {
       method: 'POST',
@@ -73,8 +81,8 @@ export default function Login(props) {
       return;
     } else {
       Cookies.set("jwt_token", jwt)
-      onLogin(jwt)
       setError(false)
+      router.push('/')
     }
   }
 
@@ -88,62 +96,63 @@ export default function Login(props) {
       >
         <Grid item xs={12} sm={8} md={12} component={Paper} elevation={6} square>
           <div className={classes.paper}>
-            <Typography component="h1" variant="h5">
-              Login
-            </Typography>
-              <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  {...register('email', { required: true })}
-                  error={errors.email || error}
-                  helperText={errors.email ? 'Email is Required' : error ? 'Invalid Email or Password' : ''}
-                  autoFocus
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  {...register('password', { required: true })}
-                  error={errors.password || error}
-                  helperText={errors.password ? 'Password is Required' : error ? 'Invalid Email or Password' : ''}
-                  autoComplete="current-password"
-                />
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  className={classes.submit}
-                >
-                  Sign In
-                </Button>
-                <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Forgot password?
-                    </Link>
+            {Cookies.get("jwt_token") ? (
+              <>
+                <h4>Your registration was successful!</h4>
+                <p>Check your email to confirm and welcome to BGN.</p>
+              </>
+            ) : (
+              <>
+                <Typography component="h1" variant="h5">
+                  Login
+                </Typography>
+                <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    {...register('email', { required: true })}
+                    error={errors.email || error}
+                    helperText={errors.email ? 'Email is Required' : error ? 'Invalid Email or Password' : ''}
+                    autoFocus
+                  />
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    {...register('password', { required: true })}
+                    error={errors.password || error}
+                    helperText={errors.password ? 'Password is Required' : error ? 'Invalid Email or Password' : ''}
+                    autoComplete="current-password"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                  />
+                  <CustomButton btnType="primary" text="Sign In" />
+                  <Grid container>
+                    <Grid item xs>
+                      <Link href="#" variant="body2">
+                        Forgot password?
+                      </Link>
+                    </Grid>
+                    <Grid item>
+                      <Link href="#" variant="body2">
+                        {"Don't have an account? Sign Up"}
+                      </Link>
+                    </Grid>
                   </Grid>
-                  <Grid item>
-                    <Link href="#" variant="body2">
-                      {"Don't have an account? Sign Up"}
-                    </Link>
-                  </Grid>
-                </Grid>
-              </Box>
+                </Box>
+              </>
+            )}
           </div>
         </Grid>
       </Dialog>

@@ -53,7 +53,6 @@ const CustomBtn = (props) => {
       color="primary"
       className={`${classes.mainBtn} ${mainClass}`}
       type="submit"
-      form='my-form'
       endIcon={<ArrowRightAltIcon />}
       onClick={props.onClick}
     >
