@@ -17,9 +17,9 @@ const MobileTopHead = (props) => {
     return (
         <div className={classes.mainWrapper}>
             <Whether />
-            <Notifications />
-            <Translate />
-            <Setting />
+            {/* <Notifications /> */}
+            {/* <Translate /> */}
+            {/* <Setting /> */}
             <Cancel closeMenu={props.closeMenu} />
         </div>
     )

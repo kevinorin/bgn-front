@@ -186,40 +186,54 @@ const NavItems = (props) => {
 
         {props?.items.map((menu, index) => {
           return (
-            <li key={menu?.text}>
-              {menu.text === 'Login' ? Cookies.get('jwt_token') ? <CustomIconButton classNames={classes.buttonReduce} onClick={handleLogout} text='Logout' /> : (
-                <>
-                  <a onClick={handleOpen}>
-                    <PersonIcon /> {menu.text}
-                  </a>
-                </>
-              ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
-                <Link href={menu?.url || ''} passHref>
-                  <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
-                    {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
-                    {menu.text}
-                    {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
-                  </a>
-                </Link>
+            <>
+              {menu.text === 'Vanguard Studios' ? (
+                <Tooltip title="COMING SOON">
+                  <li>
+                    <Link href={menu?.url || ''} passHref>
+                      <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''}`}>
+                        {menu.text}
+                      </a>
+                    </Link>
+                  </li>
+                </Tooltip>
+              ) : (
+                <li key={menu?.text}>
+                  {menu.text === 'Login' ? Cookies.get('jwt_token') ? <CustomIconButton classNames={classes.buttonReduce} onClick={handleLogout} text='Logout' /> : (
+                    <>
+                      <a onClick={handleOpen}>
+                        <PersonIcon /> {menu.text}
+                      </a>
+                    </>
+                  ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
+                    <Link href={menu?.url || ''} passHref>
+                      <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
+                        {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
+                        {menu.text}
+                        {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
+                      </a>
+                    </Link>
 
-              }
+                  }
 
-              {
-                menu.links.length ?
-                  <ul className={`${classes.submenu} submenu`}>
-                    {menu.links.map((submenu, index) => {
-                      return (
-                        <li key={submenu.text}>
-                          <Link href={submenu?.url || ''} passHref>
-                            <a className={classes.addHover}>{submenu?.text}</a>
-                          </Link>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                  : ''
-              }
-            </li>
+                  {
+                    menu.links.length ?
+                      <ul className={`${classes.submenu} submenu`}>
+                        {menu.links.map((submenu, index) => {
+                          return (
+                            <li key={submenu.text}>
+                              <Link href={submenu?.url || ''} passHref>
+                                <a className={classes.addHover}>{submenu?.text}</a>
+                              </Link>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                      : ''
+                  }
+                </li>
+              )}
+            </>
           )
         })}
       </ul >
