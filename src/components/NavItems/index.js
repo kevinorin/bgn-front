@@ -6,6 +6,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CustomIconButton from '../Button';
 import Login from '../../containers/Login';
 import Registration from '../../containers/Registration';
+import Cookies from "js-cookie"
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -156,6 +157,9 @@ const NavItems = (props) => {
   const handlerClose = () => {
     setrOpen(false);
   };
+  const handleOpenLink = () => {
+    typeof window !== 'undefined' && window.open('https://gala.fan/xgtIrFHDoB', "_blank");
+  }
   return (
     <>
     <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
@@ -163,7 +167,7 @@ const NavItems = (props) => {
       {props?.items.map((menu, index) => {
         return (
           <li key={menu?.text}>
-            {menu.text === 'Login' ? (
+            {menu.text === 'Login' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : (
               <>
                 {/* <Link href={menu?.url || ''} passHref> */}
                   <a onClick={handleOpen}>
@@ -171,7 +175,7 @@ const NavItems = (props) => {
                   </a>
                 {/* </Link> */}
               </>
-            ) : menu.text === 'Register' ? <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> : 
+            ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? '' : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> : 
               <Link href={menu?.url || ''} passHref>
                 <a className={`${index === 0 ? classes.active : ''}`}>
                   {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
