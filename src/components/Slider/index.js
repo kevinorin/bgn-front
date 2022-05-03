@@ -47,8 +47,8 @@ const CustomSlider = (props) => {
   const router = useRouter()
   const { title, description, smallTextWithLink, picture, buttons } = props.slider; 
   const handleClick = (link, newTab) => {
-    typeof window !== 'undefined' && newTab && window.open(link)
-    router.push(link)
+    if (newTab)typeof window !== 'undefined' && window.open(link)
+    else router.push(link)
   }
   return (
           <Grid container spacing={10}>
