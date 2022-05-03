@@ -7,3 +7,6 @@ img {
     font-size: 12px;
     color: white!important;
 }
+li, p {
+    font-size: 1em;
+}
