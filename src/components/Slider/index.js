@@ -2,12 +2,14 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CustomBtn from '../Button';
+import { useRouter } from 'next/router'
 import { getStrapiMedia } from '../../utils/media';
 import imgages from '../../assets/images/gala-games-town-star-6.png';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
-    background: theme.background
+    background: theme.background,
+    
   },
   sliderImg: {
     maxWidth: '100%',
@@ -31,14 +33,23 @@ const useStyles = makeStyles((theme) => ({
   },
   imageWrapper: {
     boxShadow: '0px 3px 10px #00000029',
+  },
+  buttonWrapper: {
+    '& button': {
+      marginRight: '10px',
+      marginTop: '10px'
+    }
   }
 }));
 
 const CustomSlider = (props) => {
   const classes = useStyles();
+  const router = useRouter()
   const { title, description, smallTextWithLink, picture, buttons } = props.slider; 
-  const buttonValue = buttons[0];
-  console.log('Arun Jha picture', picture)
+  const handleClick = (link, newTab) => {
+    typeof window !== 'undefined' && newTab && window.open(link)
+    router.push(link)
+  }
   return (
           <Grid container spacing={10}>
               <Grid item md={6}>
@@ -50,7 +61,8 @@ const CustomSlider = (props) => {
                 <p className={classes.sup}>{description}</p>
                 <h2 className={classes.title}>{title}</h2>
                 <p className={classes.description}>{smallTextWithLink}</p>
-                <CustomBtn text={buttonValue?.text} type={buttonValue?.type} url={buttonValue?.url} />
+               <div className={classes.buttonWrapper}> { buttons.map(button => <CustomBtn onClick={() => handleClick(button?.url, button.newTab)} text={button?.text} btnType={button?.type} url={button?.url} /> )}</div>
+                
               </Grid>
           </Grid>
   )
