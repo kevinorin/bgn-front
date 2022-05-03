@@ -53,7 +53,7 @@ export default function NewsMainPage({ contentSections, createdAt, newsSection }
         </Grid>
       </Grid>
       <Divider className={classes.divider} />
-      <h2>Related News</h2>
+      <h2>Related Coverage</h2>
       <Slider {...settings}>
         {data.map((item, index) => {
           return (
