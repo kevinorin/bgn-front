@@ -38,11 +38,12 @@ const CustomSlider = (props) => {
   const classes = useStyles();
   const { title, description, smallTextWithLink, picture, buttons } = props.slider; 
   const buttonValue = buttons[0];
+  console.log('Arun Jha picture', picture)
   return (
           <Grid container spacing={10}>
               <Grid item md={6}>
                 <div className={classes.imageWrapper}>
-                  <img src={imgages || getStrapiMedia(picture?.url)} alt={props.slider.title} className={classes.sliderImg} />
+                  <img src={picture?.url} alt={props.slider.title} className={classes.sliderImg} />
                 </div>
               </Grid>
               <Grid item md={6}>
