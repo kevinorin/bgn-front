@@ -14,8 +14,14 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.font
     },
     mainImg: {
-        height: '100%',
-        width: '100%'
+        height: 'auto',
+        width: '100%',
+        maxHeight: '271',
+        alignItems: 'center',
+        display: 'block',
+        textAlign: 'center',
+        margin: 'auto',
+        maxWidth: '100%'
     },
     textBlock: {
         padding: '10px'
