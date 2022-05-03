@@ -138,6 +138,12 @@ const useStyles = makeStyles((theme) => ({
         width: '100%'
       }
     }
+  },
+  disable: {
+    pointerEvents: 'none',
+    cursor: 'default!important',
+    textDecoration: 'none!important',
+    color: '#3e2a5e!important'
   }
 }));
 
@@ -162,51 +168,49 @@ const NavItems = (props) => {
   }
   return (
     <>
-    <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
-      
-      {props?.items.map((menu, index) => {
-        return (
-          <li key={menu?.text}>
-            {menu.text === 'Login' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : (
-              <>
-                {/* <Link href={menu?.url || ''} passHref> */}
+      <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
+
+        {props?.items.map((menu, index) => {
+          return (
+            <li key={menu?.text}>
+              {menu.text === 'Login' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : (
+                <>
                   <a onClick={handleOpen}>
                     <PersonIcon /> {menu.text}
                   </a>
-                {/* </Link> */}
-              </>
-            ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? '' : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> : 
-              <Link href={menu?.url || ''} passHref>
-                <a className={`${index === 0 ? classes.active : ''}`}>
-                  {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
-                  {menu.text}
-                  {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
-                </a>
-              </Link>
+                </>
+              ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? '' : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
+                <Link href={menu?.url || ''} passHref>
+                  <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
+                    {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
+                    {menu.text}
+                    {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
+                  </a>
+                </Link>
 
-            }
+              }
 
-            {
-              menu.links.length ?
-                <ul className={`${classes.submenu} submenu`}>
-                  {menu.links.map((submenu, index) => {
-                    return (
-                      <li key={submenu.text}>
-                        <Link href={submenu?.url || ''} passHref>
-                          <a className={classes.addHover}>{submenu?.text}</a>
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-                : ''
-            }
-          </li>
-        )
-      })}
-    </ul >
-    <Login open={open} onClose={handleClose} />
-    <Registration open={ropen} onClose={handlerClose} />
+              {
+                menu.links.length ?
+                  <ul className={`${classes.submenu} submenu`}>
+                    {menu.links.map((submenu, index) => {
+                      return (
+                        <li key={submenu.text}>
+                          <Link href={submenu?.url || ''} passHref>
+                            <a className={classes.addHover}>{submenu?.text}</a>
+                          </Link>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                  : ''
+              }
+            </li>
+          )
+        })}
+      </ul >
+      <Login open={open} onClose={handleClose} />
+      <Registration open={ropen} onClose={handlerClose} />
     </>
   )
 }
