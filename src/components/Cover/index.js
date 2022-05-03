@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '22px',
       lineHeight: '26px',
       marginTop: theme.marginSection
+    },
+    '& button': {
+      marginRight: '15px',
+      marginTop: '10px'
     }
   },
   listWrapper: {
@@ -56,24 +60,37 @@ const useStyles = makeStyles((theme) => ({
 
 const Cover = (props) => {
   const [isOpen, setOpen] = useState(false)
+  const [videoId, setVideoId] = useState('')
   const classes = useStyles();
   const content = props.cover;
   console.log('Arun Jha props', props)
   const button = content?.buttons[0];
   const isBrowser = typeof window !== 'undefined';
-  const buttonClick = () => {
-    setOpen(true)
+  const getId = (url) => {
+    let regex = /(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))/gm;
+    return regex.exec(url)[3];
+  }
+  const buttonClick = (urls) => {
+    if (urls.includes('youtube')) {
+      setVideoId(getId(urls))
+      setOpen(true)
+    }
+    else {
+      setOpen(false)
+      isBrowser && window.open(urls, "_blank");
+    }
   }
   return (
     <section className={classes.mainWrapper}>
-      {/* {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7CIKa586Hiw" onClose={() => setOpen(false)} /> } */}
+      {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={videoId} onClose={() => setOpen(false)} /> }
       <Grid container spacing={2}>
         <Grid item md={6}>
           <h1>{content.title}</h1>
           <div className={classes.listWrapper} dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
           <h3>{content?.description}</h3>
           <div className={classes.logoWrapper}>
-            <CustomButton onClick={buttonClick} newTab={button?.newTab} btnType={button?.type} text={button?.text} />
+            {content.buttons.map((item_) => <CustomButton onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
+            
           </div>
         </Grid>
         <Grid item md={6}>
