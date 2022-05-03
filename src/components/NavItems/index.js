@@ -148,6 +148,9 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'default!important',
     textDecoration: 'none!important',
     color: '#3e2a5e!important'
+  },
+  buttonReduce: {
+    marginRight: '0px!important'
   }
 }));
 
@@ -184,13 +187,13 @@ const NavItems = (props) => {
         {props?.items.map((menu, index) => {
           return (
             <li key={menu?.text}>
-              {menu.text === 'Login' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : (
+              {menu.text === 'Login' ? Cookies.get('jwt_token') ? <CustomIconButton classNames={classes.buttonReduce} onClick={handleLogout} text='Logout' /> : (
                 <>
                   <a onClick={handleOpen}>
                     <PersonIcon /> {menu.text}
                   </a>
                 </>
-              ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleLogout} text='Logout' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
+              ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
                 <Link href={menu?.url || ''} passHref>
                   <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
                     {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}

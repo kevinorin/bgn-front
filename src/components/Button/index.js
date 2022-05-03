@@ -45,13 +45,13 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomBtn = (props) => {
   const classes = useStyles();
-  const { text, btnType, url } = props;
+  const { text, btnType, url, classNames } = props;
   const mainClass = btnType === ('primary' || 'undefined') ? classes.primaryBtn : classes.sendBtn;
   return (
     <Button
       variant="contained"
       color="primary"
-      className={`${classes.mainBtn} ${mainClass}`}
+      className={`${classes.mainBtn} ${mainClass} ${classNames}`}
       type="submit"
       endIcon={<ArrowRightAltIcon />}
       onClick={props.onClick}
