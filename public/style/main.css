@@ -28,7 +28,7 @@ a {
     background: #CF455C;
     padding: 19px 20px;
     border-radius: 100%;
-
+    cursor: pointer;
 }
 @media (orientation: landscape) {
 .modal-video-close-btn {
