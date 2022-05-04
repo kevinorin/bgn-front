@@ -23,7 +23,35 @@ const useStyles = makeStyles((theme) => ({
   flexEnd: {
     display: 'flex',
     justifyContent: 'flex-end'
-  }
+  },
+  title: {
+    color: theme.palette.font,
+    margin: '0',
+    opacity: '0.05',
+    textAlign: 'center',
+    position: 'absolute',
+    font: 'normal normal bold 80px/90px Oswald',
+    letterSpacing: '18px',
+    left: 0,
+    right: 0,
+    bottom: '-26px',
+    [theme.breakpoints.down('xs')]: {
+      font: 'normal normal bold 40px/50px Oswald',
+      letterSpacing: '15px'
+    }
+  },
+  title1: {
+    color: theme.palette.font,
+    fontSize: 32,
+    fontWeight: 'bold',
+    lineHeight: '40px',
+    marginBottom: '0',
+    textAlign: 'center'
+  },
+  headerWrapper: {
+      position: 'relative',
+      marginBottom: '70px'
+  },
 }))
 
 export default function NewsMainPage({ contentSections, createdAt, newsSection }) {
@@ -53,8 +81,12 @@ export default function NewsMainPage({ contentSections, createdAt, newsSection }
           <Profile />
         </Grid>
       </Grid>
-      <Divider className={classes.divider} />
-      <h2>Related Coverage <AssignmentIcon /></h2>
+      <div className={classes.headerWrapper}>
+          <h2 className={classes.title}>RECENT COVERAG</h2>
+          <h2 className={classes.title1}>Recent Coverage</h2>
+        </div>
+      {/* <Divider className={classes.divider} /> */}
+      {/* <h2>Related Coverage <AssignmentIcon /></h2> */}
       <Slider {...settings}>
         {data.map((item, index) => {
           return (
