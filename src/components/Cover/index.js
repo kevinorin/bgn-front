@@ -58,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
   },
   logoWrapper: {
     marginTop: theme.margintop,
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center'
+    }
   }
 }));
 
