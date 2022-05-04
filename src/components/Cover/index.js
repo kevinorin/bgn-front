@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CheckIcon from '@material-ui/icons/Check';
 import ModalVideo from 'react-modal-video'
+import Hidden from '@material-ui/core/Hidden';
+import withWidth from '@material-ui/core/withWidth';
 import CustomButton from '../../components/Button';
 import LogoSlide from '../LogoSlide';
 
@@ -86,7 +88,11 @@ const Cover = (props) => {
       <Grid container spacing={2}>
         <Grid item md={6}>
           <h1>{content.title}</h1>
+          <Hidden mdUp>
+          <img className={classes.coverImg} src={content?.picture?.url} alt="" />
+          </Hidden>
           <h3>{content?.description}</h3>
+          
           <div className={classes.listWrapper} dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
           
           <div className={classes.logoWrapper}>
@@ -95,7 +101,9 @@ const Cover = (props) => {
           </div>
         </Grid>
         <Grid item md={6}>
+        <Hidden only={['sm', 'xs']}>
           <img className={classes.coverImg} src={content?.picture?.url} alt="" />
+          </Hidden>
         </Grid>
       </Grid>
        <div className={classes.logoWrapper}>
