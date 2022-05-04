@@ -15,7 +15,7 @@ import Dialog from '@material-ui/core/Dialog';
 import Cookies from "js-cookie"
 import CustomButton from '../../components/Button';
 import { useRouter } from 'next/router'
-
+import Cancel from '../../components/Cancel'
 // import background from '../../src/assets/images/login.jpg';
 
 
@@ -89,6 +89,7 @@ export default function Registration(props) {
       router.push('/')
     }
   }
+  
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -99,8 +100,10 @@ export default function Registration(props) {
       >
         <Grid item xs={12} sm={8} md={12} component={Paper} elevation={6} square>
           <div className={classes.paper}>
+          <Cancel closeMenu={props.onClose} />
             {Cookies.get("jwt_token") ? (
               <>
+              <Cancel closeMenu={props.onClose} />
                 <h4>Your registration was successful!</h4>
                 <p>Check your email to confirm and welcome to BGN.</p>
               </>
