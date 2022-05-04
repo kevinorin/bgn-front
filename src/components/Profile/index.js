@@ -10,6 +10,7 @@ import CustomBtn from '../Button';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Cookies from "js-cookie"
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import { useRouter } from 'next/router'
 
 
@@ -91,7 +92,7 @@ export default function Profile() {
       <div className={classes.wheatherWrapper}>
         <p><Whether /></p>
       </div>
-      <p onClick={() => handleClick('https://gala.fan/xgtIrFHDoB')}><FavoriteBorderIcon /> Gala Games</p>
+      <p onClick={() => handleClick('https://gala.fan/xgtIrFHDoB')}><SportsEsportsIcon /> Gala Games</p>
       {/* <p><Translate /></p> */}
       {/* <p><Setting /> Settings</p> */}
       <p onClick={() => handleClick()}><YouTubeIcon /> BGN YouTube</p>
