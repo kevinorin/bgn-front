@@ -37,7 +37,7 @@ export default function Index({ sections, metadata, preview, global, newsSection
     const globalLocale = await getGlobalData(locale)
   
     // Fetch pages. Include drafts if preview mode is on
-    const newsData = await getNewsData( '/news', locale, preview)
+    const newsData = await getNewsData( '/news?_sort=created_at:asc', locale, preview)
 
     // Fetch pages. Include drafts if preview mode is on
     const pageData = await getPageData( '/', locale, preview)

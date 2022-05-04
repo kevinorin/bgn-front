@@ -39,8 +39,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center'
   },
   headerWrapper: {
-      position: 'relative',
-      marginBottom: '70px'
+    position: 'relative',
+    marginBottom: '70px'
   },
   link: {
     float: 'right',
@@ -65,12 +65,10 @@ const News = (props) => {
   return (
     <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
-        {/* {props?.newsPage ? '' : ( */}
-            <div className={classes.headerWrapper}>
+        <div className={classes.headerWrapper}>
           <h2 className={classes.title}>{props?.newsPage ? 'NEWS' : 'RECENT COVERAGE'}</h2>
           <h2 className={classes.title1}>{props?.newsPage ? 'News' : 'Recent Coverage'}</h2>
         </div>
-        {/* )} */}
         <Grid container spacing={2}>
           {finalData.map((item, index) => {
             return (
@@ -79,7 +77,7 @@ const News = (props) => {
           })}
           {props?.newsPage ? '' : (
             <div className={classes.buttonWrapper}>
-            <CustomButton onClick={(e) => buttonClick(e)} btnType='secondary' text='View All' />
+              <CustomButton onClick={(e) => buttonClick(e)} btnType='secondary' text='View All' />
             </div>
           )}
 

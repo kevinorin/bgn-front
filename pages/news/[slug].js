@@ -58,7 +58,7 @@ export async function getStaticProps(context) {
 
   // Fetch pages. Include drafts if preview mode is on
   const ostPrograms = await getNewsData(`/news?slug=/${params.slug}`)
-  const newsData = await getNewsData( '/news')
+  const newsData = await getNewsData('/news?_sort=created_at:asc')
 
   if (ostPrograms == null) {
     // Giving the page no props will trigger a 404 page
