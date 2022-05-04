@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       marginTop: '20px',
       padding: '6px 16px'
+    },
+    '& svg': {
+      position: 'absolute',
+      right: '0px',
+      top: '-10px'
     }
   },
   avatar: {
@@ -100,7 +105,6 @@ export default function Registration(props) {
       >
         <Grid item xs={12} sm={8} md={12} component={Paper} elevation={6} square>
           <div className={classes.paper}>
-          <Cancel closeMenu={props.onClose} />
             {Cookies.get("jwt_token") ? (
               <>
               <Cancel closeMenu={props.onClose} />
