@@ -23,3 +23,24 @@ a {
     text-decoration: none;
     color: #CF455C;
 }
+
+.modal-video-close-btn {
+    background: #CF455C;
+    padding: 19px 20px;
+    border-radius: 100%;
+
+}
+@media (orientation: landscape) {
+.modal-video-close-btn {
+    top: -31px;
+    right: -45px;
+}
+}
+
+.modal-video-close-btn:before,
+.modal-video-close-btn:after {
+    width: 50%;
+    top: 60%;
+    left: 11px;
+  
+}
