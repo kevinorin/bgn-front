@@ -66,7 +66,8 @@ const useStyles = makeStyles((theme) => ({
   logoWrapper: {
     marginTop: theme.marginSection,
     [theme.breakpoints.down('xs')]: {
-      textAlign: 'center'
+      textAlign: 'center',
+      marginTop: '3rem'
     }
   }
 }));
