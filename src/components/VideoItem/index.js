@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imgWrapper: {
     position: 'relative',
-    minHeight: '200px',
+    minHeight: '165px',
   },
   icon: {
     position: 'absolute',
