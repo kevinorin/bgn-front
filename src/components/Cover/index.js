@@ -5,6 +5,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import ModalVideo from 'react-modal-video'
 import Hidden from '@material-ui/core/Hidden';
 import withWidth from '@material-ui/core/withWidth';
+import ReactMarkdown from "react-markdown";
 import CustomButton from '../../components/Button';
 import LogoSlide from '../LogoSlide';
 
@@ -102,8 +103,7 @@ const Cover = (props) => {
           </Hidden>
           <h3>{content?.description}</h3>
           
-          <div className={classes.listWrapper} dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
-          
+          <div className={classes.listWrapper}><ReactMarkdown children={content?.smallTextWithLink} escapeHtml={false} /></div>
           <div className={classes.logoWrapper}>
             {content.buttons.map((item_) => <CustomButton onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
             
