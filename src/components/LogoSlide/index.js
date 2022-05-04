@@ -20,11 +20,17 @@ const useStyles = makeStyles((theme) => ({
             maxWidth: '100%',
             maxHeight: '100%',
             width: '100px',
-            verticalAlign: 'middle'
+            verticalAlign: 'middle',
+            [theme.breakpoints.down('xs')]: {
+              padding: '0px 7px'
+            }
             
         },
         '& .slick-cloned' :{
-          display: 'none'
+          display: 'none',
+          [theme.breakpoints.down('xs')]: {
+            display: 'block'
+          }
         },
         '& .slick-track': {
           margin: 'auto'
@@ -50,6 +56,7 @@ const LogoSlide = ({ logos }) => {
     slidesToShow: 8,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: true,
     responsive: [
         {
           breakpoint: 1024,
@@ -73,7 +80,10 @@ const LogoSlide = ({ logos }) => {
           breakpoint: 480,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+
           }
         }
       ]
