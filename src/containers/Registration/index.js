@@ -29,11 +29,6 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       marginTop: '20px',
       padding: '6px 16px'
-    },
-    '& svg': {
-      position: 'absolute',
-      right: '0px',
-      top: '-10px'
     }
   },
   avatar: {
@@ -47,6 +42,13 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  successWrapper: {
+    '& svg': {
+      position: 'absolute',
+      right: '0px',
+      top: '-10px'
+    }
+  }
 }));
 
 export default function Registration(props) {
@@ -106,11 +108,11 @@ export default function Registration(props) {
         <Grid item xs={12} sm={8} md={12} component={Paper} elevation={6} square>
           <div className={classes.paper}>
             {Cookies.get("jwt_token") ? (
-              <>
+              <div className={classes.successWrapper}>
               <Cancel closeMenu={props.onClose} />
                 <h4>Your registration was successful!</h4>
                 <p>Check your email to confirm and welcome to BGN.</p>
-              </>
+              </div>
             ) : (
               <>
                 <Typography component="h1" variant="h5">
