@@ -32,7 +32,7 @@ export default function Index({ global, newsSection }) {
     const globalLocale = await getGlobalData(locale)
   
     // Fetch pages. Include drafts if preview mode is on
-    const newsData = await getNewsData( '/news?_sort=created_at:asc', locale, preview)
+    const newsData = await getNewsData( '/news?_sort=created_at:desc', locale, preview)
   
     if (newsData == null) {
       // Giving the page no props will trigger a 404 page
