@@ -23,11 +23,17 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '22px',
       lineHeight: '26px',
       marginTop: theme.marginSection,
-      maxWidth: '450px'
+      maxWidth: '450px',
+      [theme.breakpoints.down('xs')]: {
+        marginTop: '0.5em'
+      }
     },
     '& button': {
       marginRight: '15px',
-      marginTop: '10px'
+      marginTop: '10px',
+      [theme.breakpoints.down('xs')]: {
+        width: '100%'
+      }
     }
   },
   listWrapper: {
@@ -57,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: '25px'
   },
   logoWrapper: {
-    marginTop: theme.margintop,
+    marginTop: theme.marginSection,
     [theme.breakpoints.down('xs')]: {
       textAlign: 'center'
     }
