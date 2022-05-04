@@ -22,17 +22,14 @@ import Layout from "../src/components/Layout";
 export const cache = createCache({ key: 'css', prepend: true });
 
 Router.onRouteChangeStart = () => {
-  // console.log('onRouteChangeStart triggered');
   NProgress.start();
 };
 
 Router.onRouteChangeComplete = () => {
-  // console.log('onRouteChangeComplete triggered');
   NProgress.done();
 };
 
 Router.onRouteChangeError = () => {
-  // console.log('onRouteChangeError triggered');
   NProgress.done();
 };
 

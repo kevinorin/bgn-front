@@ -11,7 +11,6 @@ import Seo from '../../src/components/Seo';
 export default function Index({ ostPrograms, newsSection }) {
   const router = useRouter()
   // const navBar = global?.navbar;
-  console.log('newsSection', ostPrograms);
   const { metadata, contentSections, created_at } = ostPrograms[0];
   // const metadata = {
   //   metaTitle: 'News Section',

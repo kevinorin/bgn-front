@@ -11,7 +11,6 @@ import Seo from '../../src/components/Seo';
 export default function Index({ global, newsSection }) {
   const router = useRouter()
   const navBar = global?.navbar;
-  console.log('newsSection', newsSection);
   const metadata = {
     metaTitle: 'News Section',
     metaDescription: 'Like and subscribe for the latest from BGN'

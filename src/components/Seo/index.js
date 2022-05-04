@@ -6,7 +6,7 @@ import { mediaPropTypes } from "../../utils/types";
 const Seo = ({ metadata }) => {
   // Prevent errors if no metadata was set
   if (!metadata) return null;
-
+  console.log('Arun jha metadata', metadata)
   return (
     <NextSeo
       title={metadata.metaTitle}

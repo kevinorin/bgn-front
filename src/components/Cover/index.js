@@ -64,7 +64,6 @@ const Cover = (props) => {
   const [videoId, setVideoId] = useState('')
   const classes = useStyles();
   const content = props.cover;
-  console.log('Arun Jha props', props)
   const button = content?.buttons[0];
   const isBrowser = typeof window !== 'undefined';
   const getId = (url) => {
