@@ -14,3 +14,12 @@ li, p {
 svg {
     vertical-align: middle;
 }
+
+h3 {
+    font-size: 1.5em;
+}
+
+a {
+    text-decoration: none;
+    color: #CF455C;
+}
