@@ -16,7 +16,7 @@ const MobileTopHead = (props) => {
     const classes = useStyles();
     return (
         <div className={classes.mainWrapper}>
-            <Whether />
+            {/* <Whether /> */}
             {/* <Notifications /> */}
             {/* <Translate /> */}
             {/* <Setting /> */}
