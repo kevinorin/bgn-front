@@ -10,9 +10,10 @@ const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     backgroundImage: `url(${cover})`,
     paddingTop: theme.margintop,
+    paddingBottom: theme.margintop,
     color: theme.palette.font,
     textAlign: 'center',
-    height: '350px',
+    minHeight: '350px',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     '& button': {
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   reduceSpace: {
-    height: '235px'
+    minHeight: '235px'
   }
 }));
 

@@ -13,7 +13,13 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     color: '#fff',
     paddingTop: '2rem',
-    paddingBottom: '2rem'
+    paddingBottom: '2rem',
+    [theme.breakpoints.down('xs')]: {
+      '& .slick-slider': {
+        marginLeft: '15px',
+        marginRight: '15px'
+      }
+    }
   },
   divider: {
     marginBottom: '1rem',
@@ -50,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
   },
   headerWrapper: {
       position: 'relative',
-      marginBottom: '70px'
+      marginBottom: '70px',
+      marginTop: '70px'
   },
 }))
 
