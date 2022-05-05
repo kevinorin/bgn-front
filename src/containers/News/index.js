@@ -73,7 +73,7 @@ const News = (props) => {
         <Grid container spacing={2}>
           {finalData.map((item, index) => {
             return (
-              <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} newsPage={props?.newsPage} />
+              <NewsItem createdAt={item} key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} newsPage={props?.newsPage} />
             )
           })}
           {props?.newsPage ? '' : (

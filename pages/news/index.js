@@ -15,6 +15,7 @@ export default function Index({ global, newsSection }) {
     metaTitle: 'News Section',
     metaDescription: 'Like and subscribe for the latest from BGN'
   }
+  console.log('Arun Jha >>>>newsSection', newsSection)
   return (
     <>
       <Seo metadata={metadata} />

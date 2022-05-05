@@ -97,7 +97,7 @@ export default function NewsMainPage({ contentSections, createdAt, newsSection }
       <Slider {...settings}>
         {data.map((item, index) => {
           return (
-            <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} slider />
+            <NewsItem createdAt={item} key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} slider />
           )
         })}
       </Slider>
