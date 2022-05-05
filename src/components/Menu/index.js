@@ -169,7 +169,7 @@ const Menu = (props) => {
         <ClickAwayListener onClickAway={handleClickAway}>
          <div className={classes.mobileNav}>
          <MobileTopHead closeMenu={closeMenu} />
-         <NavItems items={links} />
+         <NavItems closeMenu={closeMenu} items={links} />
        </div>
        </ClickAwayListener>
       )}

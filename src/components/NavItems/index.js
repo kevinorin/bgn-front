@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
         minWidth: '200px',
         padding: '16px',
         top: '22px',
-        
+
         [theme.breakpoints.down('sm')]: {
           display: 'block',
         },
@@ -172,6 +172,7 @@ const NavItems = (props) => {
   const router = useRouter()
   const handleOpen = () => {
     setOpen(true)
+    props.closeMenu();
   }
   const handlerOpen = () => {
     setrOpen(true)
@@ -184,12 +185,14 @@ const NavItems = (props) => {
   };
   const handleOpenLink = () => {
     typeof window !== 'undefined' && window.open('https://gala.fan/xgtIrFHDoB', "_blank");
+    props.closeMenu();
   }
   const handleLogout = () => {
     Cookies.remove("jwt_token")
     router.push('/')
-
-
+  }
+  const handleSideNav = () => {
+    props.closeMenu();
   }
   return (
     <>
@@ -218,7 +221,7 @@ const NavItems = (props) => {
                     </>
                   ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
                     <Link href={menu?.url || ''} passHref>
-                      <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
+                      <a onClick={handleSideNav} className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
                         {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
                         {menu.text}
                         {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
@@ -234,7 +237,7 @@ const NavItems = (props) => {
                           return (
                             <li key={submenu.text}>
                               <Link href={submenu?.url || ''} passHref>
-                                <a className={classes.addHover}>{submenu?.text}</a>
+                                <a onClick={handleSideNav} className={classes.addHover}>{submenu?.text}</a>
                               </Link>
                             </li>
                           )
