@@ -7,6 +7,12 @@ import Container from '@material-ui/core/Container';
 import MobileTopHead from '../MobileTopHead';
 import mainLogo from '../../assets/images/logo/logo.png';
 import { getStrapiMedia } from '../../utils/media';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -14,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     paddingTop: '20px',
     paddingBottom: '20px',
+    
     // alignItems: 'center',
     '& a': {
       cursor: 'pointer'
@@ -50,15 +57,30 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   mobileNav: {
-    position: 'fixed',
-    right: '0',
-    width: '40%',
-    background: theme.palette.menuBg,
-    padding: '30px',
-    height: '100%',
-    zIndex: '99',
-    marginTop: '-22px',
-    overflow: 'scroll',
+    // position: 'fixed',
+    // right: '0',
+    // width: '40%',
+    // background: theme.palette.menuBg,
+    // padding: '30px',
+    // height: '100%',
+    // zIndex: '99',
+    // marginTop: '-22px',
+    // overflow: 'scroll',
+    '& .MuiPaper-root': {
+      background: theme.palette.menuBg,
+      '& .mainMenuWrapper': {
+        padding: '0px 20px'
+      },
+      
+    },
+    '& .MuiDialog-paperFullScreen': {
+      width: '40%',
+      marginLeft: '60%',
+      [theme.breakpoints.down('sm')]: {
+        width: '100%',
+        marginLeft: '0px',
+      }
+    },
     '& li': {
       '& a': {
         '& svg': {
@@ -77,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
       }
     },
     [theme.breakpoints.down('sm')]: {
-      width: '100%',
+      // width: '100%',
       '& .mainMenuWrapper': {
         display: 'block!important'
       }
@@ -132,9 +154,23 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="left" ref={ref} {...props} />;
+});
+
 const Menu = (props) => {
   const [mobileNav, setMobileNav] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const classes = useStyles();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleClick = () => {
     setMobileNav(!mobileNav);
@@ -162,17 +198,28 @@ const Menu = (props) => {
         <NavItems items={links} />
       </div>
       )}
-      <button onClick={handleClick} className={classes.menuIcon}>
+      <button onClick={handleClickOpen} className={classes.menuIcon}>
         <span>&nbsp;</span>
       </button>
-      {mobileNav && (
-        <ClickAwayListener onClickAway={handleClickAway}>
-         <div className={classes.mobileNav}>
-         <MobileTopHead closeMenu={closeMenu} />
-         <NavItems closeMenu={closeMenu} items={links} />
-       </div>
-       </ClickAwayListener>
-      )}
+      {/* {mobileNav && ( */}
+        {/* <ClickAwayListener onClickAway={handleClickAway}> */}
+        <Dialog
+        open={open}
+        fullScreen
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-slide-title"
+        aria-describedby="alert-dialog-slide-description"
+        className={classes.mobileNav}
+      >
+         {/* <div className={classes.mobileNav}> */}
+         <MobileTopHead closeMenu={handleClose} />
+         <NavItems closeMenu={handleClose} items={links} />
+       {/* </div> */}
+       </Dialog>
+    {/* </ClickAwayListener> */}
+      {/* )} */}
     </nav>
     </Container>
   )

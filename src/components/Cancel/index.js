@@ -19,7 +19,7 @@ const Cancel = (props) => {
         props.closeMenu();
     }
     return (
-        <CancelIcon onClick={closeMenu} className={classes.mainWrapper} />
+        <CancelIcon onClick={closeMenu} className={`${classes.mainWrapper} ${props.passClass}`} />
     )
 }
 

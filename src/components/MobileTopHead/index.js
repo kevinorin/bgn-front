@@ -9,6 +9,9 @@ import Cancel from '../Cancel'
 const useStyles = makeStyles((theme) => ({
     mainWrapper: {
         display: 'flex'
+    },
+    cancelButton: {
+        marginRight: '20px'
     }
 }))
 
@@ -20,7 +23,7 @@ const MobileTopHead = (props) => {
             {/* <Notifications /> */}
             {/* <Translate /> */}
             {/* <Setting /> */}
-            <Cancel closeMenu={props.closeMenu} />
+            <Cancel passClass={classes.cancelButton} closeMenu={props.closeMenu} />
         </div>
     )
 }
