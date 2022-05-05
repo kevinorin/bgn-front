@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Footer = () => {
+const Footer = ({ global }) => {
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
@@ -50,7 +50,7 @@ const Footer = () => {
         </div>
         <hr className={classes.line} />
         <div className={classes.copyright}>
-          <p>© Copyright 2021. All Rights Reserved <span className={classes.copy}>Blockchain Games Network</span></p>
+          <p dangerouslySetInnerHTML={{ __html: global.footer.smallText }} />
         </div>
       </section>
     </Container>

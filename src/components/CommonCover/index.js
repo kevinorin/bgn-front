@@ -5,6 +5,8 @@ import CustomButton from '../Button';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShareIcon from '@material-ui/icons/Share';
 import Moment from "react-moment";
+import Divider from '@material-ui/core/Divider';
+
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -42,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
   },
   reduceSpace: {
     minHeight: '235px'
+  },
+  divider: {
+    background: '#fff',
+    marginRight: '10px'
   }
 }));
 
@@ -59,6 +65,7 @@ const CommonCover = (props) => {
       { newPage ? <CustomButton onClick={buttonClick} text='SUBSCRIBE' /> : ''}
       {article ? (<div className={classes.flexWrapper}>
         <p>Blockchain Games Network</p>
+        <Divider orientation="vertical" flexItem className={classes.divider} />
         {/* <p>2 min read</p> */}
         <p><i><Moment format="MMM Do YYYY">
           {createdAt}</Moment></i></p>
