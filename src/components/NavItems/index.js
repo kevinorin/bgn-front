@@ -70,12 +70,22 @@ const useStyles = makeStyles((theme) => ({
     '& li': {
       display: 'inline-block',
       paddingRight: 20,
+      position: 'relative',
       '& .submenu': {
         background: theme.palette.font,
         display: 'none',
         position: 'absolute',
         margin: 0,
         padding: '5px 5px 10px 5px',
+        overflow: 'hidden',
+        borderRadius: '4px',
+        boxShadow: 'rgb(0 0 0 / 5%) 0px 0px 0px 1px, rgb(0 0 0 / 15%) 0px 5px 25px 0px, rgb(0 0 0 / 5%) 0px 3px 3px 0',
+        left: '-6px',
+        margin: '0px',
+        minWidth: '200px',
+        padding: '16px',
+        top: '22px',
+        
         [theme.breakpoints.down('sm')]: {
           display: 'block',
         },
@@ -136,6 +146,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   submenu: {
+
     [theme.breakpoints.down('xs')]: {
       '& li': {
         display: 'block!important',

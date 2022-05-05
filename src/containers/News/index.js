@@ -40,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
   },
   headerWrapper: {
     position: 'relative',
-    marginBottom: '70px'
+    marginBottom: '70px',
+    marginTop: '70px'
   },
   link: {
     float: 'right',

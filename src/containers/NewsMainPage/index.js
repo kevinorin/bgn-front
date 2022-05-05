@@ -89,7 +89,7 @@ export default function NewsMainPage({ contentSections, createdAt, newsSection }
         </Grid>
       </Grid>
       <div className={classes.headerWrapper}>
-          <h2 className={classes.title}>RECENT COVERAG</h2>
+          <h2 className={classes.title}>RECENT COVERAGE</h2>
           <h2 className={classes.title1}>Recent Coverage</h2>
         </div>
       {/* <Divider className={classes.divider} /> */}
