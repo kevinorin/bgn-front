@@ -57,7 +57,9 @@ const LogoSlide = ({ logos }) => {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 0,
+    speed: 3000,
+    cssEase: 'linear',
     responsive: [
       {
         breakpoint: 1024,
