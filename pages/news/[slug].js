@@ -11,7 +11,8 @@ import Seo from '../../src/components/Seo';
 export default function Index({ ostPrograms, newsSection }) {
   const router = useRouter()
   // const navBar = global?.navbar;
-  const { metadata, contentSections, created_at } = ostPrograms[0];
+  console.log('newsSection', ostPrograms);
+  const { metadata, contentSections, createdAt } = ostPrograms[0];
   // const metadata = {
   //   metaTitle: 'News Section',
   //   metaDescription: 'Subscribe, support, and have a heard voice in the development of the games you play.'
@@ -20,8 +21,8 @@ export default function Index({ ostPrograms, newsSection }) {
     <>
       <Seo metadata={metadata} />
       {/* <Menu navBar={navBar} /> */}
-      <CommonCover title={contentSections[0].title} createdAt={created_at} article />
-      <NewsMainPage contentSections={contentSections} createdAt={created_at} newsSection={newsSection} />
+      <CommonCover title={contentSections[0].title} createdAt={createdAt} article />
+      <NewsMainPage contentSections={contentSections} createdAt={createdAt} newsSection={newsSection} />
       {/* <News newsSection={ostPrograms} newsPage /> */}
       {/* <Footer /> */}
     </>
@@ -58,7 +59,7 @@ export async function getStaticProps(context) {
 
   // Fetch pages. Include drafts if preview mode is on
   const ostPrograms = await getNewsData(`/news?slug=/${params.slug}`)
-  const newsData = await getNewsData('/news?_sort=created_at:desc')
+  const newsData = await getNewsData( '/news')
 
   if (ostPrograms == null) {
     // Giving the page no props will trigger a 404 page

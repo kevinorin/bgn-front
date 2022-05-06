@@ -70,22 +70,12 @@ const useStyles = makeStyles((theme) => ({
     '& li': {
       display: 'inline-block',
       paddingRight: 20,
-      position: 'relative',
       '& .submenu': {
         background: theme.palette.font,
         display: 'none',
         position: 'absolute',
         margin: 0,
         padding: '5px 5px 10px 5px',
-        overflow: 'hidden',
-        borderRadius: '4px',
-        boxShadow: 'rgb(0 0 0 / 5%) 0px 0px 0px 1px, rgb(0 0 0 / 15%) 0px 5px 25px 0px, rgb(0 0 0 / 5%) 0px 3px 3px 0',
-        left: '-6px',
-        margin: '0px',
-        minWidth: '200px',
-        padding: '16px',
-        top: '22px',
-
         [theme.breakpoints.down('sm')]: {
           display: 'block',
         },
@@ -146,7 +136,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   submenu: {
-
     [theme.breakpoints.down('xs')]: {
       '& li': {
         display: 'block!important',
@@ -172,7 +161,6 @@ const NavItems = (props) => {
   const router = useRouter()
   const handleOpen = () => {
     setOpen(true)
-    props.closeMenu();
   }
   const handlerOpen = () => {
     setrOpen(true)
@@ -185,14 +173,12 @@ const NavItems = (props) => {
   };
   const handleOpenLink = () => {
     typeof window !== 'undefined' && window.open('https://gala.fan/xgtIrFHDoB', "_blank");
-    props.closeMenu();
   }
   const handleLogout = () => {
     Cookies.remove("jwt_token")
     router.push('/')
-  }
-  const handleSideNav = () => {
-    props.closeMenu();
+
+
   }
   return (
     <>
@@ -221,7 +207,7 @@ const NavItems = (props) => {
                     </>
                   ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
                     <Link href={menu?.url || ''} passHref>
-                      <a onClick={handleSideNav} className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
+                      <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
                         {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
                         {menu.text}
                         {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
@@ -237,7 +223,7 @@ const NavItems = (props) => {
                           return (
                             <li key={submenu.text}>
                               <Link href={submenu?.url || ''} passHref>
-                                <a onClick={handleSideNav} className={classes.addHover}>{submenu?.text}</a>
+                                <a className={classes.addHover}>{submenu?.text}</a>
                               </Link>
                             </li>
                           )

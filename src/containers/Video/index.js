@@ -52,26 +52,43 @@ const Video = (props) => {
     typeof window !== 'undefined' && window.open('https://www.youtube.com/channel/UCspvE_U90Doi1ox2Tpn-sLQ', '_blank')
   }
   return (
-    <Container maxWidth="lg">
-      <section className={classes.mainWrapper}>
-        <div className={classes.headerWrapper}>
-          <h2 className={classes.title}>VIDEOS & STREAMS</h2>
-          <h2 className={classes.title1}>Videos & Streams</h2>
-        </div>
-        <Grid container spacing={2}>
-          {props?.videoData.map((item, index ) => {
-            return (
-              <VideoItem key={item.title + index} item={item?.contentSections[0]} />
-            )
-          })}
-           {props?.newsPage ? '' : (
-            <div className={classes.buttonWrapper}>
-            <CustomButton onClick={(e) => buttonClick(e)} btnType='secondary' text='View All' />
-            </div>
-          )}
-        </Grid>
-      </section>
-    </Container>
+    <>
+        <div className='normal-frame'>
+          <div className='bottom'>
+              <div className='wave'></div>
+              <div className='wave'></div>
+              {/* <div className='wave'></div> */}
+          </div>      
+        </div>  
+        <div className='frame1'>
+          <div className='bottom'>
+              {/* <div className='wave'></div> */}
+              <div className='wave'></div>
+              <div className='wave'></div>
+          </div>      
+        </div>  
+    
+      <Container maxWidth="lg">
+        <section className={classes.mainWrapper}>
+          <div className={classes.headerWrapper}>
+            <h2 className={classes.title}>VIDEOS & STREAMS</h2>
+            <h2 className={classes.title1}>Videos & Streams</h2>
+          </div>
+          <Grid container spacing={2}>
+            {props?.videoData.map((item, index ) => {
+              return (
+                <VideoItem key={item.title + index} item={item?.contentSections[0]} />
+              )
+            })}
+            {props?.newsPage ? '' : (
+              <div className={classes.buttonWrapper}>
+              <CustomButton onClick={(e) => buttonClick(e)} btnType='secondary' text='View All' />
+              </div>
+            )}
+          </Grid>
+        </section>
+      </Container>
+    </>
   )
 }
 

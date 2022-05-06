@@ -13,6 +13,7 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 import { getNewsData, getGlobalData } from "../src/utils/api"
 import Layout from "../src/components/Layout";
+import './custom.css';
 
 // import 'node_modules/react-modal-video/scss/modal-video.scss';
 // import '../src/assets/style/main.css';
@@ -22,14 +23,17 @@ import Layout from "../src/components/Layout";
 export const cache = createCache({ key: 'css', prepend: true });
 
 Router.onRouteChangeStart = () => {
+  // console.log('onRouteChangeStart triggered');
   NProgress.start();
 };
 
 Router.onRouteChangeComplete = () => {
+  // console.log('onRouteChangeComplete triggered');
   NProgress.done();
 };
 
 Router.onRouteChangeError = () => {
+  // console.log('onRouteChangeError triggered');
   NProgress.done();
 };
 

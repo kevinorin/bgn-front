@@ -12,6 +12,7 @@ import { useRouter } from "next/router"
 import Seo from '../src/components/Seo';
 
 
+
 export default function Index({ sections, metadata, preview, global, newsSection, tournamentsData, videoData, logos }) {
   const router = useRouter()
   const cover  = sections && sections[0];
@@ -37,7 +38,7 @@ export default function Index({ sections, metadata, preview, global, newsSection
     const globalLocale = await getGlobalData(locale)
   
     // Fetch pages. Include drafts if preview mode is on
-    const newsData = await getNewsData( '/news?_sort=created_at:desc', locale, preview)
+    const newsData = await getNewsData( '/news', locale, preview)
 
     // Fetch pages. Include drafts if preview mode is on
     const pageData = await getPageData( '/', locale, preview)

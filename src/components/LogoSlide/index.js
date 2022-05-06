@@ -15,38 +15,32 @@ import img8 from '../../assets/images/big-socials/twitter.png';
 import img9 from '../../assets/images/big-socials/facebook.png';
 
 const useStyles = makeStyles((theme) => ({
-  logoWrapper: {
-    '& img': {
-      maxWidth: '100%',
-      maxHeight: '100%',
-      width: '100px',
-      verticalAlign: 'middle',
-      [theme.breakpoints.down('xs')]: {
-        padding: '0px 7px'
-      }
-
+    logoWrapper: {
+        '& img': {
+            maxWidth: '100%',
+            maxHeight: '100%',
+            width: '100px',
+            verticalAlign: 'middle'
+            
+        },
+        '& .slick-cloned' :{
+          display: 'none'
+        },
+        '& .slick-track': {
+          margin: 'auto'
+        }
     },
-    '& .slick-cloned': {
-      display: 'none',
-      [theme.breakpoints.down('xs')]: {
-        display: 'block'
-      }
-    },
-    '& .slick-track': {
-      margin: 'auto'
+    youtubeWrapper: {
+        '& img': {
+            display: 'inline',
+             '&:first-child': {
+                 width: '30px'
+             },
+             '&:last-child': {
+                 width: '72px'
+             }
+        }
     }
-  },
-  youtubeWrapper: {
-    '& img': {
-      display: 'inline',
-      '&:first-child': {
-        width: '30px'
-      },
-      '&:last-child': {
-        width: '72px'
-      }
-    }
-  }
 }));
 
 const LogoSlide = ({ logos }) => {
@@ -56,51 +50,50 @@ const LogoSlide = ({ logos }) => {
     slidesToShow: 8,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: true,
-    autoplaySpeed: 1000,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 3,
-          infinite: true
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
         }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 3,
-          infinite: true
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true
-        }
-      }
-    ]
+      ]
   };
   return (
     <div className={classes.logoWrapper}>
-      <Slider {...settings}>
-        {logos.map(item => (
-          <div>
-            {item.logo[0].url ? (
-              <a href={item.logo[0].url} target="_blank" title={item.logo[0].title}>
+        <Slider {...settings}>
+          {logos.map(item => (
+            <div>
+              {item.logo[0].url ? (
+                <a href={item.logo[0].url} target="_blank" title={item.logo[0].title}>
                 <img src={item.logo[0].icon[0].url} alt={item.logo[0].title} />
-              </a>
-            ) : (
-              <img src={item.logo[0].icon[0].url} alt={item.logo[0].title} />
-            )}
-
-          </div>
-        ))}
-      </Slider>
+                </a>
+              ) : (
+                <img src={item.logo[0].icon[0].url} alt={item.logo[0].title} />
+              )}
+            
+            </div>
+          ))}
+        </Slider>
     </div>
   )
 }

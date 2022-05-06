@@ -76,13 +76,19 @@ const Tournaments = (props) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   };
   return (
-    <Container maxWidth="lg">
+    <>
+    <div className='frame'>
+    <div className='bottom'>
+          <div className='wave'></div>
+          <div className='wave'></div>
+          <div className='wave'></div>
+      </div>      
+    </div>     
+    <Container  maxWidth="lg"> 
       <section className={classes.mainWrapper}>
         <Slider {...settings}>
           {props?.tournamentsData.map((slider, index) => {
@@ -90,9 +96,11 @@ const Tournaments = (props) => {
               <CustomSlider key={index} slider={slider?.contentSections[0]} />
             )
           })}
-        </Slider>
-      </section>
+        </Slider>                  
+      </section>      
+
     </Container>
+    </>
   )
 }
 

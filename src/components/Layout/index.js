@@ -9,7 +9,7 @@ const Layout = ({ children, categories, global }) => {
      {/* <Seo metadata={metadata} /> */}
       <Menu navBar={navbar} />
       <div className="flex-grow">{children}</div>
-      <Footer global={global} />
+      <Footer />
     </>
   );
 };

@@ -8,7 +8,8 @@ import imgages from '../../assets/images/gala-games-town-star-6.png';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
-    background: theme.background
+    background: theme.background,
+    
   },
   sliderImg: {
     maxWidth: '100%',
@@ -44,26 +45,26 @@ const useStyles = makeStyles((theme) => ({
 const CustomSlider = (props) => {
   const classes = useStyles();
   const router = useRouter()
-  const { title, description, smallTextWithLink, picture, buttons } = props.slider;
+  const { title, description, smallTextWithLink, picture, buttons } = props.slider; 
   const handleClick = (link, newTab) => {
-    if (newTab) typeof window !== 'undefined' && window.open(link)
+    if (newTab)typeof window !== 'undefined' && window.open(link)
     else router.push(link)
   }
   return (
-    <Grid container spacing={10}>
-      <Grid item md={6}>
-        <div className={classes.imageWrapper}>
-          <img src={picture?.url} alt={props.slider.title} className={classes.sliderImg} />
-        </div>
-      </Grid>
-      <Grid item md={6}>
-        <p className={classes.sup}>{description}</p>
-        <h2 className={classes.title}>{title}</h2>
-        <p className={classes.description}>{smallTextWithLink}</p>
-        <div className={classes.buttonWrapper}> {buttons.map(button => <CustomBtn onClick={() => handleClick(button?.url, button.newTab)} text={button?.text} btnType={button?.type} url={button?.url} />)}</div>
-
-      </Grid>
-    </Grid>
+          <Grid container spacing={10}>
+              <Grid item md={6}>
+                <div className={classes.imageWrapper}>
+                  <img src={picture?.url} alt={props.slider.title} className={classes.sliderImg} />
+                </div>
+              </Grid>
+              <Grid item md={6}>
+                <p className={classes.sup}>{description}</p>
+                <h2 className={classes.title}>{title}</h2>
+                <p className={classes.description}>{smallTextWithLink}</p>
+               <div className={classes.buttonWrapper}> { buttons.map(button => <CustomBtn onClick={() => handleClick(button?.url, button.newTab)} text={button?.text} btnType={button?.type} url={button?.url} /> )}</div>
+                
+              </Grid>
+          </Grid>
   )
 }
 

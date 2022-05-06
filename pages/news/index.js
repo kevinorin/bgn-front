@@ -11,6 +11,7 @@ import Seo from '../../src/components/Seo';
 export default function Index({ global, newsSection }) {
   const router = useRouter()
   const navBar = global?.navbar;
+  console.log('newsSection', newsSection);
   const metadata = {
     metaTitle: 'News Section',
     metaDescription: 'Like and subscribe for the latest from BGN'
@@ -32,7 +33,7 @@ export default function Index({ global, newsSection }) {
     const globalLocale = await getGlobalData(locale)
   
     // Fetch pages. Include drafts if preview mode is on
-    const newsData = await getNewsData( '/news?_sort=created_at:desc', locale, preview)
+    const newsData = await getNewsData( '/news', locale, preview)
   
     if (newsData == null) {
       // Giving the page no props will trigger a 404 page

@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imgWrapper: {
     position: 'relative',
-    minHeight: '165px',
+    minHeight: '200px',
   },
   icon: {
     position: 'absolute',
@@ -57,6 +57,7 @@ const VideoItem = (props) => {
   const { url, cover } = props.item;
   const finalCover = cover?.url;
   const isBrowser = typeof window !== 'undefined';
+  console.log('Arun Jha props sfdsfdsfds', props)
   const getId = (urls) => {
     let regex = /(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))/gm;
     return regex.exec(urls)[3];

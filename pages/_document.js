@@ -19,8 +19,8 @@ export default class MyDocument extends Document {
           <meta name='description' content='Blockchain Games Network | News, Reviews, Trailers and more' />
           <meta name='format-detection' content='telephone=no' />
           <meta name='mobile-web-app-capable' content='yes' />
-          <link rel='apple-touch-icon' href='/logo/favicon.ico.png'></link>
-          <link rel='shortcut icon' href='/logo/favicon.ico.png' />
+          <link rel='apple-touch-icon' href='/logo/logo.png'></link>
+          <link rel='shortcut icon' href='/logo/main-logo.png' />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
           <link
@@ -49,25 +49,9 @@ export default class MyDocument extends Document {
             type="text/css"
             href="/style/main.css"
           />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="/style/nprogress.css"
-          />
-          <script dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-MVZXZZ5');`}} />
           <link rel='manifest' href='/manifest.json' />
         </Head>
         <body>
-          <noscript dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVZXZZ5"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-          }}
-          />
           <Main />
           <NextScript />
         </body>
