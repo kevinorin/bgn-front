@@ -89,7 +89,7 @@ const Video = (props) => {
               speed: item.speed,
               points: 2
             }}
-            style={{position:'absolute', left:0, opacity:0.5, height:  '300px'}}
+            style={{position:'absolute', left:0, opacity:0.5, height:  '300px', marginTop:'50px'}}
           />
         )       
       })
@@ -104,12 +104,12 @@ const Video = (props) => {
               speed: item.speed,
               points: 2
             }}
-            style={{position:'absolute', marginTop:'300px', left:0, opacity:0.5, transform: 'rotate(180deg)', height:  '350px', zIndex: '-1'}}
+            style={{position:'absolute', marginTop:'350px', left:0, opacity:0.5, transform: 'rotate(180deg)', height:  '350px', zIndex: '-1'}}
           />
         )       
       })
       }    
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" style={{marginTop:'50px', marginBottom:'50px'}}>
         <section className={classes.mainWrapper}>
           <div className={classes.headerWrapper}>
             <h2 className={classes.title}>VIDEOS & STREAMS</h2>
