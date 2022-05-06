@@ -57,7 +57,6 @@ const NewsItem = (props) => {
 	const { title = '', smallTextWithLink, picture } = updatedValue;
 	const image = getStrapiMedia(picture?.url);
 	const classes = useStyles();
-	console.log('Arun Jha updatedValue', props.createdAt.created_at)
 	return (
 		<>
 			<Grid item md={4} className={props.slider ? classes.addSpace : ''}>
