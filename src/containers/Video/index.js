@@ -4,6 +4,8 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import VideoItem from '../../components/VideoItem';
 import CustomButton from '../../components/Button';
+import Wave from 'react-wavify'
+
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -51,23 +53,62 @@ const Video = (props) => {
     e.preventDefault()
     typeof window !== 'undefined' && window.open('https://www.youtube.com/channel/UCspvE_U90Doi1ox2Tpn-sLQ', '_blank')
   }
+
+  const waveData = [
+    {
+      id:1,
+      color: '#242c4b',
+      speed: 0.2
+    },
+    {
+      id:2,
+      color: '#11162f',
+      speed: 0.21
+    },
+    {
+      id:3,
+      color: '#19233f',
+      speed: 0.15
+    },
+    {
+      id:4,
+      color: '#242c50',
+      speed: 0.18
+    }
+  ]
+
   return (
     <>
-        <div className='normal-frame'>
-          <div className='bottom'>
-              <div className='wave'></div>
-              <div className='wave'></div>
-              {/* <div className='wave'></div> */}
-          </div>      
-        </div>  
-        <div className='frame1'>
-          <div className='bottom'>
-              {/* <div className='wave'></div> */}
-              <div className='wave'></div>
-              <div className='wave'></div>
-          </div>      
-        </div>  
-    
+      { waveData.map((item) => {
+        return(
+          <Wave key={item.id} fill={ item.color }
+            paused={false}
+            options={{
+              height: 20,
+              amplitude: 50,
+              speed: item.speed,
+              points: 2
+            }}
+            style={{position:'absolute', left:0, opacity:0.5, height:  '300px'}}
+          />
+        )       
+      })
+      }    
+      { waveData.map((item) => {
+        return(
+          <Wave key={item.id} fill={ item.color }
+            paused={false}
+            options={{
+              height: 20,
+              amplitude: 50,
+              speed: item.speed,
+              points: 2
+            }}
+            style={{position:'absolute', marginTop:'300px', left:0, opacity:0.5, transform: 'rotate(180deg)', height:  '350px', zIndex: '-1'}}
+          />
+        )       
+      })
+      }    
       <Container maxWidth="lg">
         <section className={classes.mainWrapper}>
           <div className={classes.headerWrapper}>

@@ -5,6 +5,7 @@ import CustomSlider from '../../components/Slider';
 import Slider from "react-slick";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Wave from 'react-wavify'
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -79,15 +80,47 @@ const Tournaments = (props) => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   };
+
+  const waveData = [
+    {
+      id:1,
+      color: '#2e4676',
+      speed: 0.2
+    },
+    {
+      id:2,
+      color: '#182048',
+      speed: 0.21
+    },
+    {
+      id:3,
+      color: '#1d2e54',
+      speed: 0.15
+    },
+    {
+      id:4,
+      color: '#264068',
+      speed: 0.18
+    }
+  ]
+
   return (
     <>
-    <div className='frame'>
-    <div className='bottom'>
-          <div className='wave'></div>
-          <div className='wave'></div>
-          <div className='wave'></div>
-      </div>      
-    </div>     
+    { waveData.map((item) => {
+      return(
+        <Wave key={item.id} fill={ item.color }
+          paused={false}
+          options={{
+            height: 20,
+            amplitude: 50,
+            speed: item.speed,
+            points: 2
+          }}
+          style={{position:'absolute', left:0, opacity:0.5, transform: 'rotate(180deg)', height:  '500px'}}
+        />
+      )       
+    })
+    }            
     <Container  maxWidth="lg"> 
       <section className={classes.mainWrapper}>
         <Slider {...settings}>

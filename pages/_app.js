@@ -13,7 +13,7 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 import { getNewsData, getGlobalData } from "../src/utils/api"
 import Layout from "../src/components/Layout";
-import './custom.css';
+
 
 // import 'node_modules/react-modal-video/scss/modal-video.scss';
 // import '../src/assets/style/main.css';
