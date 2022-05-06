@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Link from 'next/link'
 import { getStrapiMedia } from '../../utils/media';
 import Moment from "react-moment";
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const useStyles = makeStyles((theme) => ({
 	paperWrapper: {
@@ -71,7 +72,7 @@ const NewsItem = (props) => {
                             <span className={classes.case2}>#CRIME</span>
                         </p> */}
 								<h3 className={classes.title}>{title}</h3>
-								<p className={classes.description}>{smallTextWithLink.substring(0, 155)}</p>
+							<p className={classes.description}>{smallTextWithLink.substring(0, 155)}  <Link href={`/news${props?.slug}`} passHref><a>... read more<ArrowRightIcon /></a></Link></p>
 							</div>
 						</div>
 						{/* <img src={picture?.url} /> */}
