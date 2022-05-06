@@ -116,12 +116,12 @@ const Tournaments = (props) => {
             speed: item.speed,
             points: 2
           }}
-          style={{position:'absolute', left:0, opacity:0.5, transform: 'rotate(180deg)', height:  '500px'}}
+          style={{position:'absolute', left:0, marginTop:'50px', opacity:0.5, transform: 'rotate(180deg)', height:  '500px'}}
         />
       )       
     })
     }            
-    <Container  maxWidth="lg"> 
+    <Container  maxWidth="lg" style={{marginTop:'50px'}}> 
       <section className={classes.mainWrapper}>
         <Slider {...settings}>
           {props?.tournamentsData.map((slider, index) => {
