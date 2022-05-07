@@ -5,6 +5,7 @@ import CustomSlider from '../../components/Slider';
 import Slider from "react-slick";
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Wave from 'react-wavify'
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -61,12 +62,12 @@ const Tournaments = (props) => {
       />
     );
   }
-  
+
   const NextArrow = (props) => {
     const { className, onClick } = props;
     return (
       <NavigateNextIcon
-      className={`${className} ${classes.nextIcon}`}
+        className={`${className} ${classes.nextIcon}`}
         onClick={onClick}
       />
     );
@@ -81,18 +82,57 @@ const Tournaments = (props) => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   };
+  const waveData = [
+    {
+      id: 1,
+      color: '#2e4676',
+      speed: 0.2
+    },
+    {
+      id: 2,
+      color: '#182048',
+      speed: 0.21
+    },
+    {
+      id: 3,
+      color: '#1d2e54',
+      speed: 0.15
+    },
+    {
+      id: 4,
+      color: '#264068',
+      speed: 0.18
+    }
+  ]
   return (
-    <Container maxWidth="lg">
-      <section className={classes.mainWrapper}>
-        <Slider {...settings}>
-          {props?.tournamentsData.map((slider, index) => {
-            return (
-              <CustomSlider key={index} slider={slider?.contentSections[0]} />
-            )
-          })}
-        </Slider>
-      </section>
-    </Container>
+    <>
+      {waveData.map((item) => {
+        return (
+          <Wave key={item.id} fill={item.color}
+            paused={false}
+            options={{
+              height: 20,
+              amplitude: 50,
+              speed: item.speed,
+              points: 2
+            }}
+            style={{ position: 'absolute', left: 0, marginTop: '50px', opacity: 0.5, transform: 'rotate(180deg)', height: '500px' }}
+          />
+        )
+      })
+      }
+      <Container maxWidth="lg" style={{ marginTop: '50px' }}>
+        <section className={classes.mainWrapper}>
+          <Slider {...settings}>
+            {props?.tournamentsData.map((slider, index) => {
+              return (
+                <CustomSlider key={index} slider={slider?.contentSections[0]} />
+              )
+            })}
+          </Slider>
+        </section>
+      </Container>
+    </>
   )
 }
 
