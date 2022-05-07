@@ -60,7 +60,7 @@ const CustomSlider = (props) => {
         <p className={classes.sup}>{description}</p>
         <h2 className={classes.title}>{title}</h2>
         <p className={classes.description}>{smallTextWithLink}</p>
-        <div className={classes.buttonWrapper}> {buttons.map(button => <CustomBtn onClick={() => handleClick(button?.url, button.newTab)} text={button?.text} btnType={button?.type} url={button?.url} />)}</div>
+        <div className={classes.buttonWrapper}> {buttons.map(button => <CustomBtn key={button?.url} onClick={() => handleClick(button?.url, button.newTab)} text={button?.text} btnType={button?.type} url={button?.url} />)}</div>
 
       </Grid>
     </Grid>

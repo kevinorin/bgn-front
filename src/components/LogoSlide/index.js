@@ -91,7 +91,7 @@ const LogoSlide = ({ logos }) => {
     <div className={classes.logoWrapper}>
       <Slider {...settings}>
         {logos.map(item => (
-          <div>
+          <div key={item.logo[0].url}>
             {item.logo[0].url ? (
               <a href={item.logo[0].url} target="_blank" title={item.logo[0].title}>
                 <img src={item.logo[0].icon[0].url} alt={item.logo[0].title} />

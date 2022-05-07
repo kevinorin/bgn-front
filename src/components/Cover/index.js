@@ -106,7 +106,7 @@ const Cover = (props) => {
           
           <div className={classes.listWrapper}><ReactMarkdown children={content?.smallTextWithLink} escapeHtml={false} /></div>
           <div className={classes.logoWrapper}>
-            {content.buttons.map((item_) => <CustomButton onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
+            {content.buttons.map((item_) => <CustomButton key={item_?.text} onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
             
           </div>
         </Grid>
