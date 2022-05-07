@@ -9,7 +9,8 @@ const withImages = require('next-images')
 module.exports = withPWA(withImages({
     inlineImageLimit: 16384,
     pwa: {
-        dest: 'public'
+        dest: 'public',
+        disable: process.env.NODE_ENV === 'development'
       },
     i18n: {
         locales: ["en"],
