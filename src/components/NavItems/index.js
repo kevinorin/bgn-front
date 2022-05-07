@@ -200,7 +200,7 @@ const NavItems = (props) => {
 
         {props?.items.map((menu, index) => {
           return (
-            <div key={`${menu.text}${index}`}>
+            <>
               {menu.text === 'Vanguard Studios' ? (
                 <Tooltip title="COMING SOON">
                   <li>
@@ -247,7 +247,7 @@ const NavItems = (props) => {
                   }
                 </li>
               )}
-            </div>
+            </>
           )
         })}
       </ul >
