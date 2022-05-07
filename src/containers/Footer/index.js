@@ -34,7 +34,10 @@ const useStyles = makeStyles((theme) => ({
   copyright: {
     color: theme.palette.copyright1,
     fontSize: '12px',
-    textAlign: 'center'
+    textAlign: 'center',
+    '& p': {
+      fontSize: '12px'
+    }
   }
 }));
 
