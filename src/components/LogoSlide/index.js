@@ -1,18 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import CustomBtn from '../Button';
 import Slider from "react-slick";
-import Link from 'next/link';
-import img1 from '../../assets/images/big-socials/patron.png';
-import img2 from '../../assets/images/big-socials/discord.png';
-import img3 from '../../assets/images/big-socials/wasder.png';
-import img4 from '../../assets/images/big-socials/medium.png';
-import img5 from '../../assets/images/big-socials/youtube1.png';
-import img6 from '../../assets/images/big-socials/youtube2.png';
-import img7 from '../../assets/images/big-socials/THETAtv_logo.png';
-import img8 from '../../assets/images/big-socials/twitter.png';
-import img9 from '../../assets/images/big-socials/facebook.png';
 
 const useStyles = makeStyles((theme) => ({
   logoWrapper: {
@@ -34,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .slick-track': {
       margin: 'auto'
+    },
+    '& .slick-next': {
+      right: '-10px'
     }
   },
   youtubeWrapper: {
