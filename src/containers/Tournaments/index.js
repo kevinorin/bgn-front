@@ -10,7 +10,7 @@ import Wave from 'react-wavify'
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     background: theme.background,
-    paddingTop: theme.margintop,
+    paddingTop: theme.marginHP,
   },
   prevIcon: {
     color: theme.palette.font,
@@ -48,6 +48,14 @@ const useStyles = makeStyles((theme) => ({
       left: 'calc(50% - 32px)'
 
     }
+  },
+  bottomStyle: {
+    position: 'absolute',
+    left: 0,
+    marginTop: '80px',
+    opacity: 0.5,
+    transform: 'rotate(180deg)',
+    height: '560px'
   }
 }));
 
@@ -116,7 +124,7 @@ const Tournaments = (props) => {
               speed: item.speed,
               points: 2
             }}
-            style={{ position: 'absolute', left: 0, marginTop: '50px', opacity: 0.5, transform: 'rotate(180deg)', height: '500px' }}
+            className={classes.bottomStyle}
           />
         )
       })

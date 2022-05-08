@@ -35,6 +35,7 @@ const theme = createMuiTheme({
   },
   margintop: '4rem',
   marginSection: '2rem',
+  marginHP: '8rem',
 });
 
 export default theme;

@@ -9,7 +9,7 @@ import Wave from 'react-wavify'
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     background: theme.background,
-    paddingTop: theme.margintop,
+    paddingTop: theme.marginHP
 
   },
   title: {
@@ -43,6 +43,22 @@ const useStyles = makeStyles((theme) => ({
   buttonWrapper: {
     margin: 'auto',
     marginTop: '20px'
+  },
+  waveUpper: {
+    position: 'absolute',
+    left: 0,
+    opacity: 0.5,
+    height: '300px',
+    marginTop: '70px'
+  },
+  waveBottom: {
+    position: 'absolute',
+    marginTop: '400px',
+    left: 0,
+    opacity: 0.5,
+    transform: 'rotate(180deg)',
+    height: '400px',
+    zIndex: '-1'
   }
 }));
 
@@ -81,12 +97,12 @@ const Video = (props) => {
           <Wave key={item.id} fill={item.color}
             paused={false}
             options={{
-              height: 20,
+              height: 1,
               amplitude: 50,
               speed: item.speed,
               points: 2
             }}
-            style={{ position: 'absolute', left: 0, opacity: 0.5, height: '300px', marginTop: '50px' }}
+            className={classes.waveUpper}
           />
         )
       })
@@ -101,7 +117,8 @@ const Video = (props) => {
               speed: item.speed,
               points: 2
             }}
-            style={{ position: 'absolute', marginTop: '350px', left: 0, opacity: 0.5, transform: 'rotate(180deg)', height: '350px', zIndex: '-1' }}
+            style={{ position: 'absolute', marginTop: '400px', left: 0, opacity: 0.5, transform: 'rotate(180deg)', height: '400px', zIndex: '-1' }}
+            className={classes.waveBottom}
           />
         )
       })

@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     background: theme.background,
-    paddingTop: theme.margintop,
+    paddingTop: theme.marginHP,
   },
   title: {
     color: theme.palette.font,
