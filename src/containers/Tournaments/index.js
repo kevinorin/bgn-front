@@ -55,7 +55,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '80px',
     opacity: 0.5,
     transform: 'rotate(180deg)',
-    height: '560px'
+    height: '560px',
+    [theme.breakpoints.down('xs')]: {
+      height: '925px'
+    }
   }
 }));
 

@@ -40,7 +40,7 @@ export default function Index({ sections, metadata, preview, global, newsSection
     const newsData = await getNewsData( '/news?_sort=created_at:desc', locale, preview)
 
     // Fetch pages. Include drafts if preview mode is on
-    const pageData = await getPageData( '/', locale, preview)
+    const pageData = await getPageData( '/town-crush', locale, preview)
 
     // Fetch pages. Include drafts if preview mode is on
     const tournamentsData = await getNewsData( '/tournaments', locale, preview)

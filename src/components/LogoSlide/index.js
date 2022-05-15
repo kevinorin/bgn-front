@@ -81,7 +81,7 @@ const LogoSlide = ({ logos }) => {
   return (
     <div className={classes.logoWrapper}>
       <Slider {...settings}>
-        {logos.map(item => (
+        { logos && logos.map(item => (
           <div key={item.logo[0].url}>
             {item.logo[0].url ? (
               <a href={item.logo[0].url} target="_blank" title={item.logo[0].title}>

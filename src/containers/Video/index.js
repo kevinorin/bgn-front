@@ -58,7 +58,10 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0.5,
     transform: 'rotate(180deg)',
     height: '400px',
-    zIndex: '-1'
+    zIndex: '-1',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '1310px'
+    }
   }
 }));
 
@@ -117,7 +120,6 @@ const Video = (props) => {
               speed: item.speed,
               points: 2
             }}
-            style={{ position: 'absolute', marginTop: '400px', left: 0, opacity: 0.5, transform: 'rotate(180deg)', height: '400px', zIndex: '-1' }}
             className={classes.waveBottom}
           />
         )

@@ -78,6 +78,7 @@ const Cover = (props) => {
   const classes = useStyles();
   const content = props.cover;
   const button = content?.buttons[0];
+  console.log('Arun Jha content', content)
   const isBrowser = typeof window !== 'undefined';
   const getId = (url) => {
     let regex = /(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))/gm;
@@ -98,7 +99,7 @@ const Cover = (props) => {
       {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={videoId} onClose={() => setOpen(false)} /> }
       <Grid container spacing={2}>
         <Grid item md={6}>
-          <h1>{content.title}</h1>
+          <h1>{content?.title}</h1>
           <Hidden mdUp>
           <img className={classes.coverImg} src={content?.picture?.url} alt="" />
           </Hidden>
@@ -106,7 +107,7 @@ const Cover = (props) => {
           
           <div className={classes.listWrapper}><ReactMarkdown children={content?.smallTextWithLink} escapeHtml={false} /></div>
           <div className={classes.logoWrapper}>
-            {content.buttons.map((item_) => <CustomButton key={item_?.text} onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
+            {content?.buttons.map((item_) => <CustomButton key={item_?.text} onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
             
           </div>
         </Grid>
