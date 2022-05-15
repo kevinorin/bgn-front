@@ -201,7 +201,7 @@ const NavItems = (props) => {
         {props?.items.map((menu, index) => {
           return (
             <>
-              {(menu.text === 'Vanguard Studios' || menu.text === 'Survey') ? (
+              {(menu.text === 'Vanguard Studios') ? (
                 <Tooltip title="COMING SOON">
                   <li>
                     <Link href={menu?.url || ''} passHref>

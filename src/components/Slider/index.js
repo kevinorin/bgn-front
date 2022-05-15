@@ -3,8 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CustomBtn from '../Button';
 import { useRouter } from 'next/router'
-import { getStrapiMedia } from '../../utils/media';
-import imgages from '../../assets/images/gala-games-town-star-6.png';
+import ReactMarkdown from "react-markdown";
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -60,6 +59,7 @@ const CustomSlider = (props) => {
         <p className={classes.sup}>{description}</p>
         <h2 className={classes.title}>{title}</h2>
         <p className={classes.description}>{smallTextWithLink}</p>
+        {/* <p className={classes.description}><ReactMarkdown children={{smallTextWithLink}} /></p> */}
         <div className={classes.buttonWrapper}> {buttons.map(button => <CustomBtn key={button?.url} onClick={() => handleClick(button?.url, button.newTab)} text={button?.text} btnType={button?.type} url={button?.url} />)}</div>
 
       </Grid>
