@@ -201,11 +201,11 @@ const NavItems = (props) => {
         {props?.items.map((menu, index) => {
           return (
             <>
-              {menu.text === 'Vanguard Studios' ? (
+              {(menu.text === 'Vanguard Studios' || menu.text === 'Survey') ? (
                 <Tooltip title="COMING SOON">
                   <li>
                     <Link href={menu?.url || ''} passHref>
-                      <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''}`}>
+                      <a className={classes.disable}>
                         {menu.text}
                       </a>
                     </Link>
