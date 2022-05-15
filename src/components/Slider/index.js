@@ -58,7 +58,8 @@ const CustomSlider = (props) => {
       <Grid item md={6}>
         <p className={classes.sup}>{description}</p>
         <h2 className={classes.title}>{title}</h2>
-        <p className={classes.description}>{smallTextWithLink}</p>
+        {/* <p className={classes.description}>{smallTextWithLink}</p> */}
+        <p className={classes.description} dangerouslySetInnerHTML={{__html: smallTextWithLink}} />
         {/* <p className={classes.description}><ReactMarkdown children={{smallTextWithLink}} /></p> */}
         <div className={classes.buttonWrapper}> {buttons.map(button => <CustomBtn key={button?.url} onClick={() => handleClick(button?.url, button.newTab)} text={button?.text} btnType={button?.type} url={button?.url} />)}</div>
 
