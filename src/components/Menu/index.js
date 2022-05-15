@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     paddingTop: '20px',
     paddingBottom: '20px',
-    
+
     // alignItems: 'center',
     '& a': {
       cursor: 'pointer'
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
       '& .mainMenuWrapper': {
         padding: '0px 20px'
       },
-      
+
     },
     '& .MuiDialog-paperFullScreen': {
       width: '40%',
@@ -116,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'block!important',
         '&:last-child, &:nth-last-child(2)': {
           display: 'block!important',
-         
+
         },
         '& a': {
           color: `${theme.palette.font}!important`,
@@ -185,42 +185,42 @@ const Menu = (props) => {
   if (!links) return null;
   return (
     <Container maxWidth="lg">
-    <nav className={classes.mainWrapper}>
-      <div className={classes.logoContainer}>
-      <Link href='/' passHref>
-        <a>
-          <img src={mainLogo || getStrapiMedia(logo?.url)} alt="BGN Logo" />
-        </a>
-      </Link>
-      </div>
-      {!mobileNav && (
-      <div className={classes.desktopNav}>
-        <NavItems items={links} />
-      </div>
-      )}
-      <button onClick={handleClickOpen} className={classes.menuIcon}>
-        <span>&nbsp;</span>
-      </button>
-      {/* {mobileNav && ( */}
+      <nav className={classes.mainWrapper}>
+        <div className={classes.logoContainer}>
+          <Link href='/' passHref>
+            <a>
+              <img src={mainLogo || getStrapiMedia(logo?.url)} alt="BGN Logo" />
+            </a>
+          </Link>
+        </div>
+        {!mobileNav && (
+          <div className={classes.desktopNav}>
+            <NavItems items={links} />
+          </div>
+        )}
+        <button onClick={handleClickOpen} className={classes.menuIcon}>
+          <span>&nbsp;</span>
+        </button>
+        {/* {mobileNav && ( */}
         {/* <ClickAwayListener onClickAway={handleClickAway}> */}
         <Dialog
-        open={open}
-        fullScreen
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-        className={classes.mobileNav}
-      >
-         {/* <div className={classes.mobileNav}> */}
-         <MobileTopHead closeMenu={handleClose} />
-         <NavItems closeMenu={handleClose} items={links} />
-       {/* </div> */}
-       </Dialog>
-    {/* </ClickAwayListener> */}
-      {/* )} */}
-    </nav>
+          open={open}
+          fullScreen
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+          className={classes.mobileNav}
+        >
+          {/* <div className={classes.mobileNav}> */}
+          <MobileTopHead closeMenu={handleClose} />
+          <NavItems closeMenu={handleClose} items={links} />
+          {/* </div> */}
+        </Dialog>
+        {/* </ClickAwayListener> */}
+        {/* )} */}
+      </nav>
     </Container>
   )
 }
