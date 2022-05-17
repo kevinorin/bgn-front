@@ -165,6 +165,13 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonReduce: {
     marginRight: '0px!important'
+  },
+  themeToggle: {
+    verticalAlign: 'middle',
+    marginLeft: '-25px',
+    '& button': {
+      padding: '0'
+    }
   }
 }));
 
@@ -257,7 +264,7 @@ const NavItems = (props) => {
             </>
           )
         })}
-        <li>
+        <li className={classes.themeToggle}>
           <ThemeModeToggle />
         </li>
       </ul >

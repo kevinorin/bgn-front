@@ -200,7 +200,7 @@ const Menu = (props) => {
         </div>
         {!mobileNav && (
           <div className={classes.desktopNav}>
-            <NavItems items={links} />
+            <NavItems closeMenu={handleClose} items={links} />
           </div>
         )}
         <button onClick={handleClickOpen} className={classes.menuIcon}>
