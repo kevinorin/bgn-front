@@ -38,16 +38,24 @@ const useStyles = makeStyles((theme) => ({
     '& p': {
       fontSize: '12px'
     }
+  },
+  footerLogo: {
+    height: '88px',
+    width: '88px'
   }
 }));
 
 const Footer = ({ global }) => {
   const classes = useStyles();
+  console.log('Arun Jha global', global)
+  const { logo, light_logo } = global.footer;
+  const mode = typeof window !== 'undefined' && window.localStorage.getItem("mode") === "true";
+  const mainLogo = mode ? logo.url : light_logo.url;
   return (
     <Container maxWidth="lg">
       <section className={classes.paperWrapper}>
         <div className={classes.upperPart}>
-          <img src={logo} alt="BGN Logo" />
+          <img className={classes.footerLogo} src={mainLogo} alt="BGN Logo" />
           <h2 className={classes.title}>BLOCKCHAIN GAMES NETWORK</h2>
           <FooterSocials />
         </div>

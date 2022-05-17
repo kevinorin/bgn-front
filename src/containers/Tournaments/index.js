@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     height: 32,
     left: '18%',
     transform: 'translate(18%,0)',
-    bottom: -50,
+    bottom: -39,
     marginRight: 30,
     top: 'auto',
     "&:hover": {
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     height: 32,
     left: '18%',
     transform: 'translate(18%,0)',
-    bottom: -50,
+    bottom: -39,
     marginLeft: 30,
     top: 'auto',
     "&:hover": {
