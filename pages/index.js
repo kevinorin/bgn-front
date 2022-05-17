@@ -11,7 +11,6 @@ import Patreon from '../src/containers/Patreon';
 import { useRouter } from "next/router"
 import Seo from '../src/components/Seo';
 
-
 export default function Index({ sections, metadata, preview, global, newsSection, tournamentsData, videoData, logos }) {
   const router = useRouter()
   const cover  = sections && sections[0];

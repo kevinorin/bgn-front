@@ -8,11 +8,14 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { CacheProvider } from '@emotion/react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import createCache from '@emotion/cache';
-import theme from '../src/theme';
+import theme from '../src/utils/theme';
+import darkTheme from '../src/utils/darkTheme';
 import NProgress from 'nprogress';
 import Router from 'next/router';
+import { useMediaQuery } from "@mui/material";
 import { getNewsData, getGlobalData } from "../src/utils/api"
 import Layout from "../src/components/Layout";
+import ColorModeContext from "../src/utils/ColorModeContext";
 
 // import 'node_modules/react-modal-video/scss/modal-video.scss';
 // import '../src/assets/style/main.css';
@@ -36,6 +39,10 @@ Router.onRouteChangeError = () => {
 export default function MyApp(props) {
   const { Component, pageProps, global } = props;
 
+  // Set dark mode based on media query
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [darkMode, setDarkMode] = React.useState(prefersDarkMode);
+
   const [redux] = React.useState(() =>
   initRedux({ options: { userLanguage: pageProps.userLanguage } }),
   );
@@ -48,6 +55,19 @@ export default function MyApp(props) {
     }
   }, []);
 
+  React.useEffect(() => {
+    const mode = localStorage.getItem("mode") === "true";
+    // set mode
+    console.log(`get localStore ${mode}`);
+    setDarkMode(mode);
+  }, []);
+
+  const _setDarkMode = (newmode) => {
+    console.log(`set localStore ${newmode}`);
+    localStorage.setItem("mode", newmode);
+    setDarkMode(newmode);
+  };
+
   return (
     <CacheProvider value={cache}>
       <Head>
@@ -55,14 +75,17 @@ export default function MyApp(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ReduxProvider store={redux}>
-        
-      <ThemeProvider theme={theme}>
+      <ColorModeContext.Provider
+        value={{ darkMode, setDarkMode: _setDarkMode }}
+      >
+      <ThemeProvider theme={darkMode ? darkTheme : theme}>
       <Layout global={global}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
         </Layout>
       </ThemeProvider>
+      </ColorModeContext.Provider>
       </ReduxProvider>
     </CacheProvider>
   );

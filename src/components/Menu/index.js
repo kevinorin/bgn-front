@@ -13,6 +13,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import { useTheme } from "@mui/material/styles";
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -181,7 +182,11 @@ const Menu = (props) => {
   const closeMenu = () => {
     setMobileNav(false);
   }
-  const { links, logo } = props?.navBar;
+  const { links, logo, light_logo } = props?.navBar;
+  const theme = useTheme();
+  const mode = typeof window !== 'undefined' && window.localStorage.getItem("mode") === "true";
+  console.log('Arun Jha logo', mode)
+  const headLogo = mode ? logo.url : light_logo.url;
   if (!links) return null;
   return (
     <Container maxWidth="lg">
@@ -189,7 +194,7 @@ const Menu = (props) => {
         <div className={classes.logoContainer}>
           <Link href='/' passHref>
             <a>
-              <img src={mainLogo || getStrapiMedia(logo?.url)} alt="BGN Logo" />
+              <img src={getStrapiMedia(headLogo)} alt="BGN Logo" />
             </a>
           </Link>
         </div>

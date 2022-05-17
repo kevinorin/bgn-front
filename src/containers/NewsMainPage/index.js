@@ -11,7 +11,7 @@ import Slider from "react-slick";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    color: '#fff',
+    color: theme.palette.font,
     paddingTop: '2rem',
     paddingBottom: '2rem',
     [theme.breakpoints.down('xs')]: {

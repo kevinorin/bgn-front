@@ -23,7 +23,7 @@ const MobileTopHead = (props) => {
             {/* <Notifications /> */}
             {/* <Translate /> */}
             {/* <Setting /> */}
-            <Cancel passClass={classes.cancelButton} closeMenu={props.closeMenu} />
+            <Cancel passClass={classes.cancelButton} closeMenu={props?.closeMenu} />
         </div>
     )
 }

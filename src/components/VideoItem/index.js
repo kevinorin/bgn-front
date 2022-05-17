@@ -8,7 +8,7 @@ import yicon from '../../assets/images/y-play-icon.png'
 
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
-    backgroundColor: theme.palette.background.black
+    backgroundColor: theme.palette.supportbg
   },
   title: {
     color: theme.palette.font

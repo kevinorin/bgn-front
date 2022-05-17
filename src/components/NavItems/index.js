@@ -9,7 +9,10 @@ import Registration from '../../containers/Registration';
 import Cookies from "js-cookie"
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
+import Switch from '@material-ui/core/Switch';
 import { useRouter } from 'next/router'
+import ThemeModeToggle from '../ThemeModeToggle';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -172,7 +175,7 @@ const NavItems = (props) => {
   const router = useRouter()
   const handleOpen = () => {
     setOpen(true)
-    props.closeMenu();
+    props?.closeMenu();
   }
   const handlerOpen = () => {
     setrOpen(true)
@@ -185,14 +188,18 @@ const NavItems = (props) => {
   };
   const handleOpenLink = () => {
     typeof window !== 'undefined' && window.open('https://gala.fan/xgtIrFHDoB', "_blank");
-    props.closeMenu();
+    props?.closeMenu();
   }
   const handleLogout = () => {
     Cookies.remove("jwt_token")
     router.push('/')
   }
   const handleSideNav = () => {
-    props.closeMenu();
+    props?.closeMenu();
+  }
+  const [checkedA, setCheckedA] = React.useState(true);
+  const handleChange = (event) => {
+    setCheckedA(event.target.checked)
   }
   return (
     <>
@@ -250,6 +257,9 @@ const NavItems = (props) => {
             </>
           )
         })}
+        <li>
+          <ThemeModeToggle />
+        </li>
       </ul >
       <Login open={open} onClose={handleClose} />
       <Registration open={ropen} onClose={handlerClose} />

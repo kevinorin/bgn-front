@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   innerProfile: {
-    backgroundColor: '#000',
+    backgroundColor: theme.palette.supportbg,
     padding: '20px',
     borderRadius: '10px',
   },

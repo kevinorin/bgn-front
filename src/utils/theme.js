@@ -21,22 +21,23 @@ const theme = createMuiTheme({
       main: red.A400,
     },
     background: {
-      default: '#09043A',
+      default: '#fff',
       black: '#000'
     },
-    font: '#fff',
+    font: '#000',
     fontGrey: '#7B8591',
     blue: '#33439B',
-    white: '#fff',
-    supportbg: '#0C0C0C',
+    white: '#000',
+    supportbg: '#f3f3f3',
     copyright1: '#7B8591',
     copyright2: '#4F396B',
     menuBg: '#060412',
-    sun: 'yellow'
+    sun: 'yellow',
+    logoSlider: '#f3f3f3'
   },
   margintop: '4rem',
   marginSection: '2rem',
-  marginHP: '8rem',
+  marginHP: '8rem'
 });
 
 export default theme;
