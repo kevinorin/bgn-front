@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footerLogo: {
     height: '88px',
-    width: '88px'
+    // width: '88px'
   }
 }));
 
