@@ -161,7 +161,7 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: 'none',
     cursor: 'default!important',
     textDecoration: 'none!important',
-    color: '#3e2a5e!important'
+    color: `${theme.palette.disable}!important`
   },
   buttonReduce: {
     marginRight: '0px!important'
