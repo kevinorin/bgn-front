@@ -53,11 +53,11 @@ const useStyles = makeStyles((theme) => ({
   },
   waveBottom: {
     position: 'absolute',
-    marginTop: '400px',
+    marginTop: '370px',
     left: 0,
     opacity: 0.5,
     transform: 'rotate(180deg)',
-    height: '400px',
+    height: '422px',
     zIndex: '-1',
     [theme.breakpoints.down('xs')]: {
       marginTop: '1310px'
