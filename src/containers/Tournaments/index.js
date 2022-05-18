@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import CustomSlider from '../../components/Slider';
 import Slider from "react-slick";
@@ -93,25 +94,26 @@ const Tournaments = (props) => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   };
+  const theme = useTheme();
   const waveData = [
     {
       id: 1,
-      color: '#2e4676',
+      color: theme.palette.wave1,
       speed: 0.2
     },
     {
       id: 2,
-      color: '#182048',
+      color: theme.palette.wave2,
       speed: 0.21
     },
     {
       id: 3,
-      color: '#1d2e54',
+      color: theme.palette.wave3,
       speed: 0.15
     },
     {
       id: 4,
-      color: '#264068',
+      color: theme.palette.wave4,
       speed: 0.18
     }
   ]

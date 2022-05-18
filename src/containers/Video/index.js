@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import VideoItem from '../../components/VideoItem';
@@ -71,25 +72,26 @@ const Video = (props) => {
     e.preventDefault()
     typeof window !== 'undefined' && window.open('https://www.youtube.com/channel/UCspvE_U90Doi1ox2Tpn-sLQ', '_blank')
   }
+  const theme = useTheme();
   const waveData = [
     {
       id: 1,
-      color: '#242c4b',
+      color: theme.palette.wave1,
       speed: 0.2
     },
     {
       id: 2,
-      color: '#11162f',
+      color: theme.palette.wave2,
       speed: 0.21
     },
     {
       id: 3,
-      color: '#19233f',
+      color: theme.palette.wave3,
       speed: 0.15
     },
     {
       id: 4,
-      color: '#242c50',
+      color: theme.palette.wave4,
       speed: 0.18
     }
   ]

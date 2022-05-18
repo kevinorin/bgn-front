@@ -33,7 +33,11 @@ const theme = createMuiTheme({
     copyright2: '#4F396B',
     menuBg: '#f7f7f7',
     sun: 'yellow',
-    logoSlider: '#f3f3f3'
+    logoSlider: '#f3f3f3',
+    wave1: '#CF455C',
+    wave2: '#CF455C',
+    wave3: '#CF455C',
+    wave4: '#CF455C'
   },
   margintop: '4rem',
   marginSection: '2rem',
