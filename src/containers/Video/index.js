@@ -61,7 +61,8 @@ const useStyles = makeStyles((theme) => ({
     height: '422px',
     zIndex: '-1',
     [theme.breakpoints.down('xs')]: {
-      marginTop: '1310px'
+      marginTop: '370px',
+      height: '1370px'
     }
   }
 }));

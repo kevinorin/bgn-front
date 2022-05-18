@@ -13,7 +13,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
@@ -188,7 +188,6 @@ const Menu = (props) => {
   const { links, logo, light_logo } = props?.navBar;
   const theme = useTheme();
   const mode = typeof window !== 'undefined' && window.localStorage.getItem("mode") === "true";
-  console.log('Arun Jha logo', mode)
   const headLogo = mode ? logo.url : light_logo.url;
   if (!links) return null;
   return (
