@@ -67,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
     // zIndex: '99',
     // marginTop: '-22px',
     // overflow: 'scroll',
+    '& .themeToggle': {
+      display: 'none!important'
+    },
     '& .MuiPaper-root': {
       background: theme.palette.menuBg,
       '& .mainMenuWrapper': {

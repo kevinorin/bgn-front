@@ -264,7 +264,7 @@ const NavItems = (props) => {
             </>
           )
         })}
-        <li className={classes.themeToggle}>
+        <li className={`${classes.themeToggle} themeToggle`}>
           <ThemeModeToggle />
         </li>
       </ul >

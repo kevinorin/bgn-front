@@ -24,7 +24,7 @@ const ToggleButton = () => {
         title={`${
           darkMode ? 'Dark Mode' : 'Light Mode'}`}
       >
-        <IconButton onClick={() => setDarkMode(!darkMode)} color="inherit">
+        <IconButton className='themeButton' onClick={() => setDarkMode(!darkMode)} color="inherit">
           {darkMode ? (
             <Brightness7Icon color="primary" />
           ) : (
