@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.marginHP,
   },
   prevIcon: {
-    color: theme.palette.font,
+    color: theme.palette.tournamentFont,
     width: 32,
     height: 32,
     left: '18%',
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 30,
     top: 'auto',
     "&:hover": {
-      color: theme.palette.font,
+      color: theme.palette.tournamentFont,
       opacity: 0.8
     },
     [theme.breakpoints.down('xs')]: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   nextIcon: {
-    color: theme.palette.font,
+    color: theme.palette.tournamentFont,
     width: 32,
     height: 32,
     left: '18%',
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 30,
     top: 'auto',
     "&:hover": {
-      color: theme.palette.font,
+      color: theme.palette.tournamentFont,
       opacity: 0.8
     },
     [theme.breakpoints.down('xs')]: {

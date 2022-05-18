@@ -28,6 +28,7 @@ const theme = createMuiTheme({
     fontGrey: '#7B8591',
     blue: '#33439B',
     white: '#000',
+    tournamentFont: '#fff',
     supportbg: '#f3f3f3',
     copyright1: '#7B8591',
     copyright2: '#4F396B',

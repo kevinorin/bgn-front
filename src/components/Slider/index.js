@@ -15,14 +15,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px'
   },
   title: {
-    color: theme.palette.font,
+    color: theme.palette.tournamentFont,
     fontSize: 36,
     fontWeight: 'bold',
     lineHeight: '40px',
     marginBottom: '0'
   },
   description: {
-    color: theme.palette.font,
+    color: theme.palette.tournamentFont,
     lineHeight: '25px'
   },
   sup: {
