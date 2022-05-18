@@ -31,7 +31,7 @@ const theme = createMuiTheme({
     supportbg: '#f3f3f3',
     copyright1: '#7B8591',
     copyright2: '#4F396B',
-    menuBg: '#060412',
+    menuBg: '#f7f7f7',
     sun: 'yellow',
     logoSlider: '#f3f3f3'
   },
