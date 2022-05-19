@@ -5,7 +5,7 @@ import Slider from "react-slick";
 const useStyles = makeStyles((theme) => ({
   logoWrapper: {
     // background: theme.palette.logoSlider,
-    padding:'2rem 0',
+    paddingTop:'2rem',
     '& img': {
       maxWidth: '100%',
       maxHeight: '100%',
