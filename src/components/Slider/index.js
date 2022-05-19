@@ -6,9 +6,9 @@ import { useRouter } from 'next/router'
 import ReactMarkdown from "react-markdown";
 
 const useStyles = makeStyles((theme) => ({
-  mainWrapper: {
-    background: theme.background
-  },
+  // mainWrapper: {
+  //   background: theme.background
+  // },
   sliderImg: {
     maxWidth: '100%',
     maxHeight: '100%',
