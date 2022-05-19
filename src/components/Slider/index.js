@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '25px'
   },
   sup: {
-    color: theme.palette.fontGrey,
+    color: theme.palette.tournamentFont,
     fontWeight: 'bold'
   },
   imageWrapper: {
