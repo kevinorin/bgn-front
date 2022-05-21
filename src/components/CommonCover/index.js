@@ -58,6 +58,7 @@ const CommonCover = (props) => {
   const buttonClick = () => {
     isBrowser && window.open('https://www.youtube.com/channel/UCspvE_U90Doi1ox2Tpn-sLQ', "_blank");
   }
+
   return (
     <div className={`${classes.mainWrapper} ${article ? classes.reduceSpace : ''}`}>
       <h1 className={classes.title}>{title || 'News'}</h1>
