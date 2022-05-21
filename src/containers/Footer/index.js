@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer = ({ global }) => {
   const classes = useStyles();
-  console.log('Arun Jha global', global)
   const { logo, light_logo } = global.footer;
   const mode = typeof window !== 'undefined' && window.localStorage.getItem("mode") === "true";
   const mainLogo = mode ? logo.url : light_logo.url;
