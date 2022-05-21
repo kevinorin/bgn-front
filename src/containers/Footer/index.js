@@ -55,7 +55,7 @@ const Footer = ({ global }) => {
     <Container maxWidth="lg">
       <section className={classes.paperWrapper}>
         <div className={classes.upperPart}>
-          <img className={classes.footerLogo} src={mainLogo} alt="BGN Logo" />
+          {typeof window !== 'undefined' && <img className={classes.footerLogo} src={mainLogo} alt="BGN Logo" />}
           <h2 className={classes.title}>BLOCKCHAIN GAMES NETWORK</h2>
           <FooterSocials />
         </div>
