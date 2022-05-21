@@ -64,7 +64,7 @@ const CommonCover = (props) => {
       <p>{article ? '' : subtitle || 'Subscribe, support, and have a heard voice in the development of the games you play.'}</p>
       { newPage ? <CustomButton onClick={buttonClick} text='SUBSCRIBE' /> : ''}
       {article ? (<div className={classes.flexWrapper}>
-        <p>Blockchain Games Network</p>
+        <p>Rebecca Addison and The Atlantean</p>
         <Divider orientation="vertical" flexItem className={classes.divider} />
         {/* <p>2 min read</p> */}
         <p><i><Moment format="MMM Do YYYY">
