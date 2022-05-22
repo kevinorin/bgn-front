@@ -25,4 +25,3 @@ module.exports = {
       accounts: [private_key]
     }}
 };
-////
