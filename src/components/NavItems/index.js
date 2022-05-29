@@ -270,8 +270,16 @@ const NavItems = (props) => {
               Metaverse Marketplace
             </a>
           </Link>
-        </li>
-        <li>
+          <ul className={`${classes.submenu} submenu`}>
+
+          <li>
+          <Link href="/metaverse-marketplace">
+            <a>
+              Metaverse Marketplace
+            </a>
+          </Link>
+            </li>
+            <li>
           <Link href="/create-nft">
             <a className="mr-6 text-pink-500">
               Sell NFT
@@ -290,6 +298,9 @@ const NavItems = (props) => {
             Dashboard
           </a>
         </Link></li>
+          </ul>
+        </li>
+        
         <li className={`${classes.themeToggle} themeToggle`}>
           <ThemeModeToggle />
         </li>
