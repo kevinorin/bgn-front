@@ -3,6 +3,7 @@ import { ethers } from 'ethers'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
+import Container from '@material-ui/core/Container';
 
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
@@ -70,6 +71,7 @@ export default function CreateItem() {
   }
 
   return (
+    <Container maxWidth="lg">
     <div className="flex justify-center">
       <div className="w-1/2 flex flex-col pb-12">
         <input 
@@ -103,5 +105,6 @@ export default function CreateItem() {
         </button>
       </div>
     </div>
+    </Container>
   )
 }

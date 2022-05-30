@@ -2,6 +2,15 @@ import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+const useStyles = makeStyles((theme) => ({
+  title: {
+    color: theme.palette.font,
+    textAlign: 'center'
+  }
+}))
 
 import {
   marketplaceAddress
@@ -15,6 +24,8 @@ export default function Home() {
   useEffect(() => {
     loadNFTs()
   }, [])
+
+  const classes = useStyles();
   async function loadNFTs() {
     /* create a generic provider and query for unsold market items */
     const provider = new ethers.providers.JsonRpcProvider()
@@ -59,8 +70,9 @@ export default function Home() {
     await transaction.wait()
     loadNFTs()
   }
-  if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
+  if (loadingState === 'loaded' && !nfts.length) return (<Container maxWidth="lg"><h1 className={classes.title}>No items in marketplace</h1></Container>)
   return (
+    <Container maxWidth="lg">
     <div className="flex justify-center">
       <div className="px-4" style={{ maxWidth: '1600px' }}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
@@ -84,5 +96,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </Container>
   )
 }

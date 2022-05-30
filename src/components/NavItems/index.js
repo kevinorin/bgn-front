@@ -280,13 +280,13 @@ const NavItems = (props) => {
                 </a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/create-nft">
                 <a className="mr-6 text-pink-500">
                   Sell NFT
                 </a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/my-nfts">
                 <a className="mr-6 text-pink-500">

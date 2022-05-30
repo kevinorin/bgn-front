@@ -39,7 +39,8 @@ const theme = createMuiTheme({
     wave2: '#CF455C',
     wave3: '#CF455C',
     wave4: '#CF455C',
-    disable: '#800080'
+    disable: '#800080',
+    whiteFont: '#fff'
   },
   margintop: '4rem',
   marginSection: '2rem',

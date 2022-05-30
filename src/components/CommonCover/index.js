@@ -6,6 +6,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShareIcon from '@material-ui/icons/Share';
 import Moment from "react-moment";
 import Divider from '@material-ui/core/Divider';
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${cover})`,
     paddingTop: theme.margintop,
     paddingBottom: theme.margintop,
-    color: theme.palette.font,
+    color: theme.palette.whiteFont,
     textAlign: 'center',
     minHeight: '350px',
     backgroundSize: 'cover',
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   title: {
-    color: theme.palette.font,
+    color: theme.palette.whiteFont,
     fontSize: 36,
     fontWeight: 'bold',
     lineHeight: '40px',
@@ -39,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     '& p': {
       marginRight: '10px',
-      margin: 0
+      margin: 0,
+      
     }
   },
   reduceSpace: {
@@ -61,6 +63,7 @@ const CommonCover = (props) => {
 
   return (
     <div className={`${classes.mainWrapper} ${article ? classes.reduceSpace : ''}`}>
+      <Container maxWidth="lg">
       <h1 className={classes.title}>{title || 'News'}</h1>
       <p>{article ? '' : subtitle || 'Subscribe, support, and have a heard voice in the development of the games you play.'}</p>
       { newPage ? <CustomButton onClick={buttonClick} text='SUBSCRIBE' /> : ''}
@@ -74,7 +77,7 @@ const CommonCover = (props) => {
         {/* <p><FavoriteBorderIcon /></p> */}
         {/* <p><ShareIcon /></p> */}
       </div>): ''}
-      
+      </Container>
     </div>
     )
 }

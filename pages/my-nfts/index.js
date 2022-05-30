@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
 import { useRouter } from 'next/router'
+import Container from '@material-ui/core/Container';
 
 import {
   marketplaceAddress
@@ -51,6 +52,7 @@ export default function MyAssets() {
   }
   if (loadingState === 'loaded' && !nfts.length) return (<h1 className="py-10 px-20 text-3xl">No NFTs owned</h1>)
   return (
+    <Container maxWidth="lg">
     <div className="flex justify-center">
       <div className="p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
@@ -68,5 +70,6 @@ export default function MyAssets() {
         </div>
       </div>
     </div>
+    </Container>
   )
 }
