@@ -12,7 +12,7 @@ export default function Index({ global, newsSection }) {
   const router = useRouter()
   const navBar = global?.navbar;
   const metadata = {
-    metaTitle: 'News Section',
+    metaTitle: 'Latest News Coverage | BGN',
     metaDescription: 'Like and subscribe for the latest from BGN'
   }
   return (
