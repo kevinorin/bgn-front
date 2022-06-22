@@ -213,7 +213,7 @@ const NavItems = (props) => {
       <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
 
         {props?.items.map((menu, index) => {
-          {if (typeof window !== 'undefined' && window.location.hostname === 'bgn.games' && menu.text === 'Night Market') {
+          {if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Night Market') {
             return null;
           }}
           {if (typeof window !== 'undefined' && window.location.hostname === 'dev.bgn.games' && menu.text === 'Survey') {
