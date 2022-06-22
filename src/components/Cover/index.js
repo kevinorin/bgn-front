@@ -78,7 +78,6 @@ const Cover = (props) => {
   const classes = useStyles();
   const content = props.cover;
   const button = content?.buttons[0];
-  console.log('Arun Jha content', content)
   const isBrowser = typeof window !== 'undefined';
   const getId = (url) => {
     let regex = /(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))/gm;
