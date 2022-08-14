@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { getNewsData, getGlobalData } from "../../src/utils/api"
-import Menu  from '../../src/components/Menu';
+import Head from 'next/head';
+import { getNewsData } from "../../src/utils/api"
 import NewsMainPage from '../../src/containers/NewsMainPage';
-import Footer from '../../src/containers/Footer';
 import { useRouter } from "next/router"
 import CommonCover from '../../src/components/CommonCover';
 import Seo from '../../src/components/Seo';
@@ -10,10 +9,12 @@ import Seo from '../../src/components/Seo';
 
 export default function Index({ ostPrograms, newsSection }) {
   const router = useRouter()
-  // const navBar = global?.navbar;
-  const { metadata, contentSections, created_at } = ostPrograms[0];
+  const { metadata, contentSections, created_at, structured_data } = ostPrograms[0];
   return (
     <>
+    <Head>
+    {structured_data && <script type="application/ld+json" key="product-jsonld">{JSON.stringify(structured_data)}</script>}
+    </Head>
       <Seo metadata={metadata} />
       <CommonCover title={contentSections[0].title} createdAt={created_at} article />
       <NewsMainPage contentSections={contentSections} createdAt={created_at} newsSection={newsSection} />
