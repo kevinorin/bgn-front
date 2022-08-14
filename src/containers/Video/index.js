@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -137,7 +138,12 @@ const Video = (props) => {
           <Grid container spacing={2}>
             {props?.videoData.map((item, index) => {
               return (
+                <>
+                  <Head>
+                    {item.structured_data_.length ? item.structured_data_.map((_item, index) => <script type="application/ld+json" key={`product-jsonld-${index}`} dangerouslySetInnerHTML={{ __html: JSON.stringify(_item.structured_data) }} />) : null}
+                  </Head>
                 <VideoItem key={item.title + index} item={item?.contentSections[0]} />
+                </>
               )
             })}
             {props?.newsPage ? '' : (

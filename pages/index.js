@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Head from 'next/head';
 import { getPageData, getNewsData, getGlobalData } from "../src/utils/api"
 import Header from '../src/containers/Header';
 import Menu  from '../src/components/Menu';
@@ -11,12 +12,15 @@ import Patreon from '../src/containers/Patreon';
 import { useRouter } from "next/router"
 import Seo from '../src/components/Seo';
 
-export default function Index({ sections, metadata, preview, global, newsSection, tournamentsData, videoData, logos }) {
+export default function Index({ sections, metadata, preview, global, newsSection, tournamentsData, videoData, logos, structured_data_ }) {
   const router = useRouter()
   const cover  = sections && sections[0];
   const navBar = global?.navbar;
   return (
     <>
+     <Head>
+    {structured_data_.length ? structured_data_.map((item, index) => <script type="application/ld+json" key={`product-jsonld-${index}`} dangerouslySetInnerHTML={{ __html: JSON.stringify(item.structured_data)}} />) : null}
+    </Head>
       <Seo metadata={metadata} />
       {/* <Menu navBar={navBar} /> */}
       <Header navBar={navBar} cover={cover} logos={logos} />
@@ -57,7 +61,7 @@ export default function Index({ sections, metadata, preview, global, newsSection
     }
   
     // We have the required page data, pass it to the page component
-    const { contentSections, metadata, localizations } = pageData
+    const { contentSections, metadata, structured_data_ } = pageData
     // const { contentSections, metadata, localizations } = newsData
     return {
       props: {
@@ -69,6 +73,7 @@ export default function Index({ sections, metadata, preview, global, newsSection
         metadata,
         global: globalLocale,
         logos: logos,
+        structured_data_: structured_data_
       },
     }
 }

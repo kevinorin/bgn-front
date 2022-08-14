@@ -9,11 +9,11 @@ import Seo from '../../src/components/Seo';
 
 export default function Index({ ostPrograms, newsSection }) {
   const router = useRouter()
-  const { metadata, contentSections, created_at, structured_data } = ostPrograms[0];
+  const { metadata, contentSections, created_at, structured_data, structured_data_ } = ostPrograms[0];
   return (
     <>
     <Head>
-    {structured_data && <script type="application/ld+json" key="product-jsonld">{JSON.stringify(structured_data)}</script>}
+    {structured_data_.length ? structured_data_.map((item, index) => <script type="application/ld+json" key={`product-jsonld-${index}`} dangerouslySetInnerHTML={{ __html: JSON.stringify(item.structured_data)}} />) : null}
     </Head>
       <Seo metadata={metadata} />
       <CommonCover title={contentSections[0].title} createdAt={created_at} article />

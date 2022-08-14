@@ -1,5 +1,4 @@
 export default function BlogStructure(metadata, ostPrograms) {
-  console.log('Arun Jha metadata', metadata, ostPrograms)
   return {
     __html: `{
       "@context": "https://schema.org",

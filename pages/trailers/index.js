@@ -1,18 +1,13 @@
 import * as React from 'react';
+import Head from 'next/head';
 import { getNewsData, getGlobalData } from "../../src/utils/api"
-import Menu  from '../../src/components/Menu';
-import News from '../../src/containers/News';
-import Footer from '../../src/containers/Footer';
-import { useRouter } from "next/router"
 import Video from '../../src/containers/Video';
 import CommonCover from '../../src/components/CommonCover';
 
 import Seo from '../../src/components/Seo';
 
 
-export default function Index({ global, videoData }) {
-  const router = useRouter()
-  const navBar = global?.navbar;
+export default function Index({ videoData }) {
   const metadata = {
     metaTitle: 'News Section',
     metaDescription: 'Subscribe, support, and have a heard voice in the development of the games you play.'
@@ -20,7 +15,6 @@ export default function Index({ global, videoData }) {
   return (
     <>
       <Seo metadata={metadata} />
-      {/* <Menu navBar={navBar} /> */}
       <CommonCover title='COVERAGE' subtitle='Like and subscribe for the latest from BGN' newPage />
       <Video videoData={videoData} newsPage />
       {/* <Footer /> */}
