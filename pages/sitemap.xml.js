@@ -5,16 +5,23 @@ function generateSiteMap(posts) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      <url>
-       <loc>https://jsonplaceholder.typicode.com</loc>
+       <loc>https://bgn.games/</loc>
+       <priority>1.00</priority>
      </url>
      <url>
-       <loc>https://jsonplaceholder.typicode.com/guide</loc>
+     <loc>https://bgn.games/news</loc>
+     <priority>0.80</priority>
+     </url>
+     <url>
+     <loc>https://bgn.games/trailers</loc>
+     <priority>0.80</priority>
      </url>
      ${posts
-       .map(({ id }) => {
+       .map(({ slug }) => {
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/${id}`}</loc>
+           <loc>${`https://bgn.games/${slug}`}</loc>
+           <priority>0.80</priority>
        </url>
      `;
        })
