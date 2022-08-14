@@ -68,8 +68,6 @@ export default function MyApp(props) {
     setDarkMode(newmode);
   };
 
-  console.log('Arun Jha props', props);
-
   return (
     <CacheProvider value={cache}>
       <Head>
