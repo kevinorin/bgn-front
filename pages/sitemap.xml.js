@@ -20,7 +20,7 @@ function generateSiteMap(posts) {
        .map(({ slug }) => {
          return `
        <url>
-           <loc>${`https://bgn.games/news/${slug}`}</loc>
+           <loc>${`https://bgn.games/news${slug}`}</loc>
            <priority>0.80</priority>
        </url>
      `;
