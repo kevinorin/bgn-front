@@ -68,10 +68,17 @@ export default function MyApp(props) {
     setDarkMode(newmode);
   };
 
+  console.log('Arun Jha props', props);
+
   return (
     <CacheProvider value={cache}>
       <Head>
         <title>My page</title>
+        <link
+          rel="canonical"
+          href={`https://bgn.games${props.router.asPath}`}
+          key="canonical"
+        />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ReduxProvider store={redux}>
