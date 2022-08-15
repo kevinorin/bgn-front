@@ -8,13 +8,14 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const useStyles = makeStyles((theme) => ({
 	paperWrapper: {
-		backgroundColor: theme.palette.supportbg,
+		//backgroundColor: theme.palette.supportbg,
 		minHeight: '500px'
 	},
 	title: {
 		color: theme.palette.font
 	},
 	mainImg: {
+		borderRadius: '10px',
 		height: 'auto',
 		width: 'auto',
 		maxHeight: '271px',
