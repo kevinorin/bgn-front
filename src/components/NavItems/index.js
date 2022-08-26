@@ -216,7 +216,7 @@ const NavItems = (props) => {
           {if (typeof window !== 'undefined' && window.location.hostname === 'dev.bgn.games' && menu.text === 'Survey') {
             return null;
           }}
-          if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Night Market') {
+          if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Survey') {
             return (
               <li>
                 <a href='https://docs.google.com/forms/d/e/1FAIpQLSf1sAocXguv8zcVDOFVybZ7H4JlwWe-cs4Xa_L_3wLckIH3nw/viewform' target='_blank'>
@@ -276,6 +276,7 @@ const NavItems = (props) => {
             </>
           )
         })}
+        
 
         <li className={`${classes.themeToggle} themeToggle`}>
           <ThemeModeToggle />
