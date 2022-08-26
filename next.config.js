@@ -10,7 +10,7 @@ const withPWA = require('next-pwa')({
     disable: process.env.NODE_ENV === 'development'
 })
 
-module.exports = withImages({
+module.exports = withPWA(withImages({
       images: {
         disableStaticImages: true
     },
@@ -27,4 +27,4 @@ module.exports = withImages({
         ];
         return config
     }
-});
+}));
