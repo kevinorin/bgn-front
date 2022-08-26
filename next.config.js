@@ -2,15 +2,15 @@
 require('dotenv').config()
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
-const withPWA = require('next-pwa')
 
 const withImages = require('next-images')
 
+const withPWA = require('next-pwa')({
+    dest: 'public',
+    disable: process.env.NODE_ENV === 'development'
+})
+
 module.exports = withPWA(withImages({
-    pwa: {
-        dest: 'public',
-        disable: process.env.NODE_ENV === 'development'
-      },
     i18n: {
         locales: ["en"],
         defaultLocale: "en",
