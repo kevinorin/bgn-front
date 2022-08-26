@@ -12,7 +12,6 @@ const ToggleButton = () => {
   const theme = useTheme();
   
   const { darkMode, setDarkMode } = useContext(ColorModeContext);
-  console.log('Arun Jha theme.palette.mode', darkMode)
   return (
     <Box
       sx={{
