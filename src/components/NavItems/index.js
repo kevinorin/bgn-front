@@ -213,12 +213,18 @@ const NavItems = (props) => {
       <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
 
         {props?.items.map((menu, index) => {
-          {if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Night Market') {
-            return null;
-          }}
           {if (typeof window !== 'undefined' && window.location.hostname === 'dev.bgn.games' && menu.text === 'Survey') {
             return null;
           }}
+          if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Night Market') {
+            return (
+              <li>
+                <a href='https://docs.google.com/forms/d/e/1FAIpQLSf1sAocXguv8zcVDOFVybZ7H4JlwWe-cs4Xa_L_3wLckIH3nw/viewform' target='_blank'>
+                  Survey
+                </a>
+              </li>
+            )
+          }
           return (
             <>
               {(menu.text === 'Vanguard Studios') ? (
@@ -241,7 +247,7 @@ const NavItems = (props) => {
                     </>
                   ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
                     <Link href={menu?.url || ''} passHref>
-                      <a onClick={handleSideNav} className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
+                      <a onClick={handleSideNav} className={`${index === 0 ? classes.active : ''}`}>
                         {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
                         {menu.text}
                         {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
@@ -270,6 +276,7 @@ const NavItems = (props) => {
             </>
           )
         })}
+
         <li className={`${classes.themeToggle} themeToggle`}>
           <ThemeModeToggle />
         </li>
