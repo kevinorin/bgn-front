@@ -216,6 +216,9 @@ const NavItems = (props) => {
           {if (typeof window !== 'undefined' && window.location.hostname === 'dev.bgn.games' && menu.text === 'Survey') {
             return null;
           }}
+          if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Night Market') {
+            return null;
+          }
           if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Survey') {
             return (
               <li>
@@ -276,7 +279,7 @@ const NavItems = (props) => {
             </>
           )
         })}
-        
+
 
         <li className={`${classes.themeToggle} themeToggle`}>
           <ThemeModeToggle />
