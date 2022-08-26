@@ -232,7 +232,7 @@ const NavItems = (props) => {
             <>
               {(menu.text === 'Vanguard Studios') ? (
                 <Tooltip title="COMING SOON">
-                  <li>
+                  <li className={classes.disable}>
                     <Link href={menu?.url || ''} passHref>
                       <a className={classes.disable}>
                         {menu.text}
