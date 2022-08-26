@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   hero: {
     marginBottom: theme.margintopMain,
     '& h1': {
-      color: theme.palette.white,
+      color: theme.palette.font,
       margin: '0',
       padding: '0',
       fontSize: 48
@@ -15,9 +15,12 @@ const useStyles = makeStyles((theme) => ({
   textBlock: {
     margin: 'auto',
     textAlign: 'left',
+    '& p, & h2, & h3, & h4, & h5, & h6': {
+      color: theme.palette.font
+    }
   },
   subtitle: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.font,
     margin: '0',
     padding: 0,
     textAlign: 'center',
