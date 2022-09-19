@@ -4,11 +4,19 @@ import Whether from '../Whether';
 import Notifications from '../Notification';
 import Translate from '../Translate';
 import Setting from '../Setting';
-import Cancel from '../Cancel'
+import Cancel from '../Cancel';
+import ToggleButton from '../ThemeModeToggle';
 
 const useStyles = makeStyles((theme) => ({
     mainWrapper: {
-        display: 'flex'
+        display: 'flex',
+        paddingLeft: '15px',
+        '& .themeButton': {
+            alignItems: 'end'
+        }
+    },
+    cancelButton: {
+        marginRight: '20px'
     }
 }))
 
@@ -16,11 +24,12 @@ const MobileTopHead = (props) => {
     const classes = useStyles();
     return (
         <div className={classes.mainWrapper}>
-            <Whether />
+            {/* <Whether /> */}
             {/* <Notifications /> */}
             {/* <Translate /> */}
             {/* <Setting /> */}
-            <Cancel closeMenu={props.closeMenu} />
+            <ToggleButton />
+            <Cancel passClass={classes.cancelButton} closeMenu={props?.closeMenu} />
         </div>
     )
 }

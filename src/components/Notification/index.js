@@ -62,7 +62,7 @@ const Notifications = () => {
           if (
             message.userLanguage &&
             message.userLanguage !== userLanguage &&
-            message.userLanguage !== navigator.language.substring(0, 2)
+            message.userLanguage !== navigator.language?.substring(0, 2)
           ) {
             return false;
           }

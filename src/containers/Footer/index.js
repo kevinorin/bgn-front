@@ -7,7 +7,7 @@ import logo from '../../assets/images/bgn-logo.png';
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
     // backgroundColor: theme.palette.supportbg
-    paddingTop: theme.margintop
+    paddingTop: theme.marginHP
   },
   mainImg: {
     height: '100%',
@@ -34,23 +34,33 @@ const useStyles = makeStyles((theme) => ({
   copyright: {
     color: theme.palette.copyright1,
     fontSize: '12px',
-    textAlign: 'center'
+    textAlign: 'center',
+    '& p': {
+      fontSize: '12px'
+    }
+  },
+  footerLogo: {
+    height: '88px',
+    // width: '88px'
   }
 }));
 
-const Footer = () => {
+const Footer = ({ global }) => {
   const classes = useStyles();
+  const { logo, light_logo } = global.footer;
+  const mode = typeof window !== 'undefined' && window.localStorage.getItem("mode") === "true";
+  const mainLogo = mode ? logo.url : light_logo.url;
   return (
     <Container maxWidth="lg">
       <section className={classes.paperWrapper}>
         <div className={classes.upperPart}>
-          <img src={logo} alt="BGN Logo" />
+          {typeof window !== 'undefined' && <img className={classes.footerLogo} src={mainLogo} alt="BGN Logo" />}
           <h2 className={classes.title}>BLOCKCHAIN GAMES NETWORK</h2>
           <FooterSocials />
         </div>
         <hr className={classes.line} />
         <div className={classes.copyright}>
-          <p>© Copyright 2021. All Rights Reserved <span className={classes.copy}>Blockchain Games Network</span></p>
+          <p dangerouslySetInnerHTML={{ __html: global.footer.smallText }} />
         </div>
       </section>
     </Container>

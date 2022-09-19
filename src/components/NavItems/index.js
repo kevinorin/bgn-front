@@ -9,7 +9,10 @@ import Registration from '../../containers/Registration';
 import Cookies from "js-cookie"
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
+import Switch from '@material-ui/core/Switch';
 import { useRouter } from 'next/router'
+import ThemeModeToggle from '../ThemeModeToggle';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -70,12 +73,22 @@ const useStyles = makeStyles((theme) => ({
     '& li': {
       display: 'inline-block',
       paddingRight: 20,
+      position: 'relative',
       '& .submenu': {
         background: theme.palette.font,
         display: 'none',
         position: 'absolute',
         margin: 0,
         padding: '5px 5px 10px 5px',
+        overflow: 'hidden',
+        borderRadius: '4px',
+        boxShadow: 'rgb(0 0 0 / 5%) 0px 0px 0px 1px, rgb(0 0 0 / 15%) 0px 5px 25px 0px, rgb(0 0 0 / 5%) 0px 3px 3px 0',
+        left: '-6px',
+        margin: '0px',
+        minWidth: '200px',
+        padding: '16px',
+        top: '22px',
+
         [theme.breakpoints.down('sm')]: {
           display: 'block',
         },
@@ -136,6 +149,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   submenu: {
+
     [theme.breakpoints.down('xs')]: {
       '& li': {
         display: 'block!important',
@@ -147,10 +161,17 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: 'none',
     cursor: 'default!important',
     textDecoration: 'none!important',
-    color: '#3e2a5e!important'
+    color: `${theme.palette.disable}!important`
   },
   buttonReduce: {
     marginRight: '0px!important'
+  },
+  themeToggle: {
+    verticalAlign: 'middle',
+    marginLeft: '-25px',
+    '& button': {
+      padding: '0'
+    }
   }
 }));
 
@@ -161,6 +182,7 @@ const NavItems = (props) => {
   const router = useRouter()
   const handleOpen = () => {
     setOpen(true)
+    props?.closeMenu();
   }
   const handlerOpen = () => {
     setrOpen(true)
@@ -173,25 +195,46 @@ const NavItems = (props) => {
   };
   const handleOpenLink = () => {
     typeof window !== 'undefined' && window.open('https://gala.fan/xgtIrFHDoB', "_blank");
+    props?.closeMenu();
   }
   const handleLogout = () => {
     Cookies.remove("jwt_token")
     router.push('/')
-
-
+  }
+  const handleSideNav = () => {
+    props?.closeMenu();
+  }
+  const [checkedA, setCheckedA] = React.useState(true);
+  const handleChange = (event) => {
+    setCheckedA(event.target.checked)
   }
   return (
     <>
       <ul className={`${classes.menuWrapper} mainMenuWrapper`} edge="end">
 
         {props?.items.map((menu, index) => {
+          {if (typeof window !== 'undefined' && window.location.hostname === 'dev.bgn.games' && menu.text === 'Survey') {
+            return null;
+          }}
+          if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Night Market') {
+            return null;
+          }
+          if (typeof window !== 'undefined' && (window.location.hostname === 'bgn.games' || window.location.hostname === 'www.bgn.games') && menu.text === 'Survey') {
+            return (
+              <li>
+                <a href='https://docs.google.com/forms/d/e/1FAIpQLSf1sAocXguv8zcVDOFVybZ7H4JlwWe-cs4Xa_L_3wLckIH3nw/viewform' target='_blank'>
+                  Survey
+                </a>
+              </li>
+            )
+          }
           return (
             <>
-              {menu.text === 'Vanguard Studios' ? (
+              {(menu.text === 'Vanguard Studios') ? (
                 <Tooltip title="COMING SOON">
-                  <li>
+                  <li className={classes.disable}>
                     <Link href={menu?.url || ''} passHref>
-                      <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''}`}>
+                      <a className={classes.disable}>
                         {menu.text}
                       </a>
                     </Link>
@@ -207,7 +250,7 @@ const NavItems = (props) => {
                     </>
                   ) : menu.text === 'Register' ? Cookies.get('jwt_token') ? <CustomIconButton onClick={handleOpenLink} text='Play Now' btnType='primary' /> : <CustomIconButton onClick={handlerOpen} text={menu.text} btnType='primary' /> :
                     <Link href={menu?.url || ''} passHref>
-                      <a className={`${menu.text === 'Vanguard Studios' ? classes.disable : ''} ${index === 0 ? classes.active : ''}`}>
+                      <a onClick={handleSideNav} className={`${index === 0 ? classes.active : ''}`}>
                         {/* {menu.text === 'Login' ? <PersonIcon /> : ''} */}
                         {menu.text}
                         {menu.links.length ? <ExpandMoreIcon fontSize="small" /> : ''}
@@ -223,7 +266,7 @@ const NavItems = (props) => {
                           return (
                             <li key={submenu.text}>
                               <Link href={submenu?.url || ''} passHref>
-                                <a className={classes.addHover}>{submenu?.text}</a>
+                                <a onClick={handleSideNav} className={classes.addHover}>{submenu?.text}</a>
                               </Link>
                             </li>
                           )
@@ -236,6 +279,11 @@ const NavItems = (props) => {
             </>
           )
         })}
+
+
+        <li className={`${classes.themeToggle} themeToggle`}>
+          <ThemeModeToggle />
+        </li>
       </ul >
       <Login open={open} onClose={handleClose} />
       <Registration open={ropen} onClose={handlerClose} />

@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
     background: theme.background,
-    paddingTop: theme.margintop,
+    paddingTop: theme.marginHP,
   },
   title: {
     color: theme.palette.font,
@@ -39,8 +39,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center'
   },
   headerWrapper: {
-      position: 'relative',
-      marginBottom: '70px'
+    position: 'relative',
+    marginBottom: '70px',
+    marginTop: '70px'
   },
   link: {
     float: 'right',
@@ -65,21 +66,19 @@ const News = (props) => {
   return (
     <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
-        {/* {props?.newsPage ? '' : ( */}
-            <div className={classes.headerWrapper}>
+        <div className={classes.headerWrapper}>
           <h2 className={classes.title}>{props?.newsPage ? 'NEWS' : 'RECENT COVERAGE'}</h2>
           <h2 className={classes.title1}>{props?.newsPage ? 'News' : 'Recent Coverage'}</h2>
         </div>
-        {/* )} */}
         <Grid container spacing={2}>
           {finalData.map((item, index) => {
             return (
-              <NewsItem key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} newsPage={props?.newsPage} />
+              <NewsItem createdAt={item} key={`title${index}`} slug={item?.slug} item={item?.contentSections[0]} newsPage={props?.newsPage} />
             )
           })}
           {props?.newsPage ? '' : (
             <div className={classes.buttonWrapper}>
-            <CustomButton onClick={(e) => buttonClick(e)} btnType='secondary' text='View All' />
+              <CustomButton onClick={(e) => buttonClick(e)} btnType='secondary' text='View All' />
             </div>
           )}
 

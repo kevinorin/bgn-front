@@ -86,12 +86,10 @@ export default function Login(props) {
       Cookies.set("jwt_token", jwt)
       setError(false)
       router.push('/')
+      props.onClose()
       // typeof window !== 'undefined' && window.open('/')
     }
   }
-
-
-
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />

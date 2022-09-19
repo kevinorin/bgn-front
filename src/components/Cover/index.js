@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CheckIcon from '@material-ui/icons/Check';
 import ModalVideo from 'react-modal-video'
+import Hidden from '@material-ui/core/Hidden';
+import withWidth from '@material-ui/core/withWidth';
+import ReactMarkdown from "react-markdown";
 import CustomButton from '../../components/Button';
 import LogoSlide from '../LogoSlide';
 
@@ -21,11 +24,17 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '22px',
       lineHeight: '26px',
       marginTop: theme.marginSection,
-      maxWidth: '450px'
+      maxWidth: '450px',
+      [theme.breakpoints.down('xs')]: {
+        marginTop: '0.5em'
+      }
     },
     '& button': {
       marginRight: '15px',
-      marginTop: '10px'
+      marginTop: '10px',
+      [theme.breakpoints.down('xs')]: {
+        width: '100%'
+      }
     }
   },
   listWrapper: {
@@ -55,7 +64,11 @@ const useStyles = makeStyles((theme) => ({
     minWidth: '25px'
   },
   logoWrapper: {
-    marginTop: theme.margintop,
+    marginTop: theme.marginSection,
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'center',
+      marginTop: '3rem'
+    }
   }
 }));
 
@@ -64,7 +77,6 @@ const Cover = (props) => {
   const [videoId, setVideoId] = useState('')
   const classes = useStyles();
   const content = props.cover;
-  console.log('Arun Jha props', props)
   const button = content?.buttons[0];
   const isBrowser = typeof window !== 'undefined';
   const getId = (url) => {
@@ -86,17 +98,22 @@ const Cover = (props) => {
       {isBrowser && <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={videoId} onClose={() => setOpen(false)} /> }
       <Grid container spacing={2}>
         <Grid item md={6}>
-          <h1>{content.title}</h1>
+          <h1>{content?.title}</h1>
+          <Hidden mdUp>
+          <img className={classes.coverImg} src={content?.picture?.url} alt="" />
+          </Hidden>
           <h3>{content?.description}</h3>
-          <div className={classes.listWrapper} dangerouslySetInnerHTML={{ __html: content?.smallTextWithLink }}></div>
           
+          <div className={classes.listWrapper}><ReactMarkdown children={content?.smallTextWithLink} escapeHtml={false} /></div>
           <div className={classes.logoWrapper}>
-            {content.buttons.map((item_) => <CustomButton onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
+            {content?.buttons.map((item_) => <CustomButton key={item_?.text} onClick={() => buttonClick(item_.url)} newTab={item_?.newTab} btnType={item_?.type} text={item_?.text} /> )}
             
           </div>
         </Grid>
         <Grid item md={6}>
+        <Hidden only={['sm', 'xs']}>
           <img className={classes.coverImg} src={content?.picture?.url} alt="" />
+          </Hidden>
         </Grid>
       </Grid>
        <div className={classes.logoWrapper}>

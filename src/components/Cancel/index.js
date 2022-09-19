@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
 const Cancel = (props) => {
     const classes = useStyles();
     const closeMenu = () => {
-        props.closeMenu();
+        props?.closeMenu();
     }
     return (
-        <CancelIcon onClick={closeMenu} className={classes.mainWrapper} />
+        <CancelIcon onClick={closeMenu} className={`${classes.mainWrapper} ${props.passClass}`} />
     )
 }
 

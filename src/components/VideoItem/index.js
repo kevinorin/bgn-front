@@ -8,7 +8,7 @@ import yicon from '../../assets/images/y-play-icon.png'
 
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
-    backgroundColor: theme.palette.background.black
+    backgroundColor: theme.palette.supportbg
   },
   title: {
     color: theme.palette.font
@@ -57,7 +57,6 @@ const VideoItem = (props) => {
   const { url, cover } = props.item;
   const finalCover = cover?.url;
   const isBrowser = typeof window !== 'undefined';
-  console.log('Arun Jha props sfdsfdsfds', props)
   const getId = (urls) => {
     let regex = /(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))/gm;
     return regex.exec(urls)[3];

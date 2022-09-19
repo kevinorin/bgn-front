@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   innerProfile: {
-    backgroundColor: '#000',
+    backgroundColor: theme.palette.supportbg,
     padding: '20px',
     borderRadius: '10px',
   },
@@ -89,9 +89,9 @@ export default function Profile() {
         <p>John Doe<br /><span>john@gmail.com</span></p>
       </div> */}
       {/* <p><Divider className={classes.divider} /></p> */}
-      <div className={classes.wheatherWrapper}>
-        <p><Whether /></p>
-      </div>
+      {/* <div className={classes.wheatherWrapper}> */}
+        {/* <p><Whether /></p> */}
+      {/* </div> */}
       <p onClick={() => handleClick('https://gala.fan/xgtIrFHDoB')}><SportsEsportsIcon /> Gala Games</p>
       {/* <p><Translate /></p> */}
       {/* <p><Setting /> Settings</p> */}
