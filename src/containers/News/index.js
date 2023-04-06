@@ -30,6 +30,11 @@ const useStyles = makeStyles((theme) => ({
       letterSpacing: '15px'
     }
   },
+  tempoThread: {
+    font: 'normal normal bold 30px/90px Oswald',
+    textTransform: 'uppercase',
+    letterSpacing: '10px'
+  },
   title1: {
     color: theme.palette.font,
     fontSize: 32,
@@ -67,8 +72,8 @@ const News = (props) => {
     <Container maxWidth="lg">
       <section className={classes.mainWrapper}>
         <div className={classes.headerWrapper}>
-          <h2 className={classes.title}>{props?.newsPage ? 'NEWS' : 'RECENT COVERAGE'}</h2>
-          <h2 className={classes.title1}>{props?.newsPage ? 'News' : 'Recent Coverage'}</h2>
+          <h2 className={`${classes.title} ${props?.tempoThread && classes.tempoThread}`}>{props?.tempoThread ? 'Recent uploads to the stream' : props?.newsPage ? 'NEWS' : 'RECENT COVERAGE'}</h2>
+          <h2 className={classes.title1}>{props?.tempoThread ? 'Recent uploads to the stream' : props?.newsPage ? 'News' : 'Recent Coverage'}</h2>
         </div>
         <Grid container spacing={2}>
           {finalData.map((item, index) => {
