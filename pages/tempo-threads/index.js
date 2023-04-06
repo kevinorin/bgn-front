@@ -15,9 +15,16 @@ export default function TempoThread({ newsSection }) {
   return (
     <>
       <Seo metadata={metadata} />
-      <CommonCover title="TempoThreads: Empowering Artists in Blockchain Entertainment" subtitle="Streaming you uplifting music and empowering artists across genres with the support they need to shine." />
+      <div className="text-slate-600 flex text-center py-16 ">
+        <div className="max-w-7xl px-6 mx-auto">
+          <h1 className="text-sm font-bold uppercase">TempoThreads</h1>
+          <h2 className="text-3xl font-bold mb-3">Empowering Artists OnChain</h2>
+          <p className="text-xl max-w-3xl">Serving uplifting music and empowering artists with the support they need to treble.</p>
+        </div>
+      </div>
+
       <MusicCards />
-      <News newsSection={newsSection} tempoThread />
+      {/* <News newsSection={newsSection} tempoThread /> */}
       <TempoThreads />
     </>
   );

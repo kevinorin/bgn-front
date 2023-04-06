@@ -4,7 +4,7 @@ export default function Teams() {
   const people = [
     {
       name: 'Daniel Kane',
-      role: 'Barnardsville, United States',
+      role: 'Western NC',
       imageUrl:
         '/images/daniel.jpg',
       twitterUrl: '#',
@@ -13,7 +13,7 @@ export default function Teams() {
     },
     {
       name: 'BYHAZE',
-      role: 'Newark, United States',
+      role: 'USA, Jamaica',
       imageUrl:
         '/images/haze.jpg',
       twitterUrl: '#',
@@ -22,23 +22,14 @@ export default function Teams() {
     },
   
     {
-      name: 'John Kohler',
-      role: 'Detroit',
+      name: 'KOLA Music',
+      role: 'Detroit, MI',
       imageUrl:
         '/images/kola.jpg',
       twitterUrl: '#',
       linkedinUrl: '#',
       bioLink: '#',
-    },
-    {
-      name: 'Kevin W.',
-      role: 'USA',
-      imageUrl:
-        '/images/kevin.jpg',
-      twitterUrl: '#',
-      linkedinUrl: '#',
-      bioLink: '',
-    },
+    }
     
     // More people...
   ]
@@ -48,14 +39,11 @@ export default function Teams() {
         <div className="space-y-12">
           <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none mx-auto">
             <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl text-center">Meet TempoThreads</h2>
-            <p className="text-md text-white text-left">
-            We're a new but seasoned record label created by artists for artists. Our aim is to support artists in the emerging blockchain entertainment space while giving back to fans and community.
+            <p className="text-lg text-white text-center">
+            We're a new but seasoned label created by artists for artists. Our aim is to support artists in the emerging blockchain entertainment space while giving back to fans and community. Our platform allows artists to showcase their talent and we offer range of support services, including marketing, development, promotion, fair-trade and hassle-free merchandising and other resources to help artists succeed. 
             </p>
-            <p className="text-md text-white">
-            We provide a platform for artists to showcase their talent and offer a range of support services, including web development, promotion, fair-trade and hassle-free merch Store and other resources to help artists succeed. 
-            </p>
-            <p className="text-md text-white">
-            Our focus is on creating a positive and uplifting atmosphere through our music, while supporting artists on their journey to success.
+            <p className="text-lg text-white text-center">
+            Our focus is on creating a positive and uplifting atmosphere through our music, while supporting artists throuhout their success.
             </p>
           </div>
           <ul role="list" className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3 lg:gap-8">
