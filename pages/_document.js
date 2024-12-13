@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
           <meta name='apple-mobile-web-app-title' content='Blockchain Games Network' />
           <meta name='description' content='Blockchain Games Network | News, Reviews, Trailers and more' />
           <meta name='format-detection' content='telephone=no' />
+          <script src="https://cdn.tailwindcss.com" />
           <meta name='mobile-web-app-capable' content='yes' />
           <link rel='apple-touch-icon' href='/logo/favicon.ico.png'></link>
           <link rel='shortcut icon' href='/logo/favicon.ico.png' />

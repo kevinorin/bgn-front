@@ -22,6 +22,8 @@ import ColorModeContext from "../src/utils/ColorModeContext";
 // import "../node_modules/slick-carousel/slick/slick.css";
 // import "../node_modules/slick-carousel/slick/slick-theme.css";
 
+import '../src/assets/style/index.css';
+
 export const cache = createCache({ key: 'css', prepend: true });
 
 Router.onRouteChangeStart = () => {

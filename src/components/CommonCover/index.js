@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '350px',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
+    display: 'flex',
+    alignItems: 'center',
     '& button': {
       padding: '5px 15px 5px 25px'
     }
